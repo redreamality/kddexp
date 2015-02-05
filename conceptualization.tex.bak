@@ -1,0 +1,33 @@
+\section{Probability Recalculation After Conceptualization}
+
+
+
+Given an entity $e$, from Probase, we can acquire its concepts' set $C$ and for each $c_i \in C$, the frequency $n(c_i,e)$ can be accordingly derived, which means how many times the $e$ isA $c_i$ pattern can be observed from the original corpus. However, the concepts here has various forms as illustrated in Example~\ref{exa:conc}. For our task, we only need relatively general concepts. The number of entities can be very large, but the number of top concepts and the relationship between them are limited, literally, we can find all the possible relationship between concepts instead of store all the long-tailed entities and their relations, which indicates the rationality of doing conceptualization.
+
+% Therefore, using
+
+\begin{example}[Various forms of concepts]
+\label{exa:conc}
+Take the entity \term{Mona Lisa} as example, its concepts includes \term{painting, famous painting, world's most famous painting}, with corresponding frequency \term{33,8,1}
+\end{example}
+
+First, we detect head~\cite of $C_{probase}$, which later called $C_{simple}$. Then, contribute all the counts of $C_{probase}$ to $C_{simple}$
+
+
+
+
+
+
+\subsection{Problem Definition}
+
+Given an entity $e$ and $Probase$, we want to find a set of concept $C$, and calculate the probability of each simple concepts towards entity: $P(\gamma_i|e)$ where $\gamma_i \in C_{simple}$
+
+Counting the frequency of “painting”, There are 2 cases:
+Isa case: Have isa path to a middle concept, which has isa path to simple concept
+Oil painting.
+Head case: Have isa path to a middle concept, which detected by “head method”, and have no isa probability value to simple concept
+Famous painting.
+
+We consider only 2 layers of isA relationship since more layers will lead to noises.
+
+

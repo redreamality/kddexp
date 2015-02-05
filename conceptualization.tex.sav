@@ -1,0 +1,5 @@
+\section{Probability Recalculation After Conceptualization}
+
+\subsection{PreProcessing}
+Probase~\cite{wu2012probase} is a web-scale conceptual taxonomy, which consists of the isA relation pair and the frequency of each relation observed from corpus.
+It can 
