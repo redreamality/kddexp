@@ -1,5 +1,5 @@
 This is BibTeX, Version 0.99dThe top-level auxiliary file: main.aux
-The style file: abbrv.bst
-Database file #1: refer.bib
-Warning--I didn't find a database entry for "o"
-(There was 1 warning)
+I found no \citation commands---while reading file main.aux
+I found no \bibdata command---while reading file main.aux
+I found no \bibstyle command---while reading file main.aux
+(There were 3 error messages)

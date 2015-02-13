@@ -5,6 +5,9 @@
 \usepackage{epstopdf}
 \usepackage{booktabs}
 \usepackage{color, colortbl}
+\usepackage{amsmath}
+\usepackage{tikz}
+\usetikzlibrary{arrows}
 
 \newtheorem{problem}{Problem}
 \newtheorem{definition}{Definition}
@@ -14,16 +17,22 @@
 \newtheorem{obser}{{Observation}}
 \newtheorem{lemma}{{Lemma}}
 
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+
+% insert graph
+%\renewcommand\textfraction{}
+
 % emphasize,terms
-\newcommand{\term}[1]{\textsf{\textbf{#1}}}
-
-
+\newcommand{\term}[1]{{\tt#1}}
 
 \newcommand{\Red}[1]{\textcolor[rgb]{1.00,0.00,0.00}{#1}}
 \newcommand{\Blue}[1]{\textcolor[rgb]{0.00,1.00,0.00}{#1}}
 \newcommand{\Green}[1]{\textcolor[rgb]{0.00,0.00,1.00}{#1}}
-\newcommand{\reviseyq}[1]{\Blue{#1}}
+\newcommand{\xch}[1]{\Blue{#1}}
 \newcommand{\yh}[1]{\Red{#1}}
+\newcommand{\nop}[1]{}
 
 \begin{document}
 

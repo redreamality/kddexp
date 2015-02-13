@@ -1,0 +1,29 @@
+
+\section{Find Alias For Attributes}
+
+For a pair \term{(Sherlock holmes, United Kindom)}, \term{country} is a merely-ok attribute, on the contrary, \term{residence, deathPlace} are better since they are more specific and more seemingly plausible to be an attribute.We argue that for each pair of entity, there is a selectional preference for attribute.
+
+\nop{
+Depending on the domain and range of the attribute , we can conceptualize
+}
+\subsection{Problem Definition}
+Given a set of concept pairs ($\gamma_1$,$\gamma_2$), where $\gamma_1\in C_1$ and $\gamma_2\in C_2$, we want to find a set of attributes A, where for each $a \in A$:
+we can form a ($\gamma_1$,$a$,$\gamma_2$) pair which best describe the relationship between $\gamma_1$ and $\gamma_2$.
+
+\subsection{Problem Solution}
+
+
+
+
+
+
+
+
+\subsubsection{Voting}
+
+Sense disambiguation
+
+Normalize and get topK, K trough case study is around 5, so we here set K=10
+
+Add edge：C1->C2 with label: attr, score to the alias graph
+
