@@ -88,7 +88,7 @@ P(\gamma_i|e) &= P_{original}(\gamma_i|e)+\\& \sum_{ c_{long}^*\in C_{long} } [ 
   \node[main node] (10) [right of=5] {art piece};
   \node[main node] (11) [right of=10] {historical\\art piece};
 
-  \node[main node] (12) [below of=6] {mona lisa};
+  \node[main node] (12) [below of=6] {Mona lisa};
 
 
   \path[every node/.style={font=\sffamily\small}]
@@ -117,9 +117,8 @@ The process of calculation is illustrated in the example~\ref{exa:calc}
 
 \begin{example}[Calculating $P(\gamma_i|e)$]
 \label{exa:calc}
-As illustrated in Fig.~\ref{fig:pgge}, the process of calculating the typicality a concept is as follows, where \term{painting} is $\gamma_i$ and \term{Mona Lisa} is $e$
-$P(\term{painting}|\term{Mona Lisa})$ consists of 2 parts, the direct edge $P_{original}(\gamma_i|e)= 0.23$, and the second part
-$$\sum_{ c_{long}^*\in C_{long} } [ \lambda_{i}^*+(\alpha_{i}^*) P(\gamma_i|c_{long}^*) ] \times  P(c_{long}^*|e) $$ 
+As illustrated in Fig.~\ref{fig:pgge}, the process of calculating the typicality a concept is as follows, where \term{painting} is $\gamma_i$ and \term{Mona Lisa} is $e$. Then $P(\term{painting}|\term{Mona Lisa})$ consists of 2 parts, the direct edge $P_{original}(\gamma_i|e)= 0.23$, and the second part
+$$\sum_{ c_{long}^*\in C_{long} } [ \lambda_{i}^*+(\alpha_{i}^*) P(\gamma_i|c_{long}^*) ] \times  P(c_{long}^*|e) $$
 $(\alpha_i^*+\gamma_i^*=1)$
 Thus we get
 $$ P = 0.007\times \lambda_{i2}+0.05\times \lambda_{i1}+0.04\times(\lambda_{i3}+0.65\alpha_{i3}) $$

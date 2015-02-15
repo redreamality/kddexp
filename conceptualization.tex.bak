@@ -63,14 +63,16 @@ Again take \term{famous painting} as example, whose concepts \term{image, treasu
 
 
 Finally  $P(\gamma_i|e)$ is calculated using the following equation:
-\begin{figure*}[!htb]
+
 \begin{equation}
-P(\gamma_i|e)=P_{original}(\gamma_i|e)+\sum_{ c_{long}^*\in C_{long} } [ \lambda_{i}^*+(1-\lambda_{i}^*) P(\gamma_i|c_{long}^*) ] \times  P(c_{long}^*|e)
+\begin{split}
+P(\gamma_i|e) &= P_{original}(\gamma_i|e)+\\& \sum_{ c_{long}^*\in C_{long} } [ \lambda_{i}^*+(1-\lambda_{i}^*) P(\gamma_i|c_{long}^*) ] \times  P(c_{long}^*|e)
+\end{split}
 \label{eq:pgge}\end{equation}
-\end{figure*}
 
 
-\begin{figure*}[!htb]
+
+\begin{figure*}[!hptb]
 \label{fig:pgge}
 \centering
 \begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance= 3 cm,
@@ -115,9 +117,9 @@ The process of calculation is illustrated in the example~\ref{exa:calc}
 
 \begin{example}[Calculating $P(\gamma_i|e)$]
 \label{exa:calc}
-As illustrated in Fig.~\ref{fig:pgge}, the process of calculating the typicality a concept is as follows, where \term{painting} is $\gamma_i$ and \term{Mona Lisa} is $e$
+As illustrated in Fig.~\ref{fig:pgge}, the process of calculating the typicality a concept is as follows, where \term{painting} is $\gamma_i$ and \term{Mona Lisa} is $e$.
 $P(\term{painting}|\term{Mona Lisa})$ consists of 2 parts, the direct edge $P_{original}(\gamma_i|e)= 0.23$, and the second part
-$$\sum_{ c_{long}^*\in C_{long} } [ \lambda_{i}^*+(\alpha_{i}^*) P(\gamma_i|c_{long}^*) ] \times  P(c_{long}^*|e) $$ 
+$$\sum_{ c_{long}^*\in C_{long} } [ \lambda_{i}^*+(\alpha_{i}^*) P(\gamma_i|c_{long}^*) ] \times  P(c_{long}^*|e) $$
 $(\alpha_i^*+\gamma_i^*=1)$
 Thus we get
 $$ P = 0.007\times \lambda_{i2}+0.05\times \lambda_{i1}+0.04\times(\lambda_{i3}+0.65\alpha_{i3}) $$
