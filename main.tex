@@ -7,6 +7,7 @@
 \usepackage{color, colortbl}
 \usepackage{amsmath}
 \usepackage{tikz}
+\usepackage{pdfsync}
 \usetikzlibrary{arrows}
 
 \newtheorem{problem}{Problem}
@@ -20,13 +21,10 @@
 \DeclareMathOperator*{\argmin}{arg\,min}
 \DeclareMathOperator*{\argmax}{arg\,max}
 
-
 % insert graph
 %\renewcommand\textfraction{}
-
 % emphasize,terms
 \newcommand{\term}[1]{{\tt#1}}
-
 \newcommand{\Red}[1]{\textcolor[rgb]{1.00,0.00,0.00}{#1}}
 \newcommand{\Blue}[1]{\textcolor[rgb]{0.00,1.00,0.00}{#1}}
 \newcommand{\Green}[1]{\textcolor[rgb]{0.00,0.00,1.00}{#1}}
@@ -36,13 +34,13 @@
 
 \begin{document}
 
-\title{Implicit Relation Inferring Using Knowledge Graph}
+%\title{Implicit Relation Inferring Using Knowledge Graph}
+\title{From hyperlinks to semantic links}
 \subtitle{A Probabilistic Approach}
 
-% \numberofauthors{8}
+%\numberofauthors{8}
 
 %\author{
-
 % 1st. author
 %\alignauthor
 %Ben Trovato\titlenote{Dr.~Trovato insisted his name be first.}\\
@@ -50,6 +48,7 @@
 %       \affaddr{1932 Wallamaloo Lane}\\
 %       \affaddr{Wallamaloo, New Zealand}\\
 %       \email{trovato@corporation.com}
+
 
 \maketitle
 \begin{abstract}
@@ -60,16 +59,13 @@ In this paper, we propose an approach for detectiing the implicit relations betw
 
 \input{introduction}
 \input{related_works}
-
 \input{framework}
 \input{conceptualization}
 \input{find_alias}
-
 \input{experiment}
 \input{conclusion}
 
 \bibliographystyle{abbrv}
 \bibliography{refer}
-
 
 \end{document}

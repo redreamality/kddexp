@@ -1,3 +1,37 @@
 \section{Related Works}
+%improves: incrementally training the entity-concepts so that it can model time varying attributes.(phone,manufacturer,company)--after2007-->(smartphone ，manufacturer,company)
 
-\subsection{relation}
+
+
+
+\subsection{Link entities to Database}
+
+Linking entities to database, especially to Wikipedia, has been widely studied. Entity linking to Wikipedia~\cite{milne2008learning,mihalcea2007wikify,han2011collective} exploit Wikipedia as thesaurus and link web documents to it.
+In our work, instead of linking entities to the correspond one in KB, we extract the target entity~\cite{dalvi2011automatic} and explain the semantic relation of the entity towards target entity.
+
+%perform NER~\cite in the document to link the entities.
+
+\subsection{Relation Discovery}
+\xch{to be read~\cite{nakashole2013discovering,nakashole2012discovering,konstantinova2014review}}
+
+Recently, different efforts are devoted to relation Discovery~\cite{fang2011rex,shahaf2010connecting,luo2007answering} are studied on graph based approaches and text based approaches~\cite{hasegawa2004discovering}[reverb].
+However, these approached will be limited largely by the incompletion of Knowledge Base, and cannot discover new type of relations.
+In our work, we focus on semantic relations of entity by leveraging the concepts of entity. extracted from knowledge bases to link entities with a probability.
+
+
+\subsection{Information Extraction}
+
+Attribute acquisition methods
+Among domain-dependent approaches, we can mention approaches that focus on products. In this domain, attributes have been used to improve product search and recommendation [18, 22], but also to enable data mining [27]
+
+Attribute retrieval provides another granularity in Web
+search. This can interest communities that propose a more
+focused access to information or communities that envision
+aggregating pieces of information such as aggregated search
+[19, 15].
+Wong et al. [27]
+combine tags and textual features in a Conditional Random
+Fields model to learn attribute extraction rules, but they
+need a seed of relevant documents manually fed.
+
+\subsection{Short Text Conceptualization}

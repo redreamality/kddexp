@@ -1,3 +1,85 @@
-\begin{thebibliography}{}
+\begin{thebibliography}{10}
+
+\bibitem{dalvi2011automatic}
+N.~Dalvi, R.~Kumar, and M.~Soliman.
+\newblock Automatic wrappers for large scale web extraction.
+\newblock {\em Proceedings of the VLDB Endowment}, 4(4):219--230, 2011.
+
+\bibitem{dinur2005hardness}
+I.~Dinur and S.~Safra.
+\newblock On the hardness of approximating minimum vertex cover.
+\newblock {\em Annals of mathematics}, pages 439--485, 2005.
+
+\bibitem{fang2011rex}
+L.~Fang, A.~D. Sarma, C.~Yu, and P.~Bohannon.
+\newblock Rex: explaining relationships between entity pairs.
+\newblock {\em Proceedings of the VLDB Endowment}, 5(3):241--252, 2011.
+
+\bibitem{gupte2011finding}
+M.~Gupte, P.~Shankar, J.~Li, S.~Muthukrishnan, and L.~Iftode.
+\newblock Finding hierarchy in directed online social networks.
+\newblock In {\em Proceedings of the 20th international conference on World
+  wide web}, pages 557--566. ACM, 2011.
+
+\bibitem{han2011collective}
+X.~Han, L.~Sun, and J.~Zhao.
+\newblock Collective entity linking in web text: a graph-based method.
+\newblock In {\em Proceedings of the 34th international ACM SIGIR conference on
+  Research and development in Information Retrieval}, pages 765--774. ACM,
+  2011.
+
+\bibitem{hasegawa2004discovering}
+T.~Hasegawa, S.~Sekine, and R.~Grishman.
+\newblock Discovering relations among named entities from large corpora.
+\newblock In {\em Proceedings of the 42nd Annual Meeting on Association for
+  Computational Linguistics}, page 415. Association for Computational
+  Linguistics, 2004.
+
+\bibitem{konstantinova2014review}
+N.~Konstantinova.
+\newblock Review of relation extraction methods: What is new out there?
+\newblock In {\em Analysis of Images, Social Networks and Texts}, pages 15--28.
+  Springer, 2014.
+
+\bibitem{luo2007answering}
+G.~Luo, C.~Tang, and Y.-l. Tian.
+\newblock Answering relationship queries on the web.
+\newblock In {\em Proceedings of the 16th international conference on World
+  Wide Web}, pages 561--570. ACM, 2007.
+
+\bibitem{mihalcea2007wikify}
+R.~Mihalcea and A.~Csomai.
+\newblock Wikify!: linking documents to encyclopedic knowledge.
+\newblock In {\em Proceedings of the sixteenth ACM conference on Conference on
+  information and knowledge management}, pages 233--242. ACM, 2007.
+
+\bibitem{milne2008learning}
+D.~Milne and I.~H. Witten.
+\newblock Learning to link with wikipedia.
+\newblock In {\em Proceedings of the 17th ACM conference on Information and
+  knowledge management}, pages 509--518. ACM, 2008.
+
+\bibitem{nakashole2012discovering}
+N.~Nakashole, G.~Weikum, and F.~Suchanek.
+\newblock Discovering and exploring relations on the web.
+\newblock {\em Proceedings of the VLDB Endowment}, 5(12):1982--1985, 2012.
+
+\bibitem{nakashole2013discovering}
+N.~Nakashole, G.~Weikum, and F.~Suchanek.
+\newblock Discovering semantic relations from the web and organizing them with
+  patty.
+\newblock {\em ACM SIGMOD Record}, 42(2):29--34, 2013.
+
+\bibitem{shahaf2010connecting}
+D.~Shahaf and C.~Guestrin.
+\newblock Connecting the dots between news articles.
+\newblock In {\em Proceedings of the 16th ACM SIGKDD international conference
+  on Knowledge discovery and data mining}, pages 623--632. ACM, 2010.
+
+\bibitem{tatti2014faster}
+N.~Tatti.
+\newblock Faster way to agony.
+\newblock In {\em Machine Learning and Knowledge Discovery in Databases}, pages
+  163--178. Springer, 2014.
 
 \end{thebibliography}

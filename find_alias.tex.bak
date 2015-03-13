@@ -10,7 +10,7 @@ Depending on the domain and range of the attribute , we can conceptualize
 Given a set of concept pairs ($\gamma_1$,$\gamma_2$), where $\gamma_1\in C_1$ and $\gamma_2\in C_2$, we want to find a set of attributes A, where for each $a \in A$:
 we can form a ($\gamma_1$,$a$,$\gamma_2$) pair which best describe the relationship between $\gamma_1$ and $\gamma_2$.
 
- 
+
 \begin{figure}[!htb]
 \centering \epsfig{file=resources/eag.eps,width=2.5in}
 \caption{Subgraph of Entity Attribute Graph } \label{fig:eag}
@@ -23,6 +23,7 @@ we can form a ($\gamma_1$,$a$,$\gamma_2$) pair which best describe the relations
 
 For any $(entity_1, attribute, entity_2)$ tuple, later denoted as  $(e_1, a, e_2)$ , where $e_1$ and $e_2$ are also referred to as \term{domain} and \term{range} of the attribute. We can conceptualize $e_1$ and $e_2$ using the method in section~\ref{sec:conceptualization}, and get a set of concept $C_1,C_2$, accompanied with a set of probabilities $P(\gamma_{1}|e_{1i})$, $P(\gamma_{2}|e_2)$,where ${\gamma_{1} \in C_1},{\gamma_{2} \in C_2}$.
 
+To construct the Entity Attribute Graph, we only need topK concepts to form $(\gamma_1,\gamma_2)$ pair, K trough \xch{case study} is around 5, so we here set K=10.
 
 Thus for any attribute $a$, given a pair of entity $(e_{1i},e_{2j})$, we can define:
 \xch{should i use joint ratio here?}
@@ -76,17 +77,29 @@ For each $(\gamma_{1},a,\gamma_{2})$ tuple, we can calculate $P((\gamma_{1},\gam
 
 %\subsubsection{Voting}
 
+
+\subsection{For multiple hops}
+
+So far, we have tackled with
+This problem is similar to \bf{hierarchy ranking problems in a directed graph}~\cite{gupte2011finding,}
+Originally, it was a minimum feedback arc set problem on a weighted network which is a classic NP-hard problem~\cite{dinur2005hardness}.
+
+In this section, we illustrate how to formulate the problem of finding semantic link to a shortest path on the graph. We argue that co-occurrences between entities can only be applied to entity relation explanation when they are conceptually correct. Following this intuition, we further formalize our problem into a maximum flow on the concept graph with multiple-sources and multiple-sinks.
+
+\subsubsection{Problem statement}
+
+
+
+
+
+
+
 \subsection{Find the best alias}
 
-We then Use an $\argmax$ model to solve the problem.
+We then Use an $\argmax$ model \xch{use KL divergence? to minimize $D_{KL}{}$} to solve the problem.
 
 Given $(e_1,e_2)$, our goal is to find the best attribute for it. We denote it as:
-$$$$
-
-
-
-
-Normalize and get topK, K trough case study is around 5, so we here set K=10
-
-Add edge：C1->C2 with label: attr, score to the alias graph
+$$\argmax P((e_1,e_2)|a) $$
+where
+$$P((e_1,e_2)|a)= $$
 
