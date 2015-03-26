@@ -69,7 +69,7 @@ Therefore, to calculate  $P({c_h}|e)$, there are three cases:
 \begin{itemize}
 
 \item[Case A]  $e$ \isa ${c_h}$.
- The entity has has an isA edge towards one or more simple concept, which gives the original $P_{original}({c_h}|e)$
+ The entity has has an isA edge towards one or more simple concept, which gives the original $P_{org}({c_h}|e)$
 
 \item[Case B.1] $e$ \isa $c_{l}$  \isa ${c_h}$, In this case, we need to calculate the following equation
 $$P({c_h}|e) = \sum_{c_{l}^*\in C_{l}}   P({c_h}|c_{l}^*,e)   \times    P(c_{l}^*|e) $$
@@ -87,7 +87,7 @@ which can be obtained from $Probase$.
     \begin{equation}\label{phgl_org} P({c_h}|{c_l}) = \frac{n( {c_h},{c_l} )}{ \sum{n( {c_h}^*,{c_l} )}  } \end{equation}
     However, $n( {c_h},{c_l} )$ is lower than expected due to the reason demonstrated in Example.~\ref{exa:wahro}.
     Therefore, we alternatively utilize the $\sum{ e^*,n({c_l}) } $ as the occurrence of $c_l$, following the assumption that \em{ whether $c_l$ is typical towards its $c_h$ is independent from }
-    $$\hat{P}(c_h|e)=\frac{n(c_h,e)+\sum_{c_h= f_{HM}(c_l*)} n(c_l*,e)}{ n(e)} $$
+    $$P_{head}(c_h|e)=\frac{\sum_{c_h= f_{HM}(c_l*)} n(c_l*,e)}{ n(e)} $$
 
 
 
@@ -98,23 +98,23 @@ which can be obtained from $Probase$.
 There are less chance of occurring \term{Famous painting is a painting} in the corpus, since human takes it for granted and will seldom express it in such a way, so that there won't be necessarily an isA edge from \term{famous painting} to \term{painting} in the KB, while we insist it is necessary.
 \end{example}
 
-In both case B.1 and B.2, the weight of the edge $c_{l}$ \isa ${c_h}$ is underestimated. We argue that when calculating the typicality $P({c_h}|e)$, the counts of the long concept contributing to its head concept should be re-estimated as follows.
-
-Notice that the boundary between case B.1 and case B.2 are not strict, there are such edges that have low observation in Example~\ref{exa:HvsO}. So that if we consider them as a whole, we can derive:
-\begin{equation} P({c_h}|c_{l})=\lambda P_{head}({c_h}|c_{l})+(1-\lambda)P_{probase}({c_h}|c_{l}) \label{eq:pcgclong}\end{equation}
-where $\lambda$ is a parameter \xch{principle: related to plausibility, number of occurrence, varies for different $c_{l}$ should it be derived from learning ?} since we assume $P_{head}({c_h}|c_{l})$ to be 1, Eq.~\ref{eq:pcgclong} is simplified to:
-$$P({c_h}|c_{l})=\lambda  +(1-\lambda)P_{probase}({c_h}|c_{l}) $$
-
-
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%\nop{
+%In both case B.1 and B.2, the weight of the edge $c_{l}$ \isa ${c_h}$ is underestimated. We argue that when calculating the typicality $P({c_h}|e)$, the counts of the long concept contributing to its head concept should be re-estimated as follows.
+%
+%Notice that the boundary between case B.1 and case B.2 are not strict, there are such edges that have low observation in Example~\ref{exa:HvsO}. So that if we consider them as a whole, we can derive:
+%\begin{equation} P({c_h}|c_{l})=\lambda P_{head}({c_h}|c_{l})+(1-\lambda)P_{probase}({c_h}|c_{l}) \label{eq:pcgclong}\end{equation}
+%where $\lambda$ is a parameter \xch{principle: related to plausibility, number of occurrence, varies for different $c_{l}$ should it be derived from learning ?} since we assume $P_{head}({c_h}|c_{l})$ to be 1, Eq.~\ref{eq:pcgclong} is simplified to:
+%$$P({c_h}|c_{l})=\lambda  +(1-\lambda)P_{probase}({c_h}|c_{l}) $$
+%}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
 Finally  $P({c_h}|e)$ is calculated using the following equation:
 
 \begin{equation}
 \begin{split}
-P({c_h}|e) &= P_{original}({c_h}|e)+\\& \sum_{ c_{l}^*\in C_{l} } [ \lambda_{i}^*+(1-\lambda_{i}^*) P({c_h}|c_{l}^*) ] \times  P(c_{l}^*|e)
+P({c_h}|e) &= \alpha P_{org}({c_h}|e)+\beta P_{head}({c_h}|e)+\\& (1-\alpha-\beta) \sum_{ c_{l}^*\in C_{l} } [P({c_h}|c_{l}^*) ] \times  P(c_{l}^*|e)
 \end{split}
 \label{eq:pgge}\end{equation}
 
@@ -161,17 +161,20 @@ P({c_h}|e) &= P_{original}({c_h}|e)+\\& \sum_{ c_{l}^*\in C_{l} } [ \lambda_{i}^
 \caption{calculating $P({c_h}|\term{Mona Lisa})$ }
 \end{figure*}
 
-The process of calculation is illustrated in the example~\ref{exa:calc}
 
-\begin{example}[Calculating $P({c_h}|e)$]
-\label{exa:calc}
-As illustrated in Fig.~\ref{fig:pgge}, the process of calculating the typicality a concept is as follows, where \term{painting} is ${c_h}$ and \term{Mona Lisa} is $e$. Then $P(\term{painting}|\term{Mona Lisa})$ consists of 2 parts, the direct edge $P_{original}({c_h}|e)= 0.23$, and the second part
-$$\sum_{ c_{l}^*\in C_{l} } [ \lambda_{i}^*+(\alpha_{i}^*) P({c_h}|c_{l}^*) ] \times  P(c_{l}^*|e) $$
-$(\alpha_i^*+{c_h}^*=1)$
-Thus we get
-$$ P = 0.007\times \lambda_{i2}+0.05\times \lambda_{i1}+0.04\times(\lambda_{i3}+0.65\alpha_{i3}) $$
-For \term{piece}, it is the similar process. The relation here is only part of the whole graph.
-\end{example}
+
+%
+%The process of calculation is illustrated in the example~\ref{exa:calc}
+%
+%\begin{example}[Calculating $P({c_h}|e)$]
+%\label{exa:calc}
+%As illustrated in Fig.~\ref{fig:pgge}, the process of calculating the typicality a concept is as follows, where \term{painting} is ${c_h}$ and \term{Mona Lisa} is $e$. Then $P(\term{painting}|\term{Mona Lisa})$ consists of 2 parts, the direct edge $P_{original}({c_h}|e)= 0.23$, and the second part
+%$$\sum_{ c_{l}^*\in C_{l} } [ \lambda_{i}^*+(\alpha_{i}^*) P({c_h}|c_{l}^*) ] \times  P(c_{l}^*|e) $$
+%$(\alpha_i^*+{c_h}^*=1)$
+%Thus we get
+%$$ P = 0.007\times \lambda_{i2}+0.05\times \lambda_{i1}+0.04\times(\lambda_{i3}+0.65\alpha_{i3}) $$
+%For \term{piece}, it is the similar process. The relation here is only part of the whole graph.
+%\end{example}
 
 
 
