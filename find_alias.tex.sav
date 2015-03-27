@@ -1,11 +1,9 @@
 
 \section{Find Alias For Attributes}
 
-For a pair \term{(Sherlock holmes, United Kindom)}, \term{country} is a merely-ok attribute, on the contrary, \term{residence, deathPlace} are better since they are more specific and more seemingly plausible to be an attribute.We argue that for each pair of entity, there is a selectional preference for attribute.
+For a pair \term{(Sherlock holmes, United Kindom)}, \term{country} is a merely-ok attribute, on the contrary, \term{residence, deathPlace} are better since they are more specific and more seemingly plausible to be an attribute.
+%We argue that for each pair of entity, there is a selectional preference for attribute.
 
-\nop{
-Depending on the domain and range of the attribute , we can conceptualize
-}
 \subsection{Problem Definition}
 Given a set of concept pairs ($\gamma_1$,$\gamma_2$), where $\gamma_1\in C_1$ and $\gamma_2\in C_2$, we want to find a set of attributes A, where for each $a \in A$:
 we can form a ($\gamma_1$,$a$,$\gamma_2$) pair which best describe the relationship between $\gamma_1$ and $\gamma_2$.
@@ -80,14 +78,15 @@ For each $(\gamma_{1},a,\gamma_{2})$ tuple, we can calculate $P((\gamma_{1},\gam
 
 \subsection{For multiple hops}
 
-So far, we have tackled with
-This problem is similar to \bf{ranking problems in a directed graph}~\cite{}
+So far, we have tackled with the relations and generated the edges in the relationship graph.
+This problem is similar to {\bf hierarchy ranking problems in a directed graph}~\cite{gupte2011finding}. Originally, it was a minimum feedback arc set problem on a weighted network which is a classic NP-hard problem~\cite{dinur2005hardness}. A few approaches~\cite{tatti2014faster} have been proposed on unweighted directed graphs, for weighted graphs, the extended agony[hierarchies in directed network(unpublished kdd15)] algorithm can be ultilized to generate hierarchy results \xch{in this approach the K (number of hierarchies) is fixed, maybe we can make it adaptive to data here? }
 
-In this section, we illustrate how to formulate the problem of finding semantic link to a shortest path on the graph. We argue that co-occurrences between entities can only be applied to entity relation explanation when they are conceptually correct. Following this intuition, we further formalize our problem into a maximum flow on the concept graph with multiple-sources and multiple-sinks.
+In this section, we first formulate the problem of finding semantic link into a maximum flow problem on the concept network with multiple-sources and multiple-sinks, and then, we cut out the subgraph and perform {\bf improved agony} to derive the concept of the middle entities. Last we use co-occurrence to verify the validness of the relation.
 
-\subsubsection{Problem statement}
+%We argue that co-occurrences between entities can only be applied to entity relation explanation when they are conceptually correct[]. Following this intuition, we further formalize our problem into
 
 
+\subsubsection{Improved agony}
 
 
 

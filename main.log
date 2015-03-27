@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2014.9.3)  26 MAR 2015 12:55
+This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2014.9.3)  27 MAR 2015 14:00
 entering extended mode
 **D:/Dropbox/KDDexplanation/main.tex
 (D:/Dropbox/KDDexplanation/main.tex
@@ -645,46 +645,34 @@ Overfull \hbox (4.79668pt too wide) in paragraph at lines 51--52
  []
 
 
-Overfull \hbox (2.28294pt too wide) in paragraph at lines 64--65
+Overfull \hbox (1.35593pt too wide) in paragraph at lines 64--65
 [][][]\T1/aer/m/it/9 There ex-ist-
  []
 
+
+Overfull \hbox (29.80193pt too wide) in paragraph at lines 83--88
+\T1/aer/m/n/9 sar-i-ly an isA edge from \T1/aett/m/n/9 fa-mous painting\T1/aer/
+m/n/9 ($[][]\OML/cmm/m/it/9 c[]$ \T1/aer/m/n/9 ) to \T1/aett/m/n/9 painting\T1/
+aer/m/n/9 ($[][][]$),
+ []
+
 [2]
-Overfull \hbox (27.71622pt too wide) in paragraph at lines 98--99
+Overfull \hbox (27.71622pt too wide) in paragraph at lines 106--107
 [][][]
  []
 
-LaTeX Font Info:    Try loading font information for T1+aess on input line 129.
+LaTeX Font Info:    Try loading font information for T1+aess on input line 137.
 
 (E:\CTEX\MiKTeX\tex\latex\ae\t1aess.fd
 File: t1aess.fd 1997/11/16 Font definitions for T1/aess.
 ))
 (D:\Dropbox\KDDexplanation\find_alias.tex
-Package epstopdf Info: Source file: <resources/eag.eps>
-(epstopdf)                    date: 2015-02-13 19:13:52
-(epstopdf)                    size: 202549 bytes
-(epstopdf)             Output file: <resources/eag-eps-converted-to.pdf>
-(epstopdf)                    date: 2015-02-13 19:52:29
-(epstopdf)                    size: 35946 bytes
-(epstopdf)             Command: <epstopdf --outfile=resources/eag-eps-converted
--to.pdf resources/eag.eps>
-(epstopdf)             \includegraphics on input line 15.
-Package epstopdf Info: Output file is already uptodate.
-
-<resources/eag-eps-converted-to.pdf, id=29, 889.3225pt x 875.27pt>
-File: resources/eag-eps-converted-to.pdf Graphic file (type pdf)
-
-<use resources/eag-eps-converted-to.pdf>
-Package pdftex.def Info: resources/eag-eps-converted-to.pdf used on input line 
-15.
-(pdftex.def)             Requested size: 180.67499pt x 177.81549pt.
-
-Overfull \hbox (4.29193pt too wide) in paragraph at lines 31--31
+Overfull \hbox (4.29193pt too wide) in paragraph at lines 26--26
 [][][] 
  []
 
 
-Overfull \hbox (3.07588pt too wide) in paragraph at lines 49--50
+Overfull \hbox (3.07588pt too wide) in paragraph at lines 47--48
 [][][]\T1/aer/m/it/9 As il-lus-trat-
  []
 
@@ -696,17 +684,37 @@ Package epstopdf Info: Source file: <resources/bipartite.eps>
 (epstopdf)                    size: 26038 bytes
 (epstopdf)             Command: <epstopdf --outfile=resources/bipartite-eps-con
 verted-to.pdf resources/bipartite.eps>
-(epstopdf)             \includegraphics on input line 55.
+(epstopdf)             \includegraphics on input line 53.
 Package epstopdf Info: Output file is already uptodate.
-<resources/bipartite-eps-converted-to.pdf, id=30, 752.8125pt x 574.145pt>
+<resources/bipartite-eps-converted-to.pdf, id=29, 752.8125pt x 574.145pt>
 File: resources/bipartite-eps-converted-to.pdf Graphic file (type pdf)
 
 <use resources/bipartite-eps-converted-to.pdf>
 Package pdftex.def Info: resources/bipartite-eps-converted-to.pdf used on input
- line 55.
+ line 53.
 (pdftex.def)             Requested size: 180.67499pt x 137.78885pt.
- [3 <D:/Dropbox/KDDexplanation/resources/eag-eps-converted-to.pdf>]) (D:\Dropbo
-x\KDDexplanation\experiment.tex
+Package epstopdf Info: Source file: <resources/eag.eps>
+(epstopdf)                    date: 2015-02-13 19:13:52
+(epstopdf)                    size: 202549 bytes
+(epstopdf)             Output file: <resources/eag-eps-converted-to.pdf>
+(epstopdf)                    date: 2015-02-13 19:52:29
+(epstopdf)                    size: 35946 bytes
+(epstopdf)             Command: <epstopdf --outfile=resources/eag-eps-converted
+-to.pdf resources/eag.eps>
+(epstopdf)             \includegraphics on input line 85.
+Package epstopdf Info: Output file is already uptodate.
+
+<resources/eag-eps-converted-to.pdf, id=30, 889.3225pt x 875.27pt>
+File: resources/eag-eps-converted-to.pdf Graphic file (type pdf)
+
+<use resources/eag-eps-converted-to.pdf>
+Package pdftex.def Info: resources/eag-eps-converted-to.pdf used on input line 
+85.
+(pdftex.def)             Requested size: 180.67499pt x 177.81549pt.
+ [3])
+(D:\Dropbox\KDDexplanation\experiment.tex [4 <D:/Dropbox/KDDexplanation/resourc
+es/bipartite-eps-converted-to.pdf> <D:/Dropbox/KDDexplanation/resources/eag-eps
+-converted-to.pdf>]
 Package epstopdf Info: Source file: <resources/ev_plot_manufacturer.eps>
 (epstopdf)                    date: 2015-02-13 19:13:53
 (epstopdf)                    size: 1095844 bytes
@@ -716,66 +724,65 @@ ed-to.pdf>
 (epstopdf)                    size: 17468 bytes
 (epstopdf)             Command: <epstopdf --outfile=resources/ev_plot_manufactu
 rer-eps-converted-to.pdf resources/ev_plot_manufacturer.eps>
-(epstopdf)             \includegraphics on input line 20.
+(epstopdf)             \includegraphics on input line 28.
 Package epstopdf Info: Output file is already uptodate.
 
-<resources/ev_plot_manufacturer-eps-converted-to.pdf, id=39, 538.01pt x 702.625
+<resources/ev_plot_manufacturer-eps-converted-to.pdf, id=49, 538.01pt x 702.625
 pt>
 File: resources/ev_plot_manufacturer-eps-converted-to.pdf Graphic file (type pd
 f)
  <use resources/ev_plot_manufacturer-eps-converted-to.pdf>
 Package pdftex.def Info: resources/ev_plot_manufacturer-eps-converted-to.pdf us
-ed on input line 20.
+ed on input line 28.
 (pdftex.def)             Requested size: 180.67499pt x 235.95174pt.
 
-Overfull \hbox (8.83478pt too wide) in paragraph at lines 25--28
+Overfull \hbox (8.83478pt too wide) in paragraph at lines 33--36
 [][][]\T1/aer/m/it/9 Consider the fol-
  []
 
 
-Overfull \hbox (11.7645pt too wide) in paragraph at lines 25--28
+Overfull \hbox (11.7645pt too wide) in paragraph at lines 33--36
 \T1/aer/m/it/9 low-ing $[][]\OT1/cmr/m/n/9 (\OML/cmm/m/it/9 e\OT1/cmr/m/n/9 1\O
 ML/cmm/m/it/9 ; a; e\OT1/cmr/m/n/9 2)$ \T1/aer/m/it/9 tu-ple \T1/aett/m/n/9 (i-
 phone, man-u-fac-tur-er, ap-ple)\T1/aer/m/it/9 . Sup-
  []
 
 
-Overfull \hbox (38.2397pt too wide) in paragraph at lines 25--28
+Overfull \hbox (38.2397pt too wide) in paragraph at lines 33--36
 \T1/aett/m/n/9 (BMW_Z4,manufacturer,BMW),(PlayStation_4,manufacturer,Sony)
  []
 
-[4 <D:/Dropbox/KDDexplanation/resources/bipartite-eps-converted-to.pdf>])
-(D:\Dropbox\KDDexplanation\conclusion.tex) (D:\Dropbox\KDDexplanation\main.bbl)
-[5 <D:/Dropbox/KDDexplanation/resources/ev_plot_manufacturer-eps-converted-to.p
-df>] (D:\Dropbox\KDDexplanation\main.aux) ) 
+) (D:\Dropbox\KDDexplanation\conclusion.tex)
+(D:\Dropbox\KDDexplanation\main.bbl) [5 <D:/Dropbox/KDDexplanation/resources/ev
+_plot_manufacturer-eps-converted-to.pdf>] (D:\Dropbox\KDDexplanation\main.aux) 
+) 
 Here is how much of TeX's memory you used:
  11793 strings out of 495354
  212750 string characters out of 3183860
- 269358 words of memory out of 3000000
+ 273317 words of memory out of 3000000
  14624 multiletter control sequences out of 15000+200000
  59177 words of font info for 88 fonts, out of 3000000 for 9000
  14 hyphenation exceptions out of 8191
  56i,32n,56p,790b,1099s stack positions out of 5000i,500n,10000p,200000b,50000s
-{E:/CTEX/MiKTeX/fonts/enc/dvips/font
-name/8r.enc}<E:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx9.pfb><E:/CTEX/M
-iKTeX/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><E:/CTEX/MiKTeX/fonts/type1/pu
-blic/amsfonts/cmextra/cmex9.pfb><E:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/
-cmmi5.pfb><E:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><E:/CTEX/MiK
-TeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><E:/CTEX/MiKTeX/fonts/type1/public
-/amsfonts/cm/cmmi9.pfb><E:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmr5.pfb>
-<E:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmr6.pfb><E:/CTEX/MiKTeX/fonts/t
-ype1/public/amsfonts/cm/cmr8.pfb><E:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm
-/cmr9.pfb><E:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmss8.pfb><E:/CTEX/MiK
-TeX/fonts/type1/public/amsfonts/cm/cmssbx10.pfb><E:/CTEX/MiKTeX/fonts/type1/pub
-lic/amsfonts/cm/cmsy5.pfb><E:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.
-pfb><E:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy9.pfb><E:/CTEX/MiKTeX/fo
-nts/type1/public/amsfonts/cm/cmti9.pfb><E:/CTEX/MiKTeX/fonts/type1/public/amsfo
-nts/cm/cmtt9.pfb><E:/CTEX/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb
-><E:/CTEX/MiKTeX/fonts/type1/urw/helvetic/uhvb8a.pfb><E:/CTEX/MiKTeX/fonts/type
-1/urw/helvetic/uhvr8a.pfb><E:/CTEX/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><E:/
-CTEX/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><E:/CTEX/MiKTeX/fonts/type1/urw/ti
-mes/utmri8a.pfb>
-Output written on main.pdf (5 pages, 380547 bytes).
+{E:/CTEX/MiKTeX/fonts/enc/dvips/fontname/8r.enc}<E:/CTEX/MiKTeX/fonts/type1/pu
+blic/amsfonts/cm/cmbx9.pfb><E:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmcsc
+10.pfb><E:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cmextra/cmex9.pfb><E:/CTEX/M
+iKTeX/fonts/type1/public/amsfonts/cm/cmmi5.pfb><E:/CTEX/MiKTeX/fonts/type1/publ
+ic/amsfonts/cm/cmmi6.pfb><E:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.p
+fb><E:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi9.pfb><E:/CTEX/MiKTeX/fon
+ts/type1/public/amsfonts/cm/cmr5.pfb><E:/CTEX/MiKTeX/fonts/type1/public/amsfont
+s/cm/cmr6.pfb><E:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><E:/CTEX/
+MiKTeX/fonts/type1/public/amsfonts/cm/cmr9.pfb><E:/CTEX/MiKTeX/fonts/type1/publ
+ic/amsfonts/cm/cmss8.pfb><E:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmssbx1
+0.pfb><E:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy5.pfb><E:/CTEX/MiKTeX/
+fonts/type1/public/amsfonts/cm/cmsy6.pfb><E:/CTEX/MiKTeX/fonts/type1/public/ams
+fonts/cm/cmsy9.pfb><E:/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmti9.pfb><E:
+/CTEX/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt9.pfb><E:/CTEX/MiKTeX/fonts/typ
+e1/public/amsfonts/symbols/msam10.pfb><E:/CTEX/MiKTeX/fonts/type1/urw/helvetic/
+uhvb8a.pfb><E:/CTEX/MiKTeX/fonts/type1/urw/helvetic/uhvr8a.pfb><E:/CTEX/MiKTeX/
+fonts/type1/urw/times/utmb8a.pfb><E:/CTEX/MiKTeX/fonts/type1/urw/times/utmr8a.p
+fb><E:/CTEX/MiKTeX/fonts/type1/urw/times/utmri8a.pfb>
+Output written on main.pdf (5 pages, 380369 bytes).
 PDF statistics:
  130 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
