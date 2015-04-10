@@ -8,6 +8,7 @@
 \usepackage{amsmath}
 \usepackage{tikz}
 \usepackage{pdfsync}
+\usepackage{multirow}
 \usetikzlibrary{arrows}
 
 \newtheorem{problem}{Problem}
@@ -32,7 +33,7 @@
 \newcommand{\yh}[1]{\Red{#1}}
 \newcommand{\nop}[1]{}
 \newcommand{\isa}[0]{$ \stackrel{  isA  }{\longrightarrow} $ }
-\newcommand{\noisa}[0]{$ \stackrel{  HEAD }{\dashrightarrow} $ }
+\newcommand{\noisa}[0]{$ \stackrel{ Head }{\dashrightarrow} $ }
 
 \begin{document}
 
@@ -61,7 +62,7 @@ In this paper, we propose an approach for detectiing the implicit relations betw
 
 \input{introduction}
 \input{related_works}
-%\input{framework}
+\input{framework}
 \input{conceptualization}
 \input{find_alias}
 \input{experiment}

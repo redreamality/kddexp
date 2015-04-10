@@ -20,8 +20,9 @@ In
   \caption{Rerank comparation}
     \begin{tabular}{llrrlrr}
     \toprule
-    Entity & agg head & agg count & agg prob & org head & org count & org prob \\
+    \multicolumn{1}{c}{\multirow{2}[0]{*}{Entity}} & \multicolumn{3}{c}{aggregated Top 10} & \multicolumn{3}{c}{original head concepts} \\
     \midrule
+    \multicolumn{1}{c}{} & agg head & agg count & agg prob & org head & org count & org prob \\
     \multicolumn{1}{c}{\multirow{10}[0]{*}{shanghai}} & city  & 1311  & 0.829222 & city  & 644   & 0.407337 \\
     \multicolumn{1}{c}{} & region & 46    & 0.029096 & region & 27    & 0.017078 \\
     \multicolumn{1}{c}{} & area  & 42    & 0.026565 & metropolis & 23    & 0.014548 \\
@@ -66,6 +67,7 @@ In
     \multicolumn{1}{c}{} & picture & 3     & 0.021429 & icon  & 2     & 0.014286 \\
     \multicolumn{1}{c}{} & figure & 3     & 0.021429 & artwork & 1     & 0.007143 \\
     \bottomrule
+
     \end{tabular}%
   \label{tab:rerank}%
 \end{table*}%

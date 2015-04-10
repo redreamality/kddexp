@@ -1,8 +1,14 @@
 
 \section{Find Alias For Attributes}
-
+\label{sec:fafa}
 For a pair \term{(Sherlock holmes, United Kindom)}, \term{country} is a merely-ok attribute, on the contrary, \term{residence, deathPlace} are better since they are more specific and more seemingly plausible to be an attribute.
 %We argue that for each pair of entity, there is a selectional preference for attribute.
+
+
+%where $f()$ denotes the importance of a concept itself, $g( , )$ denotes the joint ratio of the concepts.
+% ENERGY_FUNCTION( f(c1) * f(c2) * g(c1,c2) )
+
+
 
 \subsection{Calculating $P(a| (e_1,e_2) )$ }
 

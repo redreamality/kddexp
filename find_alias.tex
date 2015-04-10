@@ -1,60 +1,80 @@
 
 \section{Find Alias For Attributes}
+\label{sec:fafa}
 
-For a pair \term{(Sherlock holmes, United Kindom)}, \term{country} is a merely-ok attribute, on the contrary, \term{residence, deathPlace} are better since they are more specific and more seemingly plausible to be an attribute.
+
+%For a pair \term{(Sherlock holmes, United Kindom)}, \term{country} is a merely-ok attribute, on the contrary, \term{residence, deathPlace} are better since they are more specific and more seemingly plausible to be an attribute.
 %We argue that for each pair of entity, there is a selectional preference for attribute.
 
-\subsection{Calculating $P(a| (e_1,e_2) )$ }
 
-Given an entity pair$(e_1,e_2)$, we want to find the best attribute to describe the semantic meaning between them, which can be formalized as calculating:
-$$P(a| (e_1,e_2) )$$ for each attribute given the entity pair.
+%where $f()$ denotes the importance of a concept itself, $g( , )$ denotes the joint ratio of the concepts.
+% ENERGY_FUNCTION( f(c1) * f(c2) * g(c1,c2) )
 
+In this section we calculate $JD(c_1,c_2)$ and $P((c_{1},c_{2})|a)$. We first specify the relationship between them. Actually, they have the following relationship:
 
-%
-%Given a set of concept pairs ($\gamma_1$,$\gamma_2$), where $\gamma_1\in C_1$ and $\gamma_2\in C_2$, we want to find a set of attributes A, where for each $a \in A$:
-%we can form a ($\gamma_1$,$a$,$\gamma_2$) pair which best describe the relationship between $\gamma_1$ and $\gamma_2$.
-%
-%
+\begin{equation}\label{eq:rel_jdp}
+  JD(c_1,c_2) = \sum{ P((c_{1},c_{2})|a^*)}
+\end{equation}
 
-For any $(entity_1, attribute, entity_2)$ tuple, later denoted as  $(e_1, a, e_2)$ , where $e_1$ and $e_2$ are also referred to as \term{domain} and \term{range} of the attribute. We can conceptualize $e_1$ and $e_2$ using the method in section~\ref{sec:conceptualization}, and get a set of concept $C_1,C_2$, accompanied with a set of probabilities $P(\gamma_{1}|e_{1i})$, $P(\gamma_{2}|e_2)$,where ${\gamma_{1} \in C_1},{\gamma_{2} \in C_2}$.
-
-To construct the Entity Attribute Graph, we only need topK concepts to form $(\gamma_1,\gamma_2)$ pair, K trough \xch{case study} is around 5, so we here set K=10.
-
-Thus for any attribute $a$, given a pair of entity $(e_{1i},e_{2j})$, we can define:
-\xch{should i use joint ratio here?}
-
-\begin{equation} \begin{split} P_{(e_{1i},e_{2j})}((\gamma_{1},\gamma_{2}) |a)&=P_{before}(\gamma_1|a) \times P_{after}(\gamma_2|a) \\&=  P(\gamma_{1}|e_{1i}) P(e_{1i}|a) \times P(\gamma_{2}|e_{2j})P(e_{2j}|a) \end{split} \label{eq:giga}\end{equation}
-
-
-where we use $P_{(e_{1i},e_{2j})}((\gamma_{1},\gamma_{2}) |a)$ to denote observing a single pair $(e_{1i},e_{2j})$, how likely is a combination of $(\gamma_{1},a,\gamma_{2})$ to occur.
+\xch{ problem here!!! the numerator and the denominator multiplies and get 1, is the relationship here correct??}
 
 
 
+\begin{definition}[Definition of $JD(c_1,c_2)$]
 
-Consequently,
-\begin{equation} P((\gamma_{1},\gamma_{2}) |a)=\sum_{  e_{1i} \in E_1 ,e_{2j} \in E_2} P_{(e_{1i},e_{2j})}((\gamma_{1},\gamma_{2}) |a) \label{eq:pg1g2ga}\end{equation}
+  $$ JD(c_1,c_2) = \sum{ P((c_{1},c_{2})|a^*)}$$
 
-where $E_1,E_2$ denoting the whole set of domain entity and range entity,The  $P(e_{1i}|a)$ and $P(e_{2j}|a)$ here has only 2 values $1$ and  $0$, depending on whether  $e_1$ occurs before $a$ or $e_2$ occurs after $a$. Apparently, only $(e_{1i}, a, e_{2j})$ occurs will give the equation a non-zero value, therefore, Eq.~\ref{eq:pg1g2ga} is finally equal to Eq.~\ref{eq:gga_fin}.
+\end{definition}
 
-\begin{equation} \begin{split} P((\gamma_{1},\gamma_{2}) |a) &= \sum_{  (e_{1i},a,e_{2j})\in KB } P_{(e_{1i},e_{2j})}((\gamma_{1},\gamma_{2}) |a) \\&=  \sum_{  (e_{1i},a,e_{2j})\in KB }P(\gamma_{1}|e_{1i}) \times P(\gamma_{2}|e_{2j})\end{split} \label{eq:gga_fin}\end{equation}
 
-\xch{
-The process of calculating \term{} is demonstrated in Example.~\ref{exa:pggga}
-}
 
-\begin{example}[Calculating $P((\gamma_{1},\gamma_{2}) |a)$]
+\subsection{Calculating $P((c_{h1},c_{h2})|a)$ }
+
+\begin{example}[Calculating $P(({c_h}_{1},{c_h}_{2}) |a)$]
 \label{exa:pggga}
-As illustrated in Fig.~\ref{fig:bipartite}, the process of calculating $P((\gamma_{1},\gamma_{2}) |a)$ is as follows\term{}
+As illustrated in Fig.~\ref{fig:bipartite}, the process of calculating $P(({c_h}_{1},{c_h}_{2}) |a)$ is as follows\term{}
 \end{example}
 
 
 \xch{insert a graph}
 \begin{figure}[!htb]
 \centering \epsfig{file=resources/bipartite.eps,width=2.5in}
-\caption{Calculating $P((\gamma_{1},\gamma_{2}) |a$ for \term{}} \label{fig:bipartite}
+\caption{Calculating $P(({c_h}_{1},{c_h}_{2}) |a$ for \term{}} \label{fig:bipartite}
 \end{figure}
+Given a set of concept pairs (${c_h}_1$,${c_h}_2$), where ${c_h}_1\in C_1$ and ${c_h}_2\in C_2$, we want to find a set of attributes A, where for each $a \in A$:
+we can form a (${c_h}_1$,$a$,${c_h}_2$) pair which best describe the relationship between ${c_h}_1$ and ${c_h}_2$.
 
-To Construct the Entity Attribute Graph, we calculate $P((\gamma_{1},\gamma_{2}) |a)$ for each attribute.
+
+
+For any $(entity_1, attribute, entity_2)$ tuple, later denoted as  $(e_1, a, e_2)$ , where $e_1$ and $e_2$ are also referred to as \term{domain} and \term{range} of the attribute. We can conceptualize $e_1$ and $e_2$ using the method in section~\ref{sec:conceptualization}, and get a set of concept $C_1,C_2$, accompanied with a set of probabilities $P({c_h}_{1}|e_{1i})$, $P({c_h}_{2}|e_2)$,where ${{c_h}_{1} \in C_1},{{c_h}_{2} \in C_2}$.
+
+To construct the Entity Attribute Graph, we only need topK concepts to form $({c_h}_1,{c_h}_2)$ pair, K trough \xch{case study} is around 5, so we here set K=10.
+
+Thus for any attribute $a$, given a pair of entity $(e_{1i},e_{2j})$, we can define:
+\xch{should i use joint ratio here?}
+
+\begin{equation} \begin{split} P_{(e_{1i},e_{2j})}(({c_h}_{1},{c_h}_{2}) |a)&=P_{before}({c_h}_1|a) \times P_{after}({c_h}_2|a) \\&=  P({c_h}_{1}|e_{1i}) P(e_{1i}|a) \times P({c_h}_{2}|e_{2j})P(e_{2j}|a) \end{split} \label{eq:giga}\end{equation}
+
+
+where we use $P_{(e_{1i},e_{2j})}(({c_h}_{1},{c_h}_{2}) |a)$ to denote observing a single pair $(e_{1i},e_{2j})$, how likely is a combination of $({c_h}_{1},a,{c_h}_{2})$ to occur.
+
+
+
+
+Consequently,
+\begin{equation} P(({c_h}_{1},{c_h}_{2}) |a)=\sum_{  e_{1i} \in E_1 ,e_{2j} \in E_2} P_{(e_{1i},e_{2j})}(({c_h}_{1},{c_h}_{2}) |a) \label{eq:pg1g2ga}\end{equation}
+
+where $E_1,E_2$ denoting the whole set of domain entity and range entity,The  $P(e_{1i}|a)$ and $P(e_{2j}|a)$ here has only 2 values $1$ and  $0$, depending on whether  $e_1$ occurs before $a$ or $e_2$ occurs after $a$. Apparently, only $(e_{1i}, a, e_{2j})$ occurs will give the equation a non-zero value, therefore, Eq.~\ref{eq:pg1g2ga} is finally equal to Eq.~\ref{eq:gga_fin}.
+
+\begin{equation} \begin{split} P(({c_h}_{1},{c_h}_{2}) |a) &= \sum_{  (e_{1i},a,e_{2j})\in KB } P_{(e_{1i},e_{2j})}(({c_h}_{1},{c_h}_{2}) |a) \\&=  \sum_{  (e_{1i},a,e_{2j})\in KB }P({c_h}_{1}|e_{1i}) \times P({c_h}_{2}|e_{2j})\end{split} \label{eq:gga_fin}\end{equation}
+
+\xch{
+The process of calculating \term{} is demonstrated in Example.~\ref{exa:pggga}
+}
+
+
+
+To Construct the Entity Attribute Graph, we calculate $P(({c_h}_{1},{c_h}_{2}) |a)$ for each attribute.
 
 
 
@@ -65,7 +85,7 @@ Note that we only consider the attributes whose range is an entity, and ignore t
 
 
 
-For each $(\gamma_{1},a,\gamma_{2})$ tuple, we can calculate $P((\gamma_{1},\gamma_{2}) |a)$ for each
+For each $({c_h}_{1},a,{c_h}_{2})$ tuple, we can calculate $P(({c_h}_{1},{c_h}_{2}) |a)$ for each
 
 
 
