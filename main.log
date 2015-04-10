@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2014.9.3)  10 APR 2015 16:07
+=======
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.2.15)  9 APR 2015 15:34
+>>>>>>> 323304faa7d761c74b1c93f5d0e482b0039200f2
 entering extended mode
 **D:/Dropbox/KDDexplanation/main.tex
 (D:/Dropbox/KDDexplanation/main.tex
@@ -810,6 +814,7 @@ Here is how much of TeX's memory you used:
  272577 words of memory out of 3000000
  14445 multiletter control sequences out of 15000+200000
  52135 words of font info for 74 fonts, out of 3000000 for 9000
+<<<<<<< HEAD
  14 hyphenation exceptions out of 8191
  56i,26n,55p,893b,377s stack positions out of 5000i,500n,10000p,200000b,50000s
 {E:/CTEX/MiKTeX/fonts/enc/dvips/font
@@ -829,6 +834,31 @@ ts/type1/urw/helvetic/uhvr8a.pfb><E:/CTEX/MiKTeX/fonts/type1/urw/times/utmb8a.p
 fb><E:/CTEX/MiKTeX/fonts/type1/urw/times/utmr8a.pfb><E:/CTEX/MiKTeX/fonts/type1
 /urw/times/utmri8a.pfb>
 Output written on main.pdf (7 pages, 395136 bytes).
+=======
+ 841 hyphenation exceptions out of 8191
+ 55i,26n,54p,764b,380s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Progra
+m Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Program F
+iles (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Program Fi
+les (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/cmex9.pfb><C:/Program 
+Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Program Fil
+es (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files 
+(x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Program Files (x8
+6)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Program Files (x86)/M
+iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files (x86)/MiKTe
+X 2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Program Files (x86)/MiKTeX 2.
+9/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Program Files (x86)/MiKTeX 2.9/f
+onts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program Files (x86)/MiKTeX 2.9/font
+s/type1/public/amsfonts/cm/cmsy9.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/t
+ype1/public/amsfonts/cm/cmti9.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type
+1/public/amsfonts/cm/cmtt9.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/p
+ublic/amsfonts/symbols/msam10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type
+1/urw/helvetic/uhvb8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/he
+lvetic/uhvr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmb
+8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/
+Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
+Output written on main.pdf (7 pages, 388009 bytes).
+>>>>>>> 323304faa7d761c74b1c93f5d0e482b0039200f2
 PDF statistics:
  126 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
