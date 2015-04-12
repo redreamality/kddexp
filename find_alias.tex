@@ -2,7 +2,6 @@
 \section{Find Alias For Attributes}
 \label{sec:fafa}
 
-
 %For a pair \term{(Sherlock holmes, United Kindom)}, \term{country} is a merely-ok attribute, on the contrary, \term{residence, deathPlace} are better since they are more specific and more seemingly plausible to be an attribute.
 %We argue that for each pair of entity, there is a selectional preference for attribute.
 
@@ -10,21 +9,27 @@
 %where $f()$ denotes the importance of a concept itself, $g( , )$ denotes the joint ratio of the concepts.
 % ENERGY_FUNCTION( f(c1) * f(c2) * g(c1,c2) )
 
-In this section we calculate $JD(c_1,c_2)$ and $P((c_{1},c_{2})|a)$. We first specify the relationship between them. Actually, they have the following relationship:
 
+This section is devoted to calculating $JD(c_1,c_2)$ of $P((c_{1},c_{2})|(e_{1},e_{2}))$ in Eq.~\ref{eq:target_expand2_jr} and $P((c_{1},c_{2})|a)$ of $P(a|(c_{1},c_{2}))$ in Eq.~\ref{eq:target_expand1}. 
+
+
+
+We first specify the relationship between them. Actually, they have the following relationship:
 \begin{equation}\label{eq:rel_jdp}
   JD(c_1,c_2) = \sum{ P((c_{1},c_{2})|a^*) \times P(a^*)}
 \end{equation}
-
 \xch{ problem here!!! the numerator and the denominator multiplies and get 1, is the relationship here correct??}
 
 
 
 \begin{definition}[Definition of $JD(c_1,c_2)$]
 
-  $$ JD(c_1,c_2) = \sum{ P((c_{1},c_{2})|a^*)}$$
+  $$ JD(c_1,c_2) = \frac{1}{Z_\theta}\times e^{- \frac{1}{f(c_1)\times f(c_2)\times g(c_1,c_2))}}$$, where $f(c_i)=\frac{\sum{ P(c_i|e^*) }},(i=1,2)$ denotes the importance of a concept itself, $g({c_h}_1 ,{c_h}_2 )=\sum_{  (e_{1i},a,e_{2j})\in KB }P({c_h}_{1}|e_{1i}) \times P({c_h}_{2}|e_{2j})$ denotes the joint ratio of the concepts.
+
 
 \end{definition}
+
+
 
 
 
@@ -96,29 +101,29 @@ For each $({c_h}_{1},a,{c_h}_{2})$ tuple, we can calculate $P(({c_h}_{1},{c_h}_{
 %\subsubsection{Voting}
 
 
-\subsection{For multiple hops}
-
-\subsubsection{Entity Attribute Graph Construction}
-
-
-\begin{figure}[!htb]
-\centering \epsfig{file=resources/eag.eps,width=2.5in}
-\caption{Subgraph of Entity Attribute Graph } \label{fig:eag}
-\end{figure}
-
-So far, we have tackled with the relations and generated the edges in the relationship graph.
-This problem is similar to {\bf hierarchy ranking problems in a directed graph}~\cite{gupte2011finding}. Originally, it was a minimum feedback arc set problem on a weighted network which is a classic NP-hard problem~\cite{dinur2005hardness}. A few approaches~\cite{tatti2014faster} have been proposed on unweighted directed graphs, for weighted graphs, the extended agony[hierarchies in directed network(unpublished kdd15)] algorithm can be ultilized to generate hierarchy results \xch{in this approach the K (number of hierarchies) is fixed, maybe we can make it adaptive to data here? }
-
-
-
-In this section, we first formulate the problem of finding semantic link into a maximum flow problem on the concept network with multiple-sources and multiple-sinks, and then, we cut out the subgraph and perform {\bf improved agony} to derive the concept of the middle entities. Last we use co-occurrence to verify the validness of the relation.
-
-%We argue that co-occurrences between entities can only be applied to entity relation explanation when they are conceptually correct[]. Following this intuition, we further formalize our problem into
-
-
-\subsubsection{Improved agony}
-
-
+%\subsection{For multiple hops}
+%
+%\subsubsection{Entity Attribute Graph Construction}
+%
+%
+%\begin{figure}[!htb]
+%\centering \epsfig{file=resources/eag.eps,width=2.5in}
+%\caption{Subgraph of Entity Attribute Graph } \label{fig:eag}
+%\end{figure}
+%
+%So far, we have tackled with the relations and generated the edges in the relationship graph.
+%This problem is similar to {\bf hierarchy ranking problems in a directed graph}~\cite{gupte2011finding}. Originally, it was a minimum feedback arc set problem on a weighted network which is a classic NP-hard problem~\cite{dinur2005hardness}. A few approaches~\cite{tatti2014faster} have been proposed on unweighted directed graphs, for weighted graphs, the extended agony[hierarchies in directed network(unpublished kdd15)] algorithm can be ultilized to generate hierarchy results \xch{in this approach the K (number of hierarchies) is fixed, maybe we can make it adaptive to data here? }
+%
+%
+%
+%In this section, we first formulate the problem of finding semantic link into a maximum flow problem on the concept network with multiple-sources and multiple-sinks, and then, we cut out the subgraph and perform {\bf improved agony} to derive the concept of the middle entities. Last we use co-occurrence to verify the validness of the relation.
+%
+%%We argue that co-occurrences between entities can only be applied to entity relation explanation when they are conceptually correct[]. Following this intuition, we further formalize our problem into
+%
+%
+%\subsubsection{Improved agony}
+%
+%
 
 
 
