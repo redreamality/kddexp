@@ -1,7 +1,7 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.2.15)  9 APR 2015 15:34
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.2.15)  9 APR 2015 15:53
 entering extended mode
 **main.tex
-(C:\Users\RDT\Documents\Dropbox\KDDexplanation\main.tex
+(C:\Users\RDT\Documents\imminent\kddexp\main.tex
 LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
 abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
@@ -13,7 +13,7 @@ german-x-2013-05-26, nynorsk, oriya, panjabi, pinyin, polish, portuguese, roman
 ian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swissgerm
 an, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, usengl
 ishmax, welsh, loaded.
-(C:\Users\RDT\Documents\Dropbox\KDDexplanation\sig-alternate.cls
+(C:\Users\RDT\Documents\imminent\kddexp\sig-alternate.cls
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\epsfig.sty"
 Package: epsfig 1999/02/16 v1.7a (e)psfig emulation (SPQR)
 
@@ -601,7 +601,7 @@ File: pgflibraryarrows.code.tex 2013/09/23 v3.0.0 (rcs-revision 1.16)
 \c@example=\count136
 \c@obser=\count137
 \c@lemma=\count138
- (C:\Users\RDT\Documents\Dropbox\KDDexplanation\main.aux
+ (C:\Users\RDT\Documents\imminent\kddexp\main.aux
 
 LaTeX Warning: Label `eq:pgge' multiply defined.
 
@@ -663,20 +663,20 @@ File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 
 LaTeX Warning: No \author given.
 
-(C:\Users\RDT\Documents\Dropbox\KDDexplanation\introduction.tex
+(C:\Users\RDT\Documents\imminent\kddexp\introduction.tex
 LaTeX Font Info:    Try loading font information for T1+aett on input line 9.
 
 ("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\ae\t1aett.fd"
 File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
 ))
-(C:\Users\RDT\Documents\Dropbox\KDDexplanation\related_works.tex
+(C:\Users\RDT\Documents\imminent\kddexp\related_works.tex
 Overfull \hbox (6.7555pt too wide) in paragraph at lines 14--1
 [][][]\T1/aer/m/n/9 For these rea-sons, we pur-pose a re-la-tion ex-pla-na-tion
  method
  []
 
-) (C:\Users\RDT\Documents\Dropbox\KDDexplanation\conceptualization.tex [1{C:/Pr
-ogramData/MiKTeX/2.9/pdftex/config/pdftex.map}
+) (C:\Users\RDT\Documents\imminent\kddexp\conceptualization.tex [1{C:/ProgramDa
+ta/MiKTeX/2.9/pdftex/config/pdftex.map}
 
 
 ]
@@ -759,12 +759,14 @@ l.140 }
 You've closed more groups than you opened.
 Such booboos are generally harmless, so keep going.
 
+
+LaTeX Warning: File `resources/bill_gates_isa.eps' not found on input line 146.
+
+
 Package epstopdf Info: Source file: <resources/bill_gates_isa.eps>
-(epstopdf)                    date: 2015-04-03 14:28:58
-(epstopdf)                    size: 130061 bytes
 (epstopdf)             Output file: <resources/bill_gates_isa-eps-converted-to.
 pdf>
-(epstopdf)                    date: 2015-04-03 14:32:20
+(epstopdf)                    date: 2015-04-09 15:40:26
 (epstopdf)                    size: 44336 bytes
 (epstopdf)             Command: <epstopdf --outfile=resources/bill_gates_isa-ep
 s-converted-to.pdf resources/bill_gates_isa.eps>
@@ -779,7 +781,7 @@ Package pdftex.def Info: resources/bill_gates_isa-eps-converted-to.pdf used on
 input line 146.
 (pdftex.def)             Requested size: 397.48499pt x 245.04033pt.
 )
-(C:\Users\RDT\Documents\Dropbox\KDDexplanation\find_alias.tex
+(C:\Users\RDT\Documents\imminent\kddexp\find_alias.tex
 Overfull \hbox (4.29193pt too wide) in paragraph at lines 26--26
 [][][] 
  []
@@ -790,10 +792,10 @@ Overfull \hbox (8.26883pt too wide) in paragraph at lines 47--48
  []
 
 Package epstopdf Info: Source file: <resources/bipartite.eps>
-(epstopdf)                    date: 2015-04-03 14:28:59
+(epstopdf)                    date: 2015-04-09 15:40:26
 (epstopdf)                    size: 1671704 bytes
 (epstopdf)             Output file: <resources/bipartite-eps-converted-to.pdf>
-(epstopdf)                    date: 2015-04-03 14:32:22
+(epstopdf)                    date: 2015-04-09 15:40:26
 (epstopdf)                    size: 26051 bytes
 (epstopdf)             Command: <epstopdf --outfile=resources/bipartite-eps-con
 verted-to.pdf resources/bipartite.eps>
@@ -808,10 +810,10 @@ Package pdftex.def Info: resources/bipartite-eps-converted-to.pdf used on input
 (pdftex.def)             Requested size: 180.67499pt x 137.78885pt.
  [3]
 Package epstopdf Info: Source file: <resources/eag.eps>
-(epstopdf)                    date: 2015-04-03 14:28:59
+(epstopdf)                    date: 2015-04-09 15:40:26
 (epstopdf)                    size: 202549 bytes
 (epstopdf)             Output file: <resources/eag-eps-converted-to.pdf>
-(epstopdf)                    date: 2015-04-03 14:32:23
+(epstopdf)                    date: 2015-04-09 15:40:26
 (epstopdf)                    size: 36066 bytes
 (epstopdf)             Command: <epstopdf --outfile=resources/eag-eps-converted
 -to.pdf resources/eag.eps>
@@ -826,17 +828,16 @@ Package pdftex.def Info: resources/eag-eps-converted-to.pdf used on input line
 85.
 (pdftex.def)             Requested size: 180.67499pt x 177.81549pt.
 )
-(C:\Users\RDT\Documents\Dropbox\KDDexplanation\experiment.tex [4 <C:/Users/RDT/
-Documents/Dropbox/KDDexplanation/resources/bill_gates_isa-eps-converted-to.pdf>
- <C:/Users/RDT/Documents/Dropbox/KDDexplanation/resources/bipartite-eps-convert
-ed-to.pdf> <C:/Users/RDT/Documents/Dropbox/KDDexplanation/resources/eag-eps-con
-verted-to.pdf>]
+(C:\Users\RDT\Documents\imminent\kddexp\experiment.tex [4 <C:/Users/RDT/Documen
+ts/imminent/kddexp/resources/bill_gates_isa-eps-converted-to.pdf> <C:/Users/RDT
+/Documents/imminent/kddexp/resources/bipartite-eps-converted-to.pdf> <C:/Users/
+RDT/Documents/imminent/kddexp/resources/eag-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <resources/ev_plot_manufacturer.eps>
-(epstopdf)                    date: 2015-04-03 14:28:59
+(epstopdf)                    date: 2015-04-09 15:40:26
 (epstopdf)                    size: 1095844 bytes
 (epstopdf)             Output file: <resources/ev_plot_manufacturer-eps-convert
 ed-to.pdf>
-(epstopdf)                    date: 2015-04-03 14:32:25
+(epstopdf)                    date: 2015-04-09 15:40:26
 (epstopdf)                    size: 17492 bytes
 (epstopdf)             Command: <epstopdf --outfile=resources/ev_plot_manufactu
 rer-eps-converted-to.pdf resources/ev_plot_manufacturer.eps>
@@ -868,19 +869,19 @@ Overfull \hbox (38.2397pt too wide) in paragraph at lines 97--100
 \T1/aett/m/n/9 (BMW_Z4,manufacturer,BMW),(PlayStation_4,manufacturer,Sony)
  []
 
-) (C:\Users\RDT\Documents\Dropbox\KDDexplanation\conclusion.tex)
-(C:\Users\RDT\Documents\Dropbox\KDDexplanation\main.bbl [5 <C:/Users/RDT/Docume
-nts/Dropbox/KDDexplanation/resources/ev_plot_manufacturer-eps-converted-to.pdf>
-] [6]) [7
+) (C:\Users\RDT\Documents\imminent\kddexp\conclusion.tex)
+(C:\Users\RDT\Documents\imminent\kddexp\main.bbl [5 <C:/Users/RDT/Documents/imm
+inent/kddexp/resources/ev_plot_manufacturer-eps-converted-to.pdf>] [6])
+[7
 
-] (C:\Users\RDT\Documents\Dropbox\KDDexplanation\main.aux)
+] (C:\Users\RDT\Documents\imminent\kddexp\main.aux)
 
 LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
  13436 strings out of 493921
- 264837 string characters out of 3144882
+ 264676 string characters out of 3144882
  309975 words of memory out of 3000000
  16389 multiletter control sequences out of 15000+200000
  52135 words of font info for 74 fonts, out of 3000000 for 9000
@@ -906,7 +907,7 @@ ublic/amsfonts/symbols/msam10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type
 lvetic/uhvr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmb
 8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/
 Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
-Output written on main.pdf (7 pages, 388009 bytes).
+Output written on main.pdf (7 pages, 387981 bytes).
 PDF statistics:
  126 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)

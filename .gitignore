@@ -1,0 +1,8 @@
+*.bak
+*.aux
+*.sav
+*.log
+*.gz
+*.blg
+*.pdf
+*.pdfsync
