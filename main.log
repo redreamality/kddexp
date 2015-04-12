@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 This is pdfTeX, Version 3.1415926-2.3-1.40.12 (MiKTeX 2.9) (preloaded format=pdflatex 2014.9.3)  12 APR 2015 23:52
 entering extended mode
 **D:/Dropbox/KDDexplanation/main.tex
@@ -6,6 +7,25 @@ LaTeX2e <2011/06/27>
 Babel <v3.8m> and hyphenation patterns for loaded.
 (D:\Dropbox\KDDexplanation\sig-alternate.cls
 (E:\CTEX\MiKTeX\tex\latex\graphics\epsfig.sty
+=======
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (MiKTeX 2.9) (preloaded format=pdflatex 2015.2.15)  9 APR 2015 15:53
+entering extended mode
+**main.tex
+(C:\Users\RDT\Documents\imminent\kddexp\main.tex
+LaTeX2e <2011/06/27>
+Babel <v3.8m> and hyphenation patterns for english, afrikaans, ancientgreek, ar
+abic, armenian, assamese, basque, bengali, bokmal, bulgarian, catalan, coptic, 
+croatian, czech, danish, dutch, esperanto, estonian, farsi, finnish, french, ga
+lician, german, german-x-2013-05-26, greek, gujarati, hindi, hungarian, iceland
+ic, indonesian, interlingua, irish, italian, kannada, kurmanji, latin, latvian,
+ lithuanian, malayalam, marathi, mongolian, mongolianlmc, monogreek, ngerman, n
+german-x-2013-05-26, nynorsk, oriya, panjabi, pinyin, polish, portuguese, roman
+ian, russian, sanskrit, serbian, slovak, slovenian, spanish, swedish, swissgerm
+an, tamil, telugu, turkish, turkmen, ukenglish, ukrainian, uppersorbian, usengl
+ishmax, welsh, loaded.
+(C:\Users\RDT\Documents\imminent\kddexp\sig-alternate.cls
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\graphics\epsfig.sty"
+>>>>>>> 730c0f33899173958feb5edf45a1c544ed0816be
 Package: epsfig 1999/02/16 v1.7a (e)psfig emulation (SPQR)
 
 (E:\CTEX\MiKTeX\tex\latex\graphics\graphicx.sty
@@ -533,6 +553,12 @@ File: pgflibraryarrows.code.tex 2008/10/27 v2.10 (rcs-revision 1.9)
 \c@example=\count136
 \c@obser=\count137
 \c@lemma=\count138
+<<<<<<< HEAD
+=======
+ (C:\Users\RDT\Documents\imminent\kddexp\main.aux
+
+LaTeX Warning: Label `eq:pgge' multiply defined.
+>>>>>>> 730c0f33899173958feb5edf45a1c544ed0816be
 
 (D:\Dropbox\KDDexplanation\main.aux)
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 38.
@@ -593,20 +619,33 @@ File: ulasy.fd 1998/08/17 v2.2e LaTeX symbol font definitions
 
 LaTeX Warning: No \author given.
 
+<<<<<<< HEAD
 (D:\Dropbox\KDDexplanation\introduction.tex
+=======
+(C:\Users\RDT\Documents\imminent\kddexp\introduction.tex
+>>>>>>> 730c0f33899173958feb5edf45a1c544ed0816be
 LaTeX Font Info:    Try loading font information for T1+aett on input line 9.
 
 (E:\CTEX\MiKTeX\tex\latex\ae\t1aett.fd
 File: t1aett.fd 1997/11/16 Font definitions for T1/aett.
 ))
+<<<<<<< HEAD
 (D:\Dropbox\KDDexplanation\related_works.tex
+=======
+(C:\Users\RDT\Documents\imminent\kddexp\related_works.tex
+>>>>>>> 730c0f33899173958feb5edf45a1c544ed0816be
 Overfull \hbox (6.7555pt too wide) in paragraph at lines 14--1
 [][][]\T1/aer/m/n/9 For these rea-son-s, we pur-pose a re-la-tion ex-pla-na-tio
 n method
  []
 
+<<<<<<< HEAD
 ) (D:\Dropbox\KDDexplanation\framework.tex [1{E:/CTEX/UserData/pdftex/config/pd
 ftex.map{Unicode.sfd}{UGBK.sfd}}
+=======
+) (C:\Users\RDT\Documents\imminent\kddexp\conceptualization.tex [1{C:/ProgramDa
+ta/MiKTeX/2.9/pdftex/config/pdftex.map}
+>>>>>>> 730c0f33899173958feb5edf45a1c544ed0816be
 
 
 ]
@@ -685,10 +724,18 @@ Overfull \hbox (27.71622pt too wide) in paragraph at lines 104--105
 LaTeX Warning: File `resources/bill_gates_isa.eps' not found on input line 145.
 
 
+
+LaTeX Warning: File `resources/bill_gates_isa.eps' not found on input line 146.
+
+
 Package epstopdf Info: Source file: <resources/bill_gates_isa.eps>
 (epstopdf)             Output file: <resources/bill_gates_isa-eps-converted-to.
 pdf>
+<<<<<<< HEAD
 (epstopdf)                    date: 2015-04-10 16:17:23
+=======
+(epstopdf)                    date: 2015-04-09 15:40:26
+>>>>>>> 730c0f33899173958feb5edf45a1c544ed0816be
 (epstopdf)                    size: 44336 bytes
 (epstopdf)             Command: <epstopdf --outfile=resources/bill_gates_isa-ep
 s-converted-to.pdf resources/bill_gates_isa.eps>
@@ -703,6 +750,7 @@ Package pdftex.def Info: resources/bill_gates_isa-eps-converted-to.pdf used on
 input line 145.
 (pdftex.def)             Requested size: 397.48499pt x 245.04033pt.
 )
+<<<<<<< HEAD
 (D:\Dropbox\KDDexplanation\find_alias.tex
 Overfull \hbox (42.30954pt too wide) in paragraph at lines 13--14
 [][][]\T1/aer/m/n/9 This sec-tion is de-vot-ed to cal-cu-lat-ing $[][]\OML/cmm/
@@ -710,6 +758,11 @@ m/it/9 JD\OT1/cmr/m/n/9 (\OML/cmm/m/it/9 c[]; c[]\OT1/cmr/m/n/9 )$ \T1/aer/m/n/
 9 of $[][]\OML/cmm/m/it/9 P\OT1/cmr/m/n/9 ((\OML/cmm/m/it/9 c[]; c[]\OT1/cmr/m/
 n/9 )\OMS/cmsy/m/n/9 j\OT1/cmr/m/n/9 (\OML/cmm/m/it/9 e[]; e[]\OT1/cmr/m/n/9 ))
 $
+=======
+(C:\Users\RDT\Documents\imminent\kddexp\find_alias.tex
+Overfull \hbox (4.29193pt too wide) in paragraph at lines 26--26
+[][][] 
+>>>>>>> 730c0f33899173958feb5edf45a1c544ed0816be
  []
 
 
@@ -718,10 +771,10 @@ Overfull \hbox (11.23796pt too wide) in paragraph at lines 40--41
  []
 
 Package epstopdf Info: Source file: <resources/bipartite.eps>
-(epstopdf)                    date: 2015-04-03 14:28:59
+(epstopdf)                    date: 2015-04-09 15:40:26
 (epstopdf)                    size: 1671704 bytes
 (epstopdf)             Output file: <resources/bipartite-eps-converted-to.pdf>
-(epstopdf)                    date: 2015-04-03 14:32:22
+(epstopdf)                    date: 2015-04-09 15:40:26
 (epstopdf)                    size: 26051 bytes
 (epstopdf)             Command: <epstopdf --outfile=resources/bipartite-eps-con
 verted-to.pdf resources/bipartite.eps>
@@ -734,11 +787,26 @@ File: resources/bipartite-eps-converted-to.pdf Graphic file (type pdf)
 Package pdftex.def Info: resources/bipartite-eps-converted-to.pdf used on input
  line 46.
 (pdftex.def)             Requested size: 180.67499pt x 137.78885pt.
+<<<<<<< HEAD
+=======
+ [3]
+Package epstopdf Info: Source file: <resources/eag.eps>
+(epstopdf)                    date: 2015-04-09 15:40:26
+(epstopdf)                    size: 202549 bytes
+(epstopdf)             Output file: <resources/eag-eps-converted-to.pdf>
+(epstopdf)                    date: 2015-04-09 15:40:26
+(epstopdf)                    size: 36066 bytes
+(epstopdf)             Command: <epstopdf --outfile=resources/eag-eps-converted
+-to.pdf resources/eag.eps>
+(epstopdf)             \includegraphics on input line 85.
+Package epstopdf Info: Output file is already uptodate.
+>>>>>>> 730c0f33899173958feb5edf45a1c544ed0816be
 
 Overfull \hbox (20.61609pt too wide) in paragraph at lines 61--61
 [][][] 
  []
 
+<<<<<<< HEAD
 
 Overfull \hbox (5.7709pt too wide) in paragraph at lines 64--65
 \T1/aer/m/n/9 s-in-gle pair $[][]\OT1/cmr/m/n/9 (\OML/cmm/m/it/9 e[]; e[]\OT1/c
@@ -756,12 +824,23 @@ OML/cmm/m/it/9 a\OT1/cmr/m/n/9 )$
 
 [4 <D:/Dropbox/KDDexplanation/resources/bipartite-eps-converted-to.pdf>])
 (D:\Dropbox\KDDexplanation\experiment.tex
+=======
+<use resources/eag-eps-converted-to.pdf>
+Package pdftex.def Info: resources/eag-eps-converted-to.pdf used on input line 
+85.
+(pdftex.def)             Requested size: 180.67499pt x 177.81549pt.
+)
+(C:\Users\RDT\Documents\imminent\kddexp\experiment.tex [4 <C:/Users/RDT/Documen
+ts/imminent/kddexp/resources/bill_gates_isa-eps-converted-to.pdf> <C:/Users/RDT
+/Documents/imminent/kddexp/resources/bipartite-eps-converted-to.pdf> <C:/Users/
+RDT/Documents/imminent/kddexp/resources/eag-eps-converted-to.pdf>]
+>>>>>>> 730c0f33899173958feb5edf45a1c544ed0816be
 Package epstopdf Info: Source file: <resources/ev_plot_manufacturer.eps>
-(epstopdf)                    date: 2015-04-03 14:28:59
+(epstopdf)                    date: 2015-04-09 15:40:26
 (epstopdf)                    size: 1095844 bytes
 (epstopdf)             Output file: <resources/ev_plot_manufacturer-eps-convert
 ed-to.pdf>
-(epstopdf)                    date: 2015-04-03 14:32:25
+(epstopdf)                    date: 2015-04-09 15:40:26
 (epstopdf)                    size: 17492 bytes
 (epstopdf)             Command: <epstopdf --outfile=resources/ev_plot_manufactu
 rer-eps-converted-to.pdf resources/ev_plot_manufacturer.eps>
@@ -793,6 +872,15 @@ Overfull \hbox (38.2397pt too wide) in paragraph at lines 97--100
 \T1/aett/m/n/9 (BMW_Z4,manufacturer,BMW),(PlayStation_4,manufacturer,Sony)
  []
 
+<<<<<<< HEAD
+=======
+) (C:\Users\RDT\Documents\imminent\kddexp\conclusion.tex)
+(C:\Users\RDT\Documents\imminent\kddexp\main.bbl [5 <C:/Users/RDT/Documents/imm
+inent/kddexp/resources/ev_plot_manufacturer-eps-converted-to.pdf>] [6])
+[7
+
+] (C:\Users\RDT\Documents\imminent\kddexp\main.aux)
+>>>>>>> 730c0f33899173958feb5edf45a1c544ed0816be
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -802,6 +890,7 @@ D:/Dropbox/KDDexplanation/resources/ev_plot_manufacturer-eps-converted-to.pdf>]
 (D:\Dropbox\KDDexplanation\conclusion.tex) (D:\Dropbox\KDDexplanation\main.bbl)
 [7] (D:\Dropbox\KDDexplanation\main.aux) ) 
 Here is how much of TeX's memory you used:
+<<<<<<< HEAD
  11601 strings out of 495354
  209059 string characters out of 3183860
  270569 words of memory out of 3000000
@@ -827,6 +916,36 @@ tic/uhvr8a.pfb><E:/CTEX/MiKTeX/fonts/type1/urw/times/utmb8a.pfb><E:/CTEX/MiKTeX
 /fonts/type1/urw/times/utmr8a.pfb><E:/CTEX/MiKTeX/fonts/type1/urw/times/utmri8a
 .pfb>
 Output written on main.pdf (7 pages, 367617 bytes).
+=======
+ 13436 strings out of 493921
+ 264676 string characters out of 3144882
+ 309975 words of memory out of 3000000
+ 16389 multiletter control sequences out of 15000+200000
+ 52135 words of font info for 74 fonts, out of 3000000 for 9000
+ 841 hyphenation exceptions out of 8191
+ 55i,26n,54p,764b,380s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/Program Files (x86)/MiKTeX 2.9/fonts/enc/dvips/fontname/8r.enc}<C:/Progra
+m Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx9.pfb><C:/Program F
+iles (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmcsc10.pfb><C:/Program Fi
+les (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cmextra/cmex9.pfb><C:/Program 
+Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi5.pfb><C:/Program Fil
+es (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Program Files 
+(x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi9.pfb><C:/Program Files (x8
+6)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr5.pfb><C:/Program Files (x86)/M
+iKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr6.pfb><C:/Program Files (x86)/MiKTe
+X 2.9/fonts/type1/public/amsfonts/cm/cmr9.pfb><C:/Program Files (x86)/MiKTeX 2.
+9/fonts/type1/public/amsfonts/cm/cmsy5.pfb><C:/Program Files (x86)/MiKTeX 2.9/f
+onts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Program Files (x86)/MiKTeX 2.9/font
+s/type1/public/amsfonts/cm/cmsy9.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/t
+ype1/public/amsfonts/cm/cmti9.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type
+1/public/amsfonts/cm/cmtt9.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/p
+ublic/amsfonts/symbols/msam10.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type
+1/urw/helvetic/uhvb8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/he
+lvetic/uhvr8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmb
+8a.pfb><C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/
+Program Files (x86)/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
+Output written on main.pdf (7 pages, 387981 bytes).
+>>>>>>> 730c0f33899173958feb5edf45a1c544ed0816be
 PDF statistics:
  126 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
