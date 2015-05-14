@@ -1,4 +1,4 @@
-
+% !TEX root = main.tex
 \section{Find Alias For Attributes}
 \label{sec:fafa}
 
@@ -37,9 +37,22 @@ we can form a (${c_h}_1$,$a$,${c_h}_2$) pair which best describe the relationshi
 
 
 
-For any $(entity_1, attribute, entity_2)$ tuple, later denoted as  $(e_1, a, e_2)$ , where $e_1$ and $e_2$ are also referred to as \term{domain} and \term{range} of the attribute. We can conceptualize $e_1$ and $e_2$ using the method in section~\ref{sec:conceptualization}, and get a set of concept $C_1,C_2$, accompanied with a set of probabilities $P({c_h}_{1}|e_{1i})$, $P({c_h}_{2}|e_2)$,where ${{c_h}_{1} \in C_1},{{c_h}_{2} \in C_2}$.
+For a certain attribute $a_k$, there are many entity pairs of the attribute.
+Let $T_k=\{(e_i, a_k, e_j)\}$ be all the triples in the knowledge base with attribute as $a_k$.
+\begin{equation} 
+ P((c_1, c_2) |a_k) = \frac{1}{|T_k|}\sum_{  (e_{i},a_k,e_{j})\in T_k } P(c_1|e_{i})P(c_2|e_{j}) 
+ \end{equation}
+Let $C_1$ be all the concepts of $E_L(T_k)$ .... Let $E_L(T_k)$ be all the left entities of attribute $a_k$ in the knowledge base..... We can prove that $\sum_{(c_i,c_j)\in C_1\times C_2} P((c_i, c_j)|a_k)=1$.
 
+
+rationality. 
+
+\yh{Complexity anlaysis...}
+$O(|C_1||C_2|)$  Power law, most are small value close zero.
 To construct the Entity Attribute Graph, we only need topK concepts to form $({c_h}_1,{c_h}_2)$ pair, K trough \xch{case study} is around 5, so we here set K=10.
+
+tuple, later denoted as  $(e_1, a, e_2)$ , where $e_1$ and $e_2$ are also referred to as \term{domain} and \term{range} of the attribute. We can conceptualize $e_1$ and $e_2$ using the method in section~\ref{sec:conceptualization}, and get a set of concept $C_1,C_2$, accompanied with a set of probabilities $P({c_h}_{1}|e_{1i})$, $P({c_h}_{2}|e_2)$,where ${{c_h}_{1} \in C_1},{{c_h}_{2} \in C_2}$.
+
 
 Thus for any attribute $a$, given a pair of entity $(e_{1i},e_{2j})$, we can define:
 \xch{should i use joint ratio here?}
