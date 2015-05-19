@@ -77,7 +77,7 @@ Combining all these together, the ultimate optimization objective is described i
 
 
 \subsection{Solution Framework}
-The main framework consists of two major components: the online computation and offline computation, which is illustrated in Figure.~\ref{fig:framework} \yh{give a solution framework figure}
+The main framework consists of two major components: the online computation and offline computation, which is illustrated in Figure.~\ref{fig:framework}.
 
 \begin{figure}[!hptb]
 \label{fig:framework}
@@ -91,7 +91,10 @@ In the offline component, we estimate all the probabilities that are independent
 We leverage the DBpedia triples to learn these probabilities.
 The online component accepts an entity pair $<e_1, e_2>$ as the query and calculate $ P(a| <e_1,e_2> )$ for each candidate attribute in $A$ by Eq.~\ref{eq:target_expand_all}. We return the the attribute owning the maximal score as the explanation for the relationship between the entity pair.
 
-\yh{give a paragraph to explain how we do when no direct explanation can be found?}
+\yh{When no direct edges are found, we use the shortest path on the concept attribute graph to find the middle concepts, then the problem automatically reduced to relation explanation of several pairs of entities.}
+
+\yh{still dubious}
+
 
 \paragraph{Paper Orgnization}
 The rest of the paper is organized as follows, Section~\ref{sec:conceptualization} describe how to derive $P(c|e)$ leveraging the \xch{basicness} of concept, Section~\ref{sec:fafa} is devoted to the offline calculation of $JD(c_1,c_2)$ and $P((c_{1},c_{2})|a)$.
