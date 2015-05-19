@@ -2,13 +2,15 @@
 \section{Conceptualization for Relationship Explanation}
 \label{sec:conceptualization}
 In this section, we give our solution to compute $P(c|e_i)$, the probability that $c$ is a concept of entity $e_i$.
-We use Probase, a web-scale taxonomy, for the computation. We first briefly introduce Probase and give a direct solution. However, the direct conceptualization solution ignores the unique setting of relationship explanation. We will analyze the problems caused by our problem setting then give an improved version.problem here is that 
+We use Probase, a web-scale taxonomy, for the computation. We first briefly introduce Probase and give a direct solution. However, the direct conceptualization solution ignores the unique setting of relationship explanation. We will analyze the problems caused by our problem setting then give an improved version.problem here is that
 
 \subsection{Problem Statement}
+\yh{Probase exploit Hearst patterns to extract isA relations from 1.68 billion web pages . For example, it extracts evidence for the claim \at{IBM \isa company, Nokia \isa company} from sentence \at{...\ac{companies} such as \ac{IBM, Nokia}...}
+is an instance of the concept president. The core version
+of Probase contains 3,024,814 unique concepts, 6,768,623
+unique instances, and 29,625,920 isA relations.}
 
-\yh{intro about probase, copy from xiangyan's paper}
-
-Given an entity $e$, from Probase, we can acquire its concepts' set $C(e)$. For each $c_i \in C$, the frequency $n(c_i,e)$ can be accordingly derived, which means how many times the $e$ isA $c$ can be observed from the corpus. The frequency information allows us to estimate  $P(c|e)$ by 
+Given an entity $e$, from Probase, we can acquire its concepts' set $C(e)$. For each $c_i \in C$, the frequency $n(c_i,e)$ can be accordingly derived, which means how many times the $e$ isA $c$ can be observed from the corpus. The frequency information allows us to estimate  $P(c|e)$ by
 $$P(c|e)=\frac{n(c,e)}{\sum_{c_i\in C(e)}n(c_i, e)}$$
 
 
@@ -20,18 +22,18 @@ We further argue that the relationship between entities are determined by the he
 \end{equation}
 
 By restricting the concept to the head concept, we can further reduce the computation cost.
-The number of head concept pairs is obviously significantly smaller than that of the concept pair and that of entity pairs. Because most concepts are tail concepts with long modifiers. Head concept allows us to find the limited number of relationships without handling the huge number of long-tailed concepts and their entities. 
+The number of head concept pairs is obviously significantly smaller than that of the concept pair and that of entity pairs. Because most concepts are tail concepts with long modifiers. Head concept allows us to find the limited number of relationships without handling the huge number of long-tailed concepts and their entities.
 
 \paragraph{Conceptualization into Head Concepts}
 
 Given a head concept $c_h$, we need to estimate $p(c_h|e)$. However, we are likely underestimate $p(c_h|e)$ because in genereal there is no sufficient direct isA relationships from entity $e$ to the head concept $c_h$. We illustrate this in Example~\ref{exa:conc}. For our task, we only need relatively general concepts(a.k.a. head concepts).
 \begin{example}[Underestimation of head concept]
 \label{exa:conc}
-Consider the entity \ac{Mona Lisa}. Its concepts in Probase include \ac{\{painting, famous painting, world's most famous painting\}}. The frequency between \ac{Mona Lisa} and each concept are\term{33,8,1}, respectively. The isA link from \at{Mona Lisa} and \ac{Painting} is missing since we always talk about \at{Mona Lisa} as a famous painting. Directly using the data in Probase, we have $$P(\ac{Painting}|\at{\text{Mona Lisa}})=0$$, which is obviously an underestimation. 
+Consider the entity \ac{Mona Lisa}. Its concepts in Probase include \ac{\{painting, famous painting, world's most famous painting\}}. The frequency between \ac{Mona Lisa} and each concept are\term{33,8,1}, respectively. The isA link from \at{Mona Lisa} and \ac{Painting} is missing since we always talk about \at{Mona Lisa} as a famous painting. Directly using the data in Probase, we have $$P(\ac{Painting}|\at{\text{Mona Lisa}})=0$$, which is obviously an underestimation.
 \end{example}
 
 
-For each entity $e$, we first retrieve all concepts of $e$ in Probase. Let the set of these concepts be $C(e)$. Then, we reduce $C(e)$ to $\bar{C}(e)$ so that each concept in $\bar{C}(e)$ contains all head concepts of each concept in $C(e)$. \yh{We identify the head concept by ... .}. We denote each head concept as $c_h$ and the concept with modifiers as $c_{l}$ are the rest. Our problem is reduced to the recalculation of the probability $P({c_h}|e)$.
+For each entity $e$, we first retrieve all concepts of $e$ in Probase. Let the set of these concepts be $C(e)$. Then, we reduce $C(e)$ to $\bar{C}(e)$ so that each concept in $\bar{C}(e)$ contains all head concepts of each concept in $C(e)$. \yh{We identify the head concept by syntax-based patterns~\cite{ponzetto2007deriving} for NP .}. We denote each head concept as $c_h$ and the concept with modifiers as $c_{l}$ are the rest. Our problem is reduced to the recalculation of the probability $P({c_h}|e)$.
 \yh{in experiments, we should compare the baseline that directly use concepts instead of head concepts.}
 
 
