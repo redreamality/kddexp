@@ -33,7 +33,7 @@ Consider the entity \ac{Mona Lisa}. Its concepts in Probase include \ac{\{painti
 \end{example}
 
 
-For each entity $e$, we first retrieve all concepts of $e$ in Probase. Let the set of these concepts be $C(e)$. Then, we reduce $C(e)$ to $\bar{C}(e)$ so that each concept in $\bar{C}(e)$ contains all head concepts of each concept in $C(e)$. \yh{We identify the head concept by syntax-based patterns~\cite{ponzetto2007deriving} for NP .}. We denote each head concept as $c_h$ and the concept with modifiers as $c_{l}$ are the rest. Our problem is reduced to the recalculation of the probability $P({c_h}|e)$.
+For each entity $e$, we first retrieve all concepts of $e$ in Probase. Let the set of these concepts be $C(e)$. Then, we reduce $C(e)$ to $\bar{C}(e)$ so that each concept in $\bar{C}(e)$ contains all head concepts of each concept in $C(e)$. \yh{We identify the head concept by syntax-based patterns~\cite{ponzetto2007deriving} for noun phrases }. We denote each head concept as $c_h$ and the concept with modifiers as $c_{l}$ are the rest. Our problem is reduced to the recalculation of the probability $P({c_h}|e)$.
 \yh{in experiments, we should compare the baseline that directly use concepts instead of head concepts.}
 
 

@@ -77,7 +77,15 @@ Combining all these together, the ultimate optimization objective is described i
 
 
 \subsection{Solution Framework}
-The main framework consists of two major components: the online computation and offline computation, which is illustrated in Figure. \yh{give a solution framework figure}
+The main framework consists of two major components: the online computation and offline computation, which is illustrated in Figure.~\ref{fig:framework} \yh{give a solution framework figure}
+
+\begin{figure}[!hptb]
+\label{fig:framework}
+\centering
+\epsfig{file=resources/framework.eps,width=\columnwidth}
+\caption{Framework }
+\end{figure}
+
 
 In the offline component, we estimate all the probabilities that are independent of a specific entities pairs, including $s(c_1,c_2)$ and $P((c_{1},c_{2})|a)$ for each $a\in A$.
 We leverage the DBpedia triples to learn these probabilities.
@@ -87,6 +95,27 @@ The online component accepts an entity pair $<e_1, e_2>$ as the query and calcul
 
 \paragraph{Paper Orgnization}
 The rest of the paper is organized as follows, Section~\ref{sec:conceptualization} describe how to derive $P(c|e)$ leveraging the \xch{basicness} of concept, Section~\ref{sec:fafa} is devoted to the offline calculation of $JD(c_1,c_2)$ and $P((c_{1},c_{2})|a)$.
+
+
+\subsection{Notation Table}
+\begin{table}[htbp]
+  \centering
+  \caption{Notation Table}
+    \begin{tabular}{rr}
+    \toprule
+    notation & meaning \\
+    \midrule
+    $a$     & attribute \\
+    $e_i$  & entity \\
+    $c_i$  & concept \\
+    $n(\cdot)$  & CountOf \\
+    $c_h$  & head concept \\
+    $c_l$  & long concept \\
+    \bottomrule
+    \end{tabular}%
+  \label{tab:notation}%
+\end{table}%
+
 
 %First,we do conceptualization.
 %
