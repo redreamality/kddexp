@@ -6,9 +6,7 @@ We use Probase, a web-scale taxonomy, for the computation. We first briefly intr
 
 \subsection{Problem Statement}
 \yh{Probase exploit Hearst patterns to extract isA relations from 1.68 billion web pages . For example, it extracts evidence for the claim \at{IBM \isa company, Nokia \isa company} from sentence \at{...\ac{companies} such as \ac{IBM, Nokia}...}
-is an instance of the concept president. The core version
-of Probase contains 3,024,814 unique concepts, 6,768,623
-unique instances, and 29,625,920 isA relations.}
+The core version of Probase contains 3,024,814 unique concepts, 6,768,623 unique instances, and 29,625,920 isA relations.}
 
 Given an entity $e$, from Probase, we can acquire its concepts' set $C(e)$. For each $c_i \in C$, the frequency $n(c_i,e)$ can be accordingly derived, which means how many times the $e$ isA $c$ can be observed from the corpus. The frequency information allows us to estimate  $P(c|e)$ by
 $$P(c|e)=\frac{n(c,e)}{\sum_{c_i\in C(e)}n(c_i, e)}$$
@@ -29,7 +27,7 @@ The number of head concept pairs is obviously significantly smaller than that of
 Given a head concept $c_h$, we need to estimate $p(c_h|e)$. However, we are likely underestimate $p(c_h|e)$ because in genereal there is no sufficient direct isA relationships from entity $e$ to the head concept $c_h$. We illustrate this in Example~\ref{exa:conc}. For our task, we only need relatively general concepts(a.k.a. head concepts).
 \begin{example}[Underestimation of head concept]
 \label{exa:conc}
-Consider the entity \ac{Mona Lisa}. Its concepts in Probase include \ac{\{painting, famous painting, world's most famous painting\}}. The frequency between \ac{Mona Lisa} and each concept are\term{33,8,1}, respectively. The isA link from \at{Mona Lisa} and \ac{Painting} is missing since we always talk about \at{Mona Lisa} as a famous painting. Directly using the data in Probase, we have $$P(\ac{Painting}|\at{\text{Mona Lisa}})=0$$, which is obviously an underestimation.
+Consider the entity \ac{horse}. Its concepts in Probase include \ac{\{painting, famous painting, world's most famous painting\}}. The frequency between \ac{Mona Lisa} and each concept are\term{33,8,1}, respectively. The isA link from \at{Mona Lisa} and \ac{Painting} is missing since we always talk about \at{Mona Lisa} as a famous painting. Directly using the data in Probase, we have $$P(\ac{Painting}|\at{\text{Mona Lisa}})=0$$, which is obviously an underestimation.
 \end{example}
 
 
