@@ -27,7 +27,7 @@ The number of head concept pairs is obviously significantly smaller than that of
 Given a head concept $c_h$, we need to estimate $p(c_h|e)$. However, we are likely underestimate $p(c_h|e)$ because in genereal there is no sufficient direct isA relationships from entity $e$ to the head concept $c_h$. We illustrate this in Example~\ref{exa:conc}. For our task, we only need relatively general concepts(a.k.a. head concepts).
 \begin{example}[Underestimation of head concept]
 \label{exa:conc}
-Consider the entity \ac{mona lisa}. Its concepts in Probase include \ac{\{painting, famous painting, world's most famous painting\}}. The frequency between \ac{Mona Lisa} and each concept are\term{33,8,1}, respectively. The isA link from \at{Mona Lisa} and \ac{Painting} is missing since we always talk about \at{Mona Lisa} as a famous painting. Directly using the data in Probase, we have $$P(\ac{Painting}|\at{\text{Mona Lisa}})=0$$, which is obviously an underestimation.
+Consider the entity \ac{Thomas Watson},by whom \ac{IBM} was founded. Its concepts in Probase include \ac{\{success leader,modern day entrepreneur,... \}}. The isA link from \at{Thomas Watson} to \at{entrepreneur} is however missing since we always refer to \at{Thomas Watson} as a modern day entrepreneur. Directly using the data in Probase, we have $$P(\ac{entrepreneur}|\at{\text{Thomas Watson}})=0$$, which is obviously an underestimation.
 \end{example}
 
 

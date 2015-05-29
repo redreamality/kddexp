@@ -18,23 +18,26 @@ According to $P(c_1,c_2|e_1,e_2)$, we can only at concept level indicate the imp
 \xch{(c1,c2) is only one aspect, any other factor can affect the relation?}
 
 
-One simple version of the objective function derived from Eq.~\ref{eq:target_expand_all} is Eq.~\ref{eq:simple_obj}
+One simple version of the objective function derived from Eq.~\ref{eq:target_expand_all} is equal to Eq.~\ref{eq:simple_obj} when Eq.~\ref{eq:rel_jdp} holds, where we consider $s(c_1,c_2)$ to be how likely the two concepts are going to co-occur.
 
 \begin{equation}
 \label{eq:simple_obj}
- \argmax_a \sum_{c_i\in C_1, c_j\in C_2} p((c_{i},c_{j})|a) P(a) P(c_i|e_1) P(c_j|e_2) 
+ \argmax_a \sum_{c_i\in C_1, c_j\in C_2} p((c_{i},c_{j})|a) P(a) P(c_i|e_1) P(c_j|e_2)
 \end{equation}
-
-  when Eq.~\ref{eq:rel_jdp} holds, where we consider $s(c_1,c_2)$ to be how likely the two concepts are going to join
 
 \begin{equation}\label{eq:rel_jdp}
   s(c_1,c_2) = \sum{ P((c_{1},c_{2})|a^*) \times P(a^*)}
 \end{equation}
 
+Eq.~\ref{eq:simple_obj} means finding the most probable attribute of $(e_1,e_2)$ by looking at their best concept pair, and find the most probable attribute given the concept pair.
 
 
 
 \subsection{Calculating $P((c_{h1},c_{h2})|a)$ }
+
+
+Given a set of concept pairs (${c_h}_1$,${c_h}_2$), where ${c_h}_1\in C_1$ and ${c_h}_2\in C_2$, we want to find a set of attributes A, where for each $a \in A$:
+we can form a (${c_h}_1$,$a$,${c_h}_2$) pair which best describe the relationship between ${c_h}_1$ and ${c_h}_2$.
 
 \begin{example}[Calculating $P(({c_h}_{1},{c_h}_{2}) |a)$]
 \label{exa:pggga}
@@ -42,15 +45,10 @@ As illustrated in Fig.~\ref{fig:bipartite}, the process of calculating $P(({c_h}
 \end{example}
 
 
-\xch{insert a graph}
 \begin{figure}[!htb]
-\centering \epsfig{file=resources/bipartite.eps,width=2.5in}
-\caption{Calculating $P(({c_h}_{1},{c_h}_{2}) |a$ for \term{}} \label{fig:bipartite}
+\centering \epsfig{file=resources/ceaec.eps,width=\columnwidth}
+\caption{Calculating $P(({c_h}_{1},{c_h}_{2}) |a) $ for \term{FoundedBy}} \label{fig:bipartite}
 \end{figure}
-
-Given a set of concept pairs (${c_h}_1$,${c_h}_2$), where ${c_h}_1\in C_1$ and ${c_h}_2\in C_2$, we want to find a set of attributes A, where for each $a \in A$:
-we can form a (${c_h}_1$,$a$,${c_h}_2$) pair which best describe the relationship between ${c_h}_1$ and ${c_h}_2$.
-
 
 
 For a certain attribute $a_k$, there are many entity pairs of the attribute.
