@@ -5,6 +5,8 @@ In this section, we give our solution to compute $P(c|e_i)$, the probability tha
 We use Probase, a web-scale taxonomy, for the computation. We first briefly introduce Probase and give a direct solution. However, the direct conceptualization solution ignores the unique setting of relationship explanation. We will analyze the problems caused by our problem setting then give an improved version.problem here is that
 
 \subsection{Problem Statement}
+Given an entity, our target in this section is to find its rich probabilistic representation by concepts. The \term{type} information from knowledge database such as Yago, DBpedia can be utilized to represent concepts as an option, nevertheless, we envision that applying probabilistic representation such as using concepts in \ac{Probase} will fit our problem better.
+
 \yh{Probase exploit Hearst patterns to extract isA relations from 1.68 billion web pages . For example, it extracts evidence for the claim \at{IBM \isa company, Nokia \isa company} from sentence \at{...\ac{companies} such as \ac{IBM, Nokia}...}
 The core version of Probase contains 3,024,814 unique concepts, 6,768,623 unique instances, and 29,625,920 isA relations.}
 
