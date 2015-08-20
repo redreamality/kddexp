@@ -1,17 +1,29 @@
 \section{Introduction}
 
 
-Semantifying web documents is a huge task. Recently, more and more hyperlinked documents emerge. There are almost semi-structured information everywhere, but unfortunately the links lacks an explanation of why they are connected, and why human may consider them related[]. The types of hyperlink are article to article, article to knowledge base(or encyclopedia-like databases). Each link has two ends the original one(the web page/ entity page contains it) and the oriented one(the web page/ entity page it points to), and each end has 2 possible types, an anchor url or an anchor entity. Hence, in all there are 4 possible combinations, which consists the 4 type of links.
-An anchor entity can be named entities such as movies, products, people names, locations etc. In this case we explain the relation between the entity and the original article. As for an anchor url, an automatic target entity extraction process[2011] can be performed, and then it become another semantifying problem between entities.
+Semantifying the hyperlinks in web documents is a huge task. 
+Recently, more and more semi-structured documents emerge. 
+There are almost hyperlinked information everywhere, but unfortunately the links lacks an explanation of why they are connected, and why human may consider them related[]. 
+Specially, in Wikipedia, the relationship between entities are organized as hyperlinked entities.
+%The types of hyperlink are article to article, article to knowledge base(or encyclopedia-like databases). Each link has two ends the original one(the web page/ entity page contains it) and the oriented one(the web page/ entity page it points to), and each end has 2 possible types, an anchor url or an anchor entity. Hence, in all there are 4 possible combinations, which consists the 4 type of links.
+%An anchor entity can be named entities such as movies, products, people names, locations etc. In this case we explain the relation between the entity and the original article. As for an anchor url, an automatic target entity extraction process[2011] can be performed, and then it become another semantifying problem between entities.
+
+Various tasks can benefit from semantified hyperlinks.
+For machines, having the initial guess of the semantic relations can be potentially helpful. 
+Many relation explanation tasks~\cite{fang2011rex,nakashole2012discovering,voskarideslearning} use semantified links in knowledge graph as input.
+For semantic role labeling~\cite{palmer2010semantic} and selectional preference~\cite{pantel2007isp} and textual entailment~\cite{androutsopoulos2010survey} tasks under knowledge intensive circumstances~\cite{yao2012unsupervised,exner2011using}, knowing the semantic relationship between entities will make a differnce.
+On the other hand, for readership, knowing how are the hyper-linked entities related with the source entity can be extremely helpful when sentences might sometimes be prolix and obscure.
+
+%In this paper we focus on the problem of semantifying the first type of hyperlinks since other kinds of links can finally be deduced to this problem.
+
+Our core idea is to utilize knowledge graph(i.e. \ac{Probase} and \ac{DBpedia}) and acquire a probabilistic distribution in concept-concept space between entity pairs for each attribute. 
+For example, the relationship {\tt ArtistOf} in \ac{DBpedia} will be correct in the tuple of {\tt(Leonardo Da Vinci, artist of, Mona Lisa)} [{\tt("Human", ArtistOf, "Painting")}] and will be never correct in the tuple of {\tt ("Automobile", ArtistOf, Painting)} [e.g.{\tt(BMW i8, ArtistOf, Mona Lisa )}]. 
+Then we infer which attribute would be likely to occur given a new entity pair. 
+
+Challenges are as follows: 
 
 
-For machines, having the initial guess of the semantic relations can be potentially helpful towards NLP tasks such as selectional preference[],and semantic role labeling[].
-
-
-In this paper we focus on the problem of semantifying the first type of hyperlinks since other kinds of links can finally be deduced to this problem.
-
-We argue that the context of an entity in an article is informative[] and deserve a higher occurrence[] and can produce fresh and latest relation of an entity, which can be useful in updating the KB[reverb]. In our approach the relations is not necessarily to be exist, however the cluster of the relation[relation clustering] it belongs to should be conceptually right. For instance, the relationship {\tt artist of} will be correct in the tuple of {\tt(Leonardo Da Vinci, artist of, Mona Lisa)} [{\tt(Human, artist of, Painting)}] and will be never correct in the tuple of {\tt (Automobile, artist of, Painting)} [e.g.{\tt(BMW i8,artist of, Mona Lisa )}]
-With rich context and large knowledge base, we can easily derive the fresh context relations and the concept of each entity,
+We argue that the context of an entity in an article is informative[] and deserve a higher occurrence[] and can produce fresh and latest relation of an entity, which can be useful in updating the KB[reverb]. In our approach the relations is not necessarily to be exist, however the cluster of the relation[relation clustering] it belongs to should be conceptually right. With rich context and large knowledge base, we can easily derive the fresh context relations and the concept of each entity,
 
 On the other hand, we consider the co-occurrence of the 2 entities, based on the assumption of important relationship will be observed in various of documents[]
 
