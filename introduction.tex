@@ -11,7 +11,8 @@ Specially, in Wikipedia, the relationship between entities are organized as hype
 Various tasks can benefit from semantified hyperlinks.
 For machines, having the initial guess of the semantic relations can be potentially helpful. 
 Many relation explanation tasks~\cite{fang2011rex,nakashole2012discovering,voskarideslearning} use semantified links in knowledge graph as input.
-For semantic role labeling~\cite{palmer2010semantic} and selectional preference~\cite{pantel2007isp} and textual entailment~\cite{androutsopoulos2010survey} tasks under knowledge intensive circumstances~\cite{yao2012unsupervised,exner2011using}, knowing the semantic relationship between entities will make a differnce.
+In question answering systems~\cite{yang2014slq}, knowing the semantic information about the links in knowledge graph will largely reduce the search space.
+Other NLP tasks such as semantic role labeling~\cite{palmer2010semantic}, selectional preference~\cite{pantel2007isp} and textual entailment~\cite{androutsopoulos2010survey} taks under knowledge intensive circumstances~\cite{yao2012unsupervised,exner2011using}, knowing the semantic relationship between entities will make a differnce.
 On the other hand, for readership, knowing how are the hyper-linked entities related with the source entity can be extremely helpful when sentences might sometimes be prolix and obscure.
 
 %In this paper we focus on the problem of semantifying the first type of hyperlinks since other kinds of links can finally be deduced to this problem.
@@ -21,10 +22,13 @@ For example, the relationship {\tt ArtistOf} in \ac{DBpedia} will be correct in 
 Then we infer which attribute would be likely to occur given a new entity pair. 
 
 Challenges are as follows: 
+C1.Finding the correct concept pair of the entity pair.
+C2.Finding the most plausible relation from the concept pair.
 
+%We argue that the context of an entity in an article is informative[] and deserve a higher occurrence[] and can produce fresh and latest relation of an entity, which can be useful in updating the KB[reverb]. 
 
-We argue that the context of an entity in an article is informative[] and deserve a higher occurrence[] and can produce fresh and latest relation of an entity, which can be useful in updating the KB[reverb]. In our approach the relations is not necessarily to be exist, however the cluster of the relation[relation clustering] it belongs to should be conceptually right. With rich context and large knowledge base, we can easily derive the fresh context relations and the concept of each entity,
+%In our approach the relations is not necessarily to be exist, however the cluster of the relation[relation clustering] it belongs to should be conceptually right. With rich context and large knowledge base, we can easily derive the fresh context relations and the concept of each entity,
 
-On the other hand, we consider the co-occurrence of the 2 entities, based on the assumption of important relationship will be observed in various of documents[]
+%On the other hand, we consider the co-occurrence of the 2 entities, based on the assumption of important relationship will be observed in various of documents[]
 
 For these reasons, we purpose a relation explanation method leveraging the concept and co-occurrence of and entity, to explain the relation between the target entity and the related entity, thus semantifying the hyperlink.
