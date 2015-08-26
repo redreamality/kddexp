@@ -5,7 +5,7 @@ Semantifying the hyperlinks in web documents is a huge task.
 Recent years have witnessed the booming of semi-structured documents, especially online encyclopedia such as  Wikipedia~\footnote{\small\url{http://www.wikipedia.org}}, which serves important roles in offering knowledge services.
 {\it Wikipedia.org} is consistently among the top 10 most visited websites according to Alexa Traffic Ranks~\footnote{\small\url{http://www.alexa.com/siteinfo/http://www.wikipedia.org}}.
 There are almost hyperlinked information everywhere in Wikipedia, but unfortunately the links lacks an direct explanation of why they are connected.
-The relationship between entities are organized as hyperlinked entities. 
+The relationship between entities are organized as hyperlinked entities.
 Currently, there are 968 million of unique links between Wikipedia entities, only 15 million~\footnote{Using attribute data from DBpedia~\cite{dbpedia}.} of which have semantic explanation.
 %The types of hyperlink are article to article, article to knowledge base(or encyclopedia-like databases). Each link has two ends the original one(the web page/ entity page contains it) and the oriented one(the web page/ entity page it points to), and each end has 2 possible types, an anchor url or an anchor entity. Hence, in all there are 4 possible combinations, which consists the 4 type of links.
 %An anchor entity can be named entities such as movies, products, people names, locations etc. In this case we explain the relation between the entity and the original article. As for an anchor url, an automatic target entity extraction process[2011] can be performed, and then it become another semantifying problem between entities.
@@ -19,15 +19,24 @@ On the other hand, for readership, knowing how are the hyper-linked entities rel
 
 %In this paper we focus on the problem of semantifying the first type of hyperlinks since other kinds of links can finally be deduced to this problem.
 
-Our core idea is to utilize knowledge graph(i.e. \ac{Probase} and \ac{DBpedia})to predict the semantic label of the link between entities by representing entity pairs in a rich concept-concept space for each attribute.
-For instance, after thousands of tuples like {\tt(Leonardo Da Vinci, ArtistOf, Mona Lisa)} are trained to learn the concept-concept space, a new pair of entity co-occurs, whose relation is not in the knowledge base, with the concept pair like \at{(artist, painting)}, will be with a high probability having the \at{ArtistOf} relation.
+In this paper, our core idea is to utilize knowledge graph(i.e. \ac{Probase} and \ac{DBpedia})to predict the semantic label of the link between entities by representing entity pairs in a rich concept-concept space for each attribute.
+For instance, after thousands of tuples like $$(Leonardo Da Vinci, ArtistOf, Mona Lisa)$$ are trained to learn the concept-concept space, a new pair of entity co-occurs, whose relation is not in the knowledge base, with the concept pair like \at{(artist, painting)}, will be with a high probability having the \at{ArtistOf} relation.
 We envision that the concept space plays an important role in attribute finding.
 For example, the relationship {\tt ArtistOf} in \ac{DBpedia} will be correct in the tuple of {\tt(Leonardo Da Vinci, ArtistOf, Mona Lisa)} [{\tt("Human", ArtistOf, "Painting")}] and will be never correct in the tuple of {\tt ("Automobile", ArtistOf, Painting)} [e.g.{\tt(BMW i8, ArtistOf, Mona Lisa )}].
-Then we infer which attribute would be likely to occur given a new entity pair.
+Then we infer what kind of attributes would be likely to occur given a new entity pair.
 
 Challenges are as follows:
-C1.Finding the correct concept pair of the entity pair.
-C2.Finding the most plausible relation from the concept pair.
+\begin{description}
+  \item[C1] Entity Representation.
+  Finding the most plausible concept pairs for the entity pair is hard due to the sparsity of concepts.
+  The average number of parent concept~\cite{wu2012probase} for an entity is 1.04 in Yago and 2.33 in Probase.
+  Furthermore, an complete representation need to include probability information to reflect typicality rather than black-or-white assertion of the type.
+  \item[C2] Large search space.
+  Finding the most plausible relation for the concept pair distribution is time consuming due to the large concept pair space.
+  The exact inference requires to find maximal value from a C-C space that has over 4 trillion concepts' combination(probase has 2 million concepts )
+\end{description}
+
+
 
 %We argue that the context of an entity in an article is informative[] and deserve a higher occurrence[] and can produce fresh and latest relation of an entity, which can be useful in updating the KB[reverb].
 
@@ -36,3 +45,15 @@ C2.Finding the most plausible relation from the concept pair.
 %On the other hand, we consider the co-occurrence of the 2 entities, based on the assumption of important relationship will be observed in various of documents[]
 
 For these reasons, we purpose a relation explanation method leveraging the concept and co-occurrence of and entity, to explain the relation between the target entity and the related entity, thus semantifying the hyperlink.
+%To summarize, our paper has following contributions:
+%\begin{itemize}
+%  \item
+%  \item 
+%\end{itemize}
+
+The rest of the paper is organized as follows.
+Section~\ref{sec:rel} surveys the related works.
+Section~\ref{sec:framework} presents a detailed problem statement our framework for entity relation finding.
+Section~\ref{sec:conceptualization} describes how we do conceptualization to map entities into a concept-concept space.
+Section~\ref{sec:fafa} unfolds how we retrieve the most plausible relationship for the concept pair.
+We perform various of experiment in section~\ref{sec:exp} and conclude in section~\ref{sec:conclusion}.

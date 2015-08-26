@@ -1,13 +1,8 @@
 \section{Related Works}
+\label{sec:rel}
 %improves: incrementally training the entity-concepts so that it can model time varying attributes.(phone,manufacturer,company)--after2007-->(smartphone ，manufacturer,company)
-
-
-
-
 %perform NER~\cite in the document to link the entities.
-
-\subsection{Relation Explanation}
-
+%\subsection{Relation Explanation}
 
 Various of efforts are devoted to relation explanation.
 Blanco et al.~\cite{blanco2010finding} study the problem of finding support sentences to explain the relationship between a named entity and an ad-hoc query.
@@ -16,37 +11,39 @@ Voskarides et al.~\cite{voskarideslearning} models the problem of explaining rel
 All these tasks takes the relation between entities as given input from knowledge graph, in this paper, we retrieve the most probable relation for a given entity pair.
 
 Relation extraction is a well-studied task.
-These approaches 
-~\cite{shahaf2010connecting,luo2007answering} are on graph based approaches and text based approaches~\cite{hasegawa2004discovering}[reverb].
-\xch{~\cite{nakashole2013discovering,nakashole2012discovering,konstantinova2014review}}
-%However, these approached will be limited largely by the incompletion of Knowledge Base, and cannot discover new of relations.
-In our work, we focus on semantic relations of entity by leveraging the concepts of entity. extracted from knowledge bases to link entities with a probability.
+Many efforts are devoted to extracting relations from sentence.
+Early work~\cite{hearst1992automatic,brin1999extracting,agichtein2000snowball} and some wiki-based~\cite{ponzetto2008wikitaxonomy} approaches applies hand-crafted patterns.
+supervised classification~\cite{doddington2004automatic,guodong2005exploring} and distant learning~\cite{craven1999constructing,wu2007autonomously,bunescu2007learning,mintz2009distant}.
+Recent effort~\cite{angeli2014combining} applied active learning and combines distant and partial supervision.
+These efforts, including NELL are based on  fixed set of prespecified relations.
+Another type of relation extraction is open relation extraction~\cite{banko2007open}, such as Reverb~\cite{fader2011identifying}, OLLIE~\cite{schmitz2012open} are unsupervised approaches extracting relations from plain text.
+PATTY~\cite{nakashole2012patty} also extract open relational patterns from wikipedia and organize them into a taxonomy.
+Our main difference from all of the approaches is that, our input is entity pair instead of sentences.
+Our relation set is also fixed, specifically the ones in DBpedia~\cite{auer2007dbpedia}.
+Our work is closely related to generative models, instead of the latent variables used in Rel-LDA model in~\cite{yao2011structured}, we use rich concepts to represent entities, though our tasks are different.
 
 
-\subsection{Link Label Prediction}
 
-Link Label Prediction~\cite{agrawal2013link} 
+%\subsection{Link Label Prediction}
 
-\subsection{Information Extraction}
+%Link Label Prediction~\cite{agrawal2013link}
 
-Attribute acquisition methods
-Among domain-dependent approaches, we can mention approaches that focus on products. In this domain, attributes have been used to improve product search and recommendation [18, 22], but also to enable data mining [27]
-
-Attribute retrieval provides another granularity in Web
-search. This can interest communities that propose a more
-focused access to information or communities that envision
-aggregating pieces of information such as aggregated search
-[19, 15].
-Wong et al. [27]
-combine tags and textual features in a Conditional Random
-Fields model to learn attribute extraction rules, but they
-need a seed of relevant documents manually fed.
+%\subsection{Information Extraction}
+%
+%Attribute acquisition methods
+%Among domain-dependent approaches, we can mention approaches that focus on products. In this domain, attributes have been used to improve product search and recommendation [18, 22], but also to enable data mining [27]
+%
+%Attribute retrieval provides another granularity in Web
+%search. This can interest communities that propose a more
+%focused access to information or communities that envision
+%aggregating pieces of information such as aggregated search
+%[19, 15].
 
 
-\subsection{Link entities to Database}
+%\subsection{Link entities to Database}
+%
+%Linking entities to database, especially to Wikipedia, has been widely studied. Entity linking to Wikipedia~\cite{milne2008learning,mihalcea2007wikify,han2011collective} exploit Wikipedia as thesaurus and link web documents to it.
+%In our work, instead of linking entities to the correspond one in KB, we extract the target entity~\cite{dalvi2011automatic} and explain the semantic relation of the entity towards target entity.
 
-Linking entities to database, especially to Wikipedia, has been widely studied. Entity linking to Wikipedia~\cite{milne2008learning,mihalcea2007wikify,han2011collective} exploit Wikipedia as thesaurus and link web documents to it.
-In our work, instead of linking entities to the correspond one in KB, we extract the target entity~\cite{dalvi2011automatic} and explain the semantic relation of the entity towards target entity.
 
-
-\subsection{Short Text Conceptualization}
+%\subsection{Short Text Conceptualization}
