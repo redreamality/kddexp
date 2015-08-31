@@ -5,12 +5,16 @@ In this section, we give our solution to compute $P(c|e_i)$, the probability tha
 We use Probase, a web-scale taxonomy, for the computation. We first briefly introduce Probase and give a direct solution. However, the direct conceptualization solution ignores the unique setting of relationship explanation. We will analyze the problems caused by our problem setting then give an improved version.problem here is that
 
 \subsection{Problem Statement}
-Given an entity, our target in this section is to find its rich probabilistic representation by concepts. The \term{type} information from knowledge database such as Yago, DBpedia can be utilized to represent concepts as an option, nevertheless, we envision that applying probabilistic representation such as using concepts in \ac{Probase} will fit our problem better.
+Given an entity, our target in this section is to find its rich probabilistic representation by concepts. 
+The \term{type} information from knowledge database such as Yago, DBpedia can be utilized to represent concepts as an option, nevertheless, we envision that applying probabilistic representation such as using concepts in \ac{Probase} will fit our problem better.
 
-\yh{Probase exploit Hearst patterns to extract isA relations from 1.68 billion web pages . For example, it extracts evidence for the claim \at{IBM \isa company, Nokia \isa company} from sentence \at{...\ac{companies} such as \ac{IBM, Nokia}...}
-The core version of Probase contains 3,024,814 unique concepts, 6,768,623 unique instances, and 29,625,920 isA relations.}
+Probase exploit Hearst patterns to extract isA relations from 1.68 billion web pages . 
+For example, it extracts evidence for the claim \at{IBM \isa company, Nokia \isa company} from sentence \at{...\ac{companies} such as \ac{IBM, Nokia}...}
+The core version of Probase contains 3,024,814 unique concepts, 6,768,623 unique instances, and 29,625,920 isA relations.
 
-Given an entity $e$, from Probase, we can acquire its concepts' set $C(e)$. For each $c_i \in C$, the frequency $n(c_i,e)$ can be accordingly derived, which means how many times the $e$ isA $c$ can be observed from the corpus. The frequency information allows us to estimate  $P(c|e)$ by
+Given an entity $e$, from Probase, we can acquire its concepts' set $C(e)$.
+For each $c_i \in C$, the frequency $n(c_i,e)$ can be accordingly derived, which means how many times the $e$ isA $c$ can be observed from the corpus. 
+The frequency information allows us to estimate  $P(c|e)$ by
 $$P(c|e)=\frac{n(c,e)}{\sum_{c_i\in C(e)}n(c_i, e)}$$
 
 
@@ -43,7 +47,7 @@ For each entity $e$, we first retrieve all concepts of $e$ in Probase. Let the s
 Take \term{famous painting} as example. Its original concepts are \term{image, treasure}, which are reasonable but not plausible, since their occurrence are 2 and 1 respectively. However, the most plausible concept \term{painting} is not among the concepts.
 \end{example}
 
-\yh{Rewrite the objective function when we only consider the head concepts}
+%\yh{Rewrite the objective function when we only consider the head concepts}
 
 \paragraph{The main steps}
 Given an entity $e$ from $Probase$, we can get its concepts from probase. First we do head modifier detection based on syntax[], since the concepts in Probase all follows English grammar, this approach already produces a good result. Next, we recalculate the probability of $P({c_h}|e)$ by aggregating the contribution from $c_l$. The essentiality of doing so is illustrated in Example~\ref{exa:recalc}. Finally, we provide a method to take the original isA relation from Probase into consideration.
@@ -117,7 +121,7 @@ where $\sum_{ c_{l}^*\in C_{l} } [P({c_h}|c_{l}^*) ] \times  P(c_{l}^*|e)$ is th
 \label{fig:pgge}
 \centering
 \epsfig{file=resources/bill_gates_isa.eps,width=5.5in}
-\caption{calculating $P({c_h}|\term{Bill Gates})$ }
+\caption{calculating $P({c}|\term{Bill Gates})$ }
 \end{figure*}
 
 
