@@ -37,7 +37,7 @@ Consider the entity \ac{Thomas Watson},by whom \ac{IBM} was founded. Its concept
 \end{example}
 
 
-For each entity $e$, we first retrieve all concepts of $e$ in Probase. Let the set of these concepts be $C(e)$. Then, we reduce $C(e)$ to $\bar{C}(e)$ so that each concept in $\bar{C}(e)$ contains all head concepts of each concept in $C(e)$. \yh{We identify the head concept by syntax-based patterns~\cite{ponzetto2007deriving} for noun phrases }. We denote each head concept as $c_h$ and the concept with modifiers as $c_{l}$ are the rest. Our problem is reduced to the recalculation of the probability $P({c_h}|e)$.
+For each entity $e$, we first retrieve all concepts of $e$ in Probase. Let the set of these concepts be $C(e)$. Then, we reduce $C(e)$ to $\bar{C}(e)$ so that each concept in $\bar{C}(e)$ contains all head concepts of each concept in $C(e)$. We identify the head concept by syntax-based patterns~\cite{ponzetto2007deriving} for noun phrases. We denote each head concept as $c_h$ and the concept with modifiers as $c_{l}$ are the rest. Our problem is reduced to the recalculation of the probability $P({c_h}|e)$.
 \yh{in experiments, we should compare the baseline that directly use concepts instead of head concepts.}
 
 
@@ -117,12 +117,12 @@ P({c_h}|e) = \alpha \hat{P}({c_h}|e)+ (1-\alpha) \sum_{ c_{l}^*\in C_{l} } [P({c
 where $\sum_{ c_{l}^*\in C_{l} } [P({c_h}|c_{l}^*) ] \times  P(c_{l}^*|e)$ is the total probability of $c_h$ considering the isA edges.
 
 
-\begin{figure*}[!hptb]
+\begin{figure}[!hptb]
 \label{fig:pgge}
 \centering
 \epsfig{file=resources/bill_gates_isa.eps,width=5.5in}
 \caption{calculating $P({c}|\term{Bill Gates})$ }
-\end{figure*}
+\end{figure}
 
 
 \nop{

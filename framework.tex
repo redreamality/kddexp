@@ -55,9 +55,13 @@ P(a|(c_{1},c_{2})) &= \frac{ p((c_{1},c_{2})|a)\times P(a) }{ P( (c_{1},c_{2}) )
 \end{equation},
 where $P(a)$ is probability to observe an entity pair with attribute $a$.
 
-All the probabilities can be estimated from the SPO triples\yh{(for example \ac<Bill Gates, board, Microsoft> } in DBPedia.   Let $<e_i, a_k, e_j>$ be an SPO triple in DBPedia.
-The triple means that entity $e_i$ has a attribute $a_k$ with value or object as $e_j$. \yh{we only consider the sop triples with o as entity, this attributes such as \at{height,year} are removed in the first place} Let $E$ be the set of all entities and $A$
-be the set of all attributes. Let $T=\{<e_i, a_k, e_j>|e_i,e_j\in E, a_k\in A\}$ be all triples in DBpedia. For a given attribute $a$, $P(a)$ can be computed by
+All the probabilities can be estimated from the SPO(\ac{<subject, predicate, object>} ) triples such as \ac{<Bill Gates, board, Microsoft>}  in DBPedia.
+Let $<e_i, a_k, e_j>$ be an SPO triple in DBPedia.
+The triple means that entity $e_i$ has a attribute $a_k$ with value or object as $e_j$. 
+We only consider the SPO triples with O as entity, this attributes such as \at{height,year} are removed in the first place.
+Let $E$ be the set of all entities and $A$ be the set of all attributes.
+Let $T=\{<e_i, a_k, e_j> | e_i,e_j\in E, a_k\in A\}$ be all triples in DBpedia. 
+For a given attribute $a$, $P(a)$ can be computed by
 \begin{equation}
 \label{eq:pa}
 P(a)=\frac{n(a)}{\sum_{a_k\in A}{n(a_k)}},
@@ -120,7 +124,7 @@ The concept similarity score in Eq.~\ref{eq:target_expand2_jr}) is retrieved fro
 %\ref{eq:pcca}
 So far we get everything for calculating Eq.~\ref{eq:target_expand2_jr}).
 Then in $step 7$ we query the concept relation database and get the relation between concept pairs, specifically, $P(a|<c_1,c_2>)$ in Eq.~\ref{eq:target_expand1}.
-Finally, we achieve the final object by combining all these together to infer \argmax $P(a|<e_1,e_2>)$ from Eq.~\ref{eq:target_expand_all}.
+Finally, we achieve the final object by combining all these together to infer $\argmax P(a|<e_1,e_2>)$ from Eq.~\ref{eq:target_expand_all}.
 We return the the attribute owning the maximal score as the explanation for the relationship between the entity pair.
 
 When no direct edges are found, we use the shortest path on the concept attribute graph to find the middle concepts, then the problem automatically reduced to relation explanation of several pairs of entities, discussing which is beyond the coverage of this paper.

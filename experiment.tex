@@ -3,10 +3,55 @@
 
 \subsection{Experiment Setup}
 
-Our experiments are carried out using DBpedia2014[] and Probase[]. We draw entities and their relationships from DBpedia, and the concept infomation from Probase.
+Our experiments are carried out using DBpedia2014~\cite{dbpedia} and Probase~\cite{wu2012probase}. We draw entities and their relationships from DBpedia, and the concept infomation from Probase.
 
 \subsection{Evaluation}
-In
+In this subsection we evaluate our ERF system by several means.
+Given 2 entities, our system produce the most plausible topK relation between the 2 entities.
+Hence we use $nDCG@K$ and $Precision@K$ to as our evaluation metric.
+
+The result is shown in Table~\ref{tab:ndcg}.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Evaluation Result}
+    \begin{tabular}{rr}
+    \toprule
+    mesure & value \\
+    \midrule
+    nDCG@3 & 0.945 \\
+    nDCG@5 & 0.941 \\
+    precision@3 & 0.88 \\
+    precision@5 & 0.76 \\
+    MAP@3 & 0.902 \\
+    MAP@5 & 0.907 \\
+
+    \bottomrule
+    \end{tabular}%
+  \label{tab:ndcg}%
+\end{table}%
+
+
+We use the direct retrieval as a baseline.
+We randomly select 50 paragraph, and take only the abstract part.
+We consider the linked entities as the right part of the relation explanation input and source entity as the left part.
+Compared with baseline, i.e. DBpedia original(we assume 0 if the entity has no relation can be retrieved from database and otherwise 1), our ERF method improves the precision by 15.77%.
+The result is reported in Table~\ref{tab:precision_compare}
+
+\begin{table}[htbp]
+  \centering
+  \caption{Precision@1 Compared With Baseline}
+    \begin{tabular}{rrr}
+    \toprule
+         & P@1  & \%Improv. \\
+    \midrule
+    Dbpedia direct & 0.64 & -- \\
+    ERF  & 0.83 & 15.77 \\
+    \bottomrule
+    \end{tabular}%
+  \label{tab:precision_compare}%
+\end{table}%
+
 
 
 \subsection{Head Concept Vs Original Concept}
