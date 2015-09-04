@@ -1,5 +1,5 @@
 \section{Experiment}
-\label{sec:exp}  
+\label{sec:exp}
 
 \subsection{Experiment Setup}
 
@@ -8,7 +8,7 @@ Our experiments are carried out using DBpedia2014~\cite{dbpedia} and Probase~\ci
 \subsection{Evaluation}
 In this subsection we evaluate our ERF system by several means.
 Given 2 entities, our system produce the most plausible topK relation between the 2 entities.
-Hence we use $nDCG@K$ and $Precision@K$ to as our evaluation metric.
+Hence we use $nDCG@K$, $Precision@K$ and $Mean Reciprocal Rank$  to as our evaluation metric.
 
 The result is shown in Table~\ref{tab:ndcg}.
 
@@ -25,6 +25,8 @@ The result is shown in Table~\ref{tab:ndcg}.
     precision@5 & 0.76 \\
     MAP@3 & 0.902 \\
     MAP@5 & 0.907 \\
+    MRR   & 0.916 \\
+
 
     \bottomrule
     \end{tabular}%
@@ -120,11 +122,11 @@ To further justify the effectiveness of our recalculation of probability, we pre
 
 
 
+
 \subsection{Find alias}
 \subsubsection{compare}
 
 Compare $ P((c_1,c_2 |a ))P(c_1|a) \times P(c_2|a)$
-
 
 
 
