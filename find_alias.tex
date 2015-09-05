@@ -36,15 +36,20 @@ One simple version of the objective function derived from Eq.~\ref{eq:target_exp
 Eq.~\ref{eq:simple_obj} means finding the most probable attribute of $(e_1,e_2)$ by looking at their best concept pair, and find the most probable attribute given the concept pair.
 
 
-\subsection{ Concept Similarity.}
+\subsection{ Concept Joint Ratio.}
 
 $s(c_1,c_2)$ stands for the how likely for $c_1$ and $c_2$ to become a concept pair to depict entity relation.
+This step, as mentioned before, is mainly for concept level disambiguation purpose.
 
 Let $T_n=\{(e_i, a_k, e_j)\}$ be all the triples in the knowledge base.
+Eq.~\ref{eq:pcca} denotes the relation of joint probability of the pair $<c_1,c_2>$ and $a$.
 \begin{equation}
 P(<c_1, c_2>,a) = \frac{1}{|T_n|}\sum_{  (e_{i},a_k,e_{j})\in T_n } P(c_1|e_{i})P(c_2|e_{j})
 \label{eq:pcca}
 \end{equation}
+
+To get $P(<c_1,c_2>)$ i.e( s(c1,c2) ), we sum up all the attributes in Eq.~\ref{eq:pcca}:
+$$ s(c_1,c_2) = \sum_{a\in A} P(<c_1,c_2>,a)  $$
 
 
 
