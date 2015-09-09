@@ -1,30 +1,58 @@
+% !TEX root = main.tex
 \section{Introduction}
-
-
-Semantifying the hyperlinks in web documents is a huge task.
+%Semantifying the hyperlinks in web documents is a huge task.
 Recent years have witnessed the booming of semi-structured documents, especially online encyclopedia such as  Wikipedia~\footnote{\small\url{http://www.wikipedia.org}}, which serves important roles in offering knowledge services.
 {\it Wikipedia.org} is consistently among the top 10 most visited websites according to Alexa Traffic Ranks~\footnote{\small\url{http://www.alexa.com/siteinfo/http://www.wikipedia.org}}.
-There are almost hyperlinked information everywhere in Wikipedia, but unfortunately the links lacks an direct explanation of why they are connected.
-The relationship between entities are organized as hyperlinked entities.
-Currently, there are 968 million of unique links between Wikipedia entities, only 15 million~\footnote{Using attribute data from DBpedia~\cite{dbpedia}.} of which have semantic explanation.
-%The types of hyperlink are article to article, article to knowledge base(or encyclopedia-like databases). Each link has two ends the original one(the web page/ entity page contains it) and the oriented one(the web page/ entity page it points to), and each end has 2 possible types, an anchor url or an anchor entity. Hence, in all there are 4 possible combinations, which consists the 4 type of links.
-%An anchor entity can be named entities such as movies, products, people names, locations etc. In this case we explain the relation between the entity and the original article. As for an anchor url, an automatic target entity extraction process[2011] can be performed, and then it become another semantifying problem between entities.
+Wikipedia is flooded with hyperlinks, which interconnect the Wikipedia articles.
+In general, one article contains a hyperlink to another article because the entities corresponding to the articles has a certain semantic relationship.
+But unfortunately why the two articles are hyperlinked remains unknown.
+
+\subsection{Problem Statement}
+In this paper, we dedicated our effort to {\it semantifying the hyperlinks in Wikipedia}.
+That is explicitly explaining the relationship between the entity pairs such that their article pairs are hyperlinked with each other. 
+% such that ?
+For example in the Wikipedia page of \ac{Adolf Hitler}, \ac{World War II} is an entity occurred in the sentence \ac{... Hitler was at the centre of World War II in Europe ...} in the first paragraph.
+%There are many other linked entities, most of which are hyperlinked however don't exist relation in knowledge bases such as DBpedia.
+Since in Wikipedia, an article describes either an entity or a concept. We also use entities or concepts to refer to the articles in Wikipedia. 
 
 Various tasks can benefit from semantified hyperlinks.
 For machines, having the initial guess of the semantic relations can be potentially helpful.
-Many relation explanation tasks~\cite{fang2011rex,nakashole2012discovering,voskarideslearning} use semantified links in knowledge graph as input.
+The establishment of the semantic relationship between two entities can be regarded as an effort to build knowledge graphs.
+The entities as well as their semantic relationships can be utilized as part of the answering graph in graph-based relation explanation tasks`~\cite{fang2011rex} as well as the input of tasks~\cite{voskarideslearning} which returns natural language sentence as explanation.
 In question answering systems~\cite{yang2014slq}, knowing the semantic information about the links in knowledge graph will largely reduce the search space.
-Other NLP tasks such as semantic role labeling~\cite{palmer2010semantic}, selectional preference~\cite{pantel2007isp} and textual entailment~\cite{androutsopoulos2010survey} taks under knowledge intensive circumstances~\cite{yao2012unsupervised,exner2011using}, knowing the semantic relationship between entities will make a differnce.
-On the other hand, for readership, knowing how are the hyper-linked entities related with the source entity can be extremely helpful when sentences might sometimes be prolix and obscure.
+%以上待改
+Other NLP tasks such as semantic role labeling~\cite{palmer2010semantic}, selectional preference~\cite{pantel2007isp} and textual entailment~\cite{androutsopoulos2010survey} tasks under knowledge intensive circumstances~\cite{yao2012unsupervised,exner2011using}, knowing the semantic relationship between entities will make a differnce.
+On the other hand, for readership, knowing how the hyperlinked entities are related with the source entity is extremely helpful to understand the surrounding sentences of the hyperlinked entities.
+
+\subsection{Our Core Idea}
+A direct solution is applying the attributes to explain the entity pairs. 
+Note that DBpedia contains many structured facts of entities or concepts.
+For example, it has the fact \ac{<Leonardo Da Vinci, ArtistOf, Mona Lisa>} which indicates the \ac{ArtistOf} relation between \ac{Leonardo Da Vinci} and \ac{Mona Lisa}.
+Hence, the attribute can be used as the explanation for the two entities.
+However, this naive solution can only explain for only a few entity pairs. 
+Our statistics reveal that there are \emph{ 968 millions} of unique links between Wikipedia entities, only \emph{15 millions} of which can find semantic explanation from DBpedia.
+%The types of hyperlink are article to article, article to knowledge base(or encyclopedia-like databases). Each link has two ends the original one(the web page/ entity page contains it) and the oriented one(the web page/ entity page it points to), and each end has 2 possible types, an anchor url or an anchor entity. Hence, in all there are 4 possible combinations, which consists the 4 type of links.
+%An anchor entity can be named entities such as movies, products, people names, locations etc. In this case we explain the relation between the entity and the original article. As for an anchor url, an automatic target entity extraction process[2011] can be performed, and then it become another semantifying problem between entities.
+
 
 %In this paper we focus on the problem of semantifying the first type of hyperlinks since other kinds of links can finally be deduced to this problem.
-
-In this paper, our core idea is to utilize knowledge graph(i.e. \ac{Probase} and \ac{DBpedia})to predict the semantic label of the link between entities by representing entity pairs in a rich concept-concept space for each attribute.
-For instance, after thousands of tuples like $$(Leonardo Da Vinci, ArtistOf, Mona Lisa)$$ are trained to learn the concept-concept space, a new pair of entity co-occurs, whose relation is not in the knowledge base, with the concept pair like \at{(artist, painting)}, will be with a high probability having the \at{ArtistOf} relation.
+{\it How to improve the recall ?} 
+A key observation is that the relationship is determined by the concept pairs. 
+For instance, after thousands of tuples like \ac{<Leonardo Da Vinci, ArtistOf, Mona Lisa>}, \ac{<Da Li, ArtistOf, Time soft clock>} are trained to learn the concept-concept space, a new pair of entity, for example... emerges, whose relation is not in the knowledge base, will be with a high probability of having the \at{ArtistOf} relation, since the concept pair like \at{(artist, painting)} are detected.
+Thus, we can first learn the concept-attribute-concept (CAC) pattern from the existing entity-attribute-entity (EAE) instances. 
+Then, using the CAC patterns to infer the relationship between a new entity pair or an entity pair with unknown relationship.
+%As an example, from eae..., we learn that the attribute is a good explanation between c1 and c2.
+Thus, for the entity pair whose relationship does not exists in DBpedia, we can successfully infer the best relationship between them is ...
+ 
+We leverage knowledge graph(i.e. \ac{Probase} and \ac{DBpedia})to predict the semantic label of the link between entities by representing entity pairs in a rich concept-concept space for each attribute.
+\ac{Probase} serves the purpose of retrieving entities' concepts and the corresponding typicality.
+\ac{DBpeda} is utilized as training data, from which we get EAE pairs.
+%For instance, after thousands of tuples like $$(Leonardo Da Vinci, ArtistOf, Mona Lisa)$$ are trained to learn the concept-concept space, a new pair of entity co-occurs, whose relation is not in the knowledge base, with the concept pair like \at{(artist, painting)}, will be with a high probability having the \at{ArtistOf} relation.
 We envision that the concept space plays an important role in attribute finding.
 For example, the relationship {\tt ArtistOf} in \ac{DBpedia} will be correct in the tuple of {\tt(Leonardo Da Vinci, ArtistOf, Mona Lisa)} [{\tt("Human", ArtistOf, "Painting")}] and will be never correct in the tuple of {\tt ("Automobile", ArtistOf, Painting)} [e.g.{\tt(BMW i8, ArtistOf, Mona Lisa )}].
 Then we infer what kind of attributes would be likely to occur given a new entity pair.
 
+\subsection{Challenges}
 Challenges are as follows:
 \begin{description}
   \item[C1] Entity Representation.
