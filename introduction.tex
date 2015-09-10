@@ -27,30 +27,32 @@ On the other hand, for readership, knowing how the hyperlinked entities are rela
 \subsection{Our Core Idea}
 A direct solution is applying the attributes to explain the entity pairs. 
 Note that DBpedia contains many structured facts of entities or concepts.
-For example, it has the fact \ac{<Leonardo Da Vinci, ArtistOf, Mona Lisa>} which indicates the \ac{ArtistOf} relation between \ac{Leonardo Da Vinci} and \ac{Mona Lisa}.
-Hence, the attribute can be used as the explanation for the two entities.
-However, this naive solution can only explain for only a few entity pairs. 
-Our statistics reveal that there are \emph{ 968 millions} of unique links between Wikipedia entities, only \emph{15 millions} of which can find semantic explanation from DBpedia.
+For example, it has the SPO (subject-predicate-objec) triples \ac{<Leonardo Da Vinci, ArtistOf, Mona Lisa>} which indicates the predicate \ac{ArtistOf} (which is an attribute of \ac{Leonardo Da Vinci}) can explain the relation between \ac{Leonardo Da Vinci} and \ac{Mona Lisa}.
+However, using attribute as the explanation does not always work due to the sparsity of structured facts. 
+Our statistics reveal that there are \emph{968 millions} of unique links between Wikipedia entities, only \emph{15 millions} of which can find semantic explanation from DBpedia.
 %The types of hyperlink are article to article, article to knowledge base(or encyclopedia-like databases). Each link has two ends the original one(the web page/ entity page contains it) and the oriented one(the web page/ entity page it points to), and each end has 2 possible types, an anchor url or an anchor entity. Hence, in all there are 4 possible combinations, which consists the 4 type of links.
 %An anchor entity can be named entities such as movies, products, people names, locations etc. In this case we explain the relation between the entity and the original article. As for an anchor url, an automatic target entity extraction process[2011] can be performed, and then it become another semantifying problem between entities.
 
 
 %In this paper we focus on the problem of semantifying the first type of hyperlinks since other kinds of links can finally be deduced to this problem.
-{\it How to improve the recall ?} 
-A key observation is that the relationship is determined by the concept pairs. 
-For instance, after thousands of tuples like \ac{<Leonardo Da Vinci, ArtistOf, Mona Lisa>}, \ac{<Da Li, ArtistOf, Time soft clock>} are trained to learn the concept-concept space, a new pair of entity, for example... emerges, whose relation is not in the knowledge base, will be with a high probability of having the \at{ArtistOf} relation, since the concept pair like \at{(artist, painting)} are detected.
-Thus, we can first learn the concept-attribute-concept (CAC) pattern from the existing entity-attribute-entity (EAE) instances. 
-Then, using the CAC patterns to infer the relationship between a new entity pair or an entity pair with unknown relationship.
-%As an example, from eae..., we learn that the attribute is a good explanation between c1 and c2.
-Thus, for the entity pair whose relationship does not exists in DBpedia, we can successfully infer the best relationship between them is ...
- 
-We leverage knowledge graph(i.e. \ac{Probase} and \ac{DBpedia})to predict the semantic label of the link between entities by representing entity pairs in a rich concept-concept space for each attribute.
+{\it How to improve the recall when the relationship facts are not covered by the knowledge base?} 
+A key observation is that the relationship is determined by the concept pairs. For example, \ac{<Leonardo Da Vinci, Mona Lisa>} can be best explained by \ac{ArtistOf} attribute, which essentially is determined by the concept pair \at{<artist, painting>}. Hence, we can first learn the concept-attribute-concept (CAC) pattern from the existing entity-attribute-entity (EAE) instances. Then, use the CAC patterns to infer the relationship between a new entity pair or an entity pair with unknown relationship.
+For instance, from triples like \ac{<Leonardo Da Vinci, ArtistOf, Mona Lisa>}, \ac{<Da Li, ArtistOf, Time soft clock>}, we can train CAC pattern \at{<artist, ArtistOf, painting>}, which explain the \at{ArtistOf} relations between any artist and their pairings.
+
+There are two perquisites of the above inference based approaches.
+\begin{enumerate}
+\item First, we should map instances or entities to their concepts accurately. Fortunately, many taxonomies about the entity-concept relationships such \ac{Probase} and \ac{WikiTaxonomy}) are available. These taxonomies allows us to conceptualize EAE instances into corresponding CAC patterns, as well as the deduction from the CAC to a specific EAE instance.
+\item Second, an enough number of relationship instances should be available to learn a CAC pattern of high trustworthy. Fortunately, knowledge bases such as \ac{DBpeda} contains many such EAE instances. DBpedia covers more than one thousand of important relationships, which ensures the explanation of a wide range of relationships.  
+\end{enumerate}
+
+\nop{
 \ac{Probase} serves the purpose of retrieving entities' concepts and the corresponding typicality.
 \ac{DBpeda} is utilized as training data, from which we get EAE pairs.
 %For instance, after thousands of tuples like $$(Leonardo Da Vinci, ArtistOf, Mona Lisa)$$ are trained to learn the concept-concept space, a new pair of entity co-occurs, whose relation is not in the knowledge base, with the concept pair like \at{(artist, painting)}, will be with a high probability having the \at{ArtistOf} relation.
 We envision that the concept space plays an important role in attribute finding.
 For example, the relationship {\tt ArtistOf} in \ac{DBpedia} will be correct in the tuple of {\tt(Leonardo Da Vinci, ArtistOf, Mona Lisa)} [{\tt("Human", ArtistOf, "Painting")}] and will be never correct in the tuple of {\tt ("Automobile", ArtistOf, Painting)} [e.g.{\tt(BMW i8, ArtistOf, Mona Lisa )}].
 Then we infer what kind of attributes would be likely to occur given a new entity pair.
+}
 
 \subsection{Challenges}
 Challenges are as follows:

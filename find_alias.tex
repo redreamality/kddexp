@@ -1,6 +1,4 @@
 % !TEX root = main.tex
-\section{Find Alias For Concepts}
-\label{sec:fafa}
 
 %For a pair \term{(Sherlock holmes, United Kindom)}, \term{country} is a merely-ok attribute, on the contrary, \term{residence, deathPlace} are better since they are more specific and more seemingly plausible to be an attribute.
 %We argue that for each pair of entity, there is a selectional preference for attribute.
@@ -10,108 +8,17 @@
 % ENERGY_FUNCTION( f(c1) * f(c2) * g(c1,c2) )
 
 
-This section is devoted to calculating $s(c_1,c_2)$ of $P(<c_{1},c_{2}>|<e_{1},e_{2}>)$ in Eq.~\ref{eq:target_expand2_jr} and $P(<c_{1},c_{2}>|a)$ of $P(a|<c_{1},c_{2}>)$ in Eq.~\ref{eq:target_expand1}.
-
-According to $P(<c_1,c_2>|<e_1,e_2>)$, we can only at concept level indicate the implicit relationship.
-$P(a|<c_{1},c_{2}>)$ retrieves the most probable alias of relation given the concept pair.
-Thus our objective function solve 2 problems,
-1) give out the most probable relation alias for a concept pair.
-2) when multiple relations exist in one concept pair, decide which one is most typical.
-
-One simple version of the objective function derived from Eq.~\ref{eq:target_expand_all} is equal to Eq.~\ref{eq:simple_obj} when Eq.~\ref{eq:rel_jdp} holds, where we consider $s(c_1,c_2)$ to be how likely the two concepts are going to co-occur.
-
-\begin{equation}
-\label{eq:simple_obj}
- \argmax_a \sum_{c_i\in C_1, c_j\in C_2} p((c_{i},c_{j})|a) P(a) P(c_i|e_1) P(c_j|e_2)
-\end{equation}
-
-\begin{equation}\label{eq:rel_jdp}
-  s(c_1,c_2) = \sum{ P((c_{1},c_{2})|a^*) \times P(a^*)}
-\end{equation}
-
-%\xch{(c1,c2) is only one aspect, any other factor can affect the relation?}
-%\xch{ in s(c1,c2), we only considered the attribute part, other signals such as entity co-occurrence of <e1,e2> can be considered }
-
-
-Eq.~\ref{eq:simple_obj} means finding the most probable attribute of $(e_1,e_2)$ by looking at their best concept pair, and find the most probable attribute given the concept pair.
-
-
-\subsection{ Concept Joint Ratio.}
-
-$s(c_1,c_2)$ stands for the how likely for $c_1$ and $c_2$ to become a concept pair to depict entity relation.
-This step, as mentioned before, is mainly for concept level disambiguation purpose.
-
-Let $T_n=\{(e_i, a_k, e_j)\}$ be all the triples in the knowledge base.
-Eq.~\ref{eq:pcca} denotes the relation of joint probability of the pair $<c_1,c_2>$ and $a$.
-\begin{equation}
-P(<c_1, c_2>,a) = \frac{1}{|T_n|}\sum_{  (e_{i},a_k,e_{j})\in T_n } P(c_1|e_{i})P(c_2|e_{j})
-\label{eq:pcca}
-\end{equation}
-
-To get $P(<c_1,c_2>)$ i.e( s(c1,c2) ), we sum up all the attributes in Eq.~\ref{eq:pcca}:
-$$ s(c_1,c_2) = \sum_{a\in A} P(<c_1,c_2>,a)  $$
-
-
-
-%\begin{definition}[Definition of $s(c_1,c_2)$]
-%  $$ JD(c_1,c_2) = \frac{1}{Z_\theta}\times e^{- \frac{1}{f(c_1)\times f(c_2)\times g(c_1,c_2))}},$$
-%  where $$f(c_i)=\sum{ P(c_i|e^*) },(i=1,2)$$
-%  denotes the typicality of a concept itself, $$g({c_h}_1 ,{c_h}_2 )=\sum P({c_h}_{1}|e_{1i}^*) \times P({c_h}_{2}|e_{2j}^*)$$
-%  denotes the joint ratio of the concepts.
-%\end{definition}
-%
-
-\subsection{Calculating $P(<c_{h1},c_{h2}>|a)$ }
-
-
-Given a set of concept pairs $ < {c_h}_1 , {c_h}_2 > $, where ${c_h}_1\in \bar{C}_1$ and ${c_h}_2\in \bar{C}_2$, we want to find a set of attributes A, where for each $a \in A$:
-we can form $ <{c_h}_1,a,{c_h}_2 >$ tuple which best describe the relation between ${c_h}_1$ and ${c_h}_2$.
-
-For a certain attribute $a_k$, there are many entity pairs of the attribute.
-Let $T_k=\{(e_i, a_k, e_j)\}$ be all the triples in the knowledge base with attribute as $a_k$.
-\begin{equation}
-P(<c_1, c_2>|a_k) = \frac{1}{|T_k|}\sum_{  (e_{i},a_k,e_{j})\in T_k } P(c_1|e_{i})P(c_2|e_{j})
-\label{eq:pccga}
-\end{equation}
-
-\begin{example}[Calculating $P(<{c_h}_{1},{c_h}_{2}> |a)$]
-\label{exa:pggga}
-As illustrated in Fig.~\ref{fig:bipartite}, the process of calculating $P(({c_h}_{1},{c_h}_{2}) |a)$ is as follows.
-Given \term{company} and \term{entrepreneur}, we sum up all $P(c_1|e_1)\times P(c_2|e_2) $ such as $P(Company|Microsoft) \times P(Entrepreneur|Bill Gates)$,
-\end{example}
-
-
-\begin{figure}[!htb]
-\centering \epsfig{file=resources/ceaec.eps,width=\columnwidth}
-\caption{Calculating $P( <{c}_{1},{c}_{2}> | \term{FoundedBy} )$ } \label{fig:bipartite}
-\end{figure}
 
 
 
 
-
+\nop{
 Let $C_1$ be all the concepts of $E_L(T_k)$.
 Let $E_L(T_k)$ be all the left entities of attribute $a_k$ in the knowledge base.
 We can prove that $\sum_{<c_i,c_j>\in C_1\times C_2} P(<c_i, c_j>|a_k)=1$.
-
-\paragraph{Complexity analysis}
-
-We first analysis the complexity of calculating $P((c_i, c_j)|a_k)$, manifest in Table.~\ref{tab:complexity}. The original one need to calculate $P((c_i, c_j)|a_k)$ for all $c \in C_1,C_2 $,while most of the concepts are, according to the power law, close to zero, which indicates the rationality of pruning.
+}
 
 
-\begin{table}[htbp]
-  \centering
-  \caption{Complexity Analysis}
-    \begin{tabular}{rr}
-    \toprule
-    method & complexity \\
-    \midrule
-    original &  $O(|T_n||C_1||C_2|)$ \\
-    topKpruned & $O(|T_n|K^2)$ \\
-    \bottomrule
-    \end{tabular}%
-  \label{tab:complexity}%
-\end{table}%
 
 
 
