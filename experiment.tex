@@ -15,7 +15,7 @@ All the programs implemented in Python 2.7.
 Given 2 entities, our system produce the most plausible topK relation between the 2 entities.
 We want to evaluate how accurate the result is, hence we apply $nDCG@K$ and $Precision@K$ as our evaluation metric.
 We report the $Mean Average Percision@K$ as well.
-In the case of finding plausible concept pairs given attribute, we use $ ERR@10$~\cite{chapelle2009expected} to evaluate the expected reciprocal rank analogizing the process of limiting $C-C$ space to $topK^2$ to the act of a user stopping his search at the K-th concept.
+In the case of finding plausible concept pairs given attribute, we further use $ ERR@10$~\cite{chapelle2009expected} to evaluate the expected reciprocal rank analogizing the process of limiting $C-C$ space to $topK^2$ to the act of a user stopping his search at the K-th concept.
 
 
 
@@ -206,6 +206,10 @@ We also show the distribution information on each relation group produced by $ER
 \label{fig:eva_violin_pc1c2ga}
 \end{figure}
 
+The $nDCG@1$ score is reasonably low since the correct concept pair is often more than 1.
+We can observe a significant increase in the $nDCG@10$ score in our approach while not much increase in $MDL$-based approach since $MDL$ tends to give as few concepts as possible and sacrifices the coverage when $\alpha$ is small.
+The $ERR@1$ and $ERR@10$ mesure varies not that much due to its user behavioral instinct of not searching forward when find the concept.
+The $ERF$ provides rich correct concept pairs to handle the long-tailed concept pairs and gain an slight increase in $ERR@10$
 
 \begin{figure*}[!htb]
 \centering

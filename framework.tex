@@ -304,6 +304,15 @@ Given \term{company} and \term{entrepreneur}, we sum up all $P(c_1|e_1)\times P(
 \label{fig:bipartite}
 \end{figure}
 
+
+\begin{example}[Collectively Sense Disambiguation]
+Consider the following $\langle e1,a,e2 \rangle $ tuple \term{<apple,foundedBy, steve jobs>}, where \term{apple}'s sense can either be a kind of \term{fruit} or a \term{company} and the sense of \term{steve jobs} can be \at{entrepreuer} or \at{movie}.
+For one pair, we cannot determine the correct concept pair for $\langle c_1,c_2 \rangle$.
+Nonetheless, with thousands of $\langle e1,a,e2 \rangle $ tuple such as \at{<microsoft, foundedBy, bill gates>}, \at{<ibm, foundedBy, thomas watson>}, we can collectively disambiguate the concept pair for \at{foundedBy} by assigning \at{<company,entrepreneur>} a high probability, since most company wouldn't use a fruit as their names and most entrepreneurs don't have a autobiographical movie.
+\label{exa:sd}
+\end{example}
+
+
 \paragraph{Complexity analysis}
 
 We first analysis the complexity of calculating $P(\langle c_i, c_j \rangle|a_k)$, manifest in Table.~\ref{tab:complexity}. The original one need to calculate $P(\langle c_i, c_j \rangle|a_k)$ for all $c \in C_1,C_2 $,while most of the concepts are, according to the power law, close to zero, which indicates the rationality of pruning.
