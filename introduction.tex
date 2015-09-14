@@ -7,13 +7,14 @@ Wikipedia is flooded with hyperlinks, which interconnect the Wikipedia articles.
 In general, one article contains a hyperlink to another article because the entities corresponding to the articles has a certain semantic relationship.
 But unfortunately why the two articles are hyperlinked remains unknown.
 
+
 \subsection{Problem Statement}
 In this paper, we dedicated our effort to {\it semantifying the hyperlinks in Wikipedia}.
-That is explicitly explaining the relationship between the entity pairs such that their article pairs are hyperlinked with each other. 
+That is explicitly explaining the relationship between the entity pairs such that their article pairs are hyperlinked with each other.
 % such that ?
 For example in the Wikipedia page of \at{Adolf Hitler}, \at{World War II} is an entity occurred in the sentence \at{... \underline{Hitler} was at the centre of \underline{World War II} in Europe ...} in the first paragraph.
 %There are many other linked entities, most of which are hyperlinked however don't exist relation in knowledge bases such as DBpedia.
-Since in Wikipedia, an article describes either an entity or a concept. We also use entities or concepts to refer to the articles in Wikipedia. 
+Since in Wikipedia, an article describes either an entity or a concept. We also use entities or concepts to refer to the articles in Wikipedia.
 
 Various tasks can benefit from semantified hyperlinks.
 For machines, having the initial guess of the semantic relations can be potentially helpful.
@@ -25,24 +26,24 @@ Other NLP tasks such as semantic role labeling~\cite{palmer2010semantic}, select
 On the other hand, for readership, knowing how the hyperlinked entities are related with the source entity is extremely helpful to understand the surrounding sentences of the hyperlinked entities.
 
 \subsection{Our Core Idea}
-A direct solution is applying the attributes to explain the entity pairs. 
+A direct solution is applying the attributes to explain the entity pairs.
 Note that DBpedia contains many structured facts of entities or concepts.
 For example, it has the SPO (subject-predicate-objec) triples \at{<Leonardo Da Vinci, ArtistOf, Mona Lisa>} which indicates the predicate \at{ArtistOf} (which is an attribute of \at{Leonardo Da Vinci}) can explain the relation between \at{Leonardo Da Vinci} and \at{Mona Lisa}.
-However, using attribute as the explanation does not always work due to the sparsity of structured facts. 
+However, using attribute as the explanation does not always work due to the sparsity of structured facts.
 Our statistics reveal that there are \emph{968 millions} of unique links between Wikipedia entities, only \emph{15 millions} of which can find semantic explanation from DBpedia.
 %The types of hyperlink are article to article, article to knowledge base(or encyclopedia-like databases). Each link has two ends the original one(the web page/ entity page contains it) and the oriented one(the web page/ entity page it points to), and each end has 2 possible types, an anchor url or an anchor entity. Hence, in all there are 4 possible combinations, which consists the 4 type of links.
 %An anchor entity can be named entities such as movies, products, people names, locations etc. In this case we explain the relation between the entity and the original article. As for an anchor url, an automatic target entity extraction process[2011] can be performed, and then it become another semantifying problem between entities.
 
 
 %In this paper we focus on the problem of semantifying the first type of hyperlinks since other kinds of links can finally be deduced to this problem.
-{\it How to improve the recall when the relationship facts are not covered by the knowledge base?} 
+{\it How to improve the recall when the relationship facts are not covered by the knowledge base?}
 A key observation is that the relationship is determined by the concept pairs. For example, \at{<Leonardo Da Vinci, Mona Lisa>} can be best explained by \at{ArtistOf} attribute, which essentially is determined by the concept pair \at{<artist, painting>}. Hence, we can first learn the concept-attribute-concept (CAC) pattern from the existing entity-attribute-entity (EAE) instances. Then, use the CAC patterns to infer the relationship between a new entity pair or an entity pair with unknown relationship.
 For instance, from triples like \at{<Leonardo Da Vinci, ArtistOf, Mona Lisa>}, \at{<Salvador Dali, ArtistOf, The Persistence of Memory>}, we can train CAC pattern \at{<artist, ArtistOf, painting>}, which explain the \at{ArtistOf} relations between any artist and their pairings.
 
 There are two perquisites of the above inference based approaches.
 \begin{enumerate}
 \item First, we should map instances or entities to their concepts accurately. Fortunately, many taxonomies about the entity-concept relationships such \ac{Probase} and \ac{WikiTaxonomy}) are available. These taxonomies allows us to conceptualize EAE instances into corresponding CAC patterns, as well as the deduction from the CAC to a specific EAE instance.
-\item Second, an enough number of relationship instances should be available to learn a CAC pattern of high trustworthy. Fortunately, knowledge bases such as \ac{DBpeda} contains many such EAE instances. DBpedia covers more than one thousand of important relationships, which ensures the explanation of a wide range of relationships.  
+\item Second, an enough number of relationship instances should be available to learn a CAC pattern of high trustworthy. Fortunately, knowledge bases such as \ac{DBpeda} contains many such EAE instances. DBpedia covers more than one thousand of important relationships, which ensures the explanation of a wide range of relationships.
 \end{enumerate}
 
 \nop{
@@ -84,7 +85,7 @@ For these reasons, we purpose a relation explanation method leveraging the conce
 The rest of the paper is organized as follows.
 \yh{FINAL WORK}
 %Section~\ref{sec:rel}
-%Section~\ref{sec:framework} 
+%Section~\ref{sec:framework}
 %Section~\ref{sec:conceptualization}
 %Section~\ref{sec:fafa}
 

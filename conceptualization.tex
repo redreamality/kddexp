@@ -60,11 +60,10 @@ The increase of the average children per concept makes entities less unique, whi
 \end{table}%
 
 \paragraph{Conceptualization into Head Concepts}
-\xch{Do we need to convert all notation $c_h$ to $\bar{c}$?}
-
+%\xch{Do we need to convert all notation $c_h$ to $\bar{c}$?}
 Given a head concept $c_h$, we need to estimate $p(c_h|e)$.
 However, we are likely underestimate $p(c_h|e)$ because in genereal there is no sufficient direct isA relationships from entity $e$ to the head concept $c_h$.
-We illustrate this in Example~\ref{exa:conc}. 
+We illustrate this in Example~\ref{exa:conc}.
 For our task, we only need relatively general concepts(a.k.a. head concepts).
 \begin{example}[Underestimation of head concept]
 \label{exa:conc}
@@ -99,7 +98,7 @@ Finally, we provide a method to take the original isA relation from Probase into
 \end{example}
 
 \paragraph*{why we need to do it in an offline way,....}
-The materialization suffers from quadratic complexity. Overall, we need to precompute the conditional probability for $O(n^2)$ entity pairs,  
+The materialization suffers from quadratic complexity. Overall, we need to precompute the conditional probability for $O(n^2)$ entity pairs,
 
 \subsection{Baseline}
 
@@ -129,7 +128,7 @@ In this section, we take the original Probase IsA relation into consideration. I
 
 \begin{example}[Resonable isA Relation]
 \label{exa:isagood}
-There exists several original edges of $c_l$ \isa $c_h$ that are also reasonable. 
+There exists several original edges of $c_l$ \isa $c_h$ that are also reasonable.
 For example among the concepts for \term{Bill Gates} in Figure~\ref{fig:pgge}, \term{ successful entrepreneur } \isa \term{business leader}, and \term{founder} \isa \term{material} which is reasonable.
 \end{example}
 
@@ -157,7 +156,7 @@ Finally  $P({c_h}|e)$ is calculated using the following equation:
 
 \begin{equation}
 \begin{split}
-P({c_h}|e) = \alpha \hat{P}({c_h}|e)+ (1-\alpha) \sum_{ c_{l}^*\in C_{l} } [P({c_h}|c_{l}^*) ] \times  P(c_{l}^*|e),
+P({c_h}|e) = \beta \hat{P}({c_h}|e)+ (1-\beta) \sum_{ c_{l}^*\in C_{l} } [P({c_h}|c_{l}^*) ] \times  P(c_{l}^*|e),
 \end{split}
 \label{eq:pgge}\end{equation}
 
@@ -178,8 +177,8 @@ where $\sum_{ c_{l}^*\in C_{l} } [P({c_h}|c_{l}^*) ] \times  P(c_{l}^*|e)$ is th
 %For \term{piece}, it is the similar process. The relation here is only part of the whole graph.
 %\end{example}
 
-We consider only 2 layers of isA relationship for 2 reasons. 
-The first one is that more layers will lead to noisy concepts such as \term{issue, factor, element}, which are concepts for almost eveything, 
+We consider only 2 layers of isA relationship for 2 reasons.
+The first one is that more layers will lead to noisy concepts such as \term{issue, factor, element}, which are concepts for almost eveything,
 Secondly, discussing the transitive relation between concepts is beyond the scope of this paper.
 
 %\begin{tikzpicture}[->,>=stealth',shorten >=1pt,auto,node distance= 3 cm,

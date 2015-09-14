@@ -79,8 +79,8 @@ P(\langle c_{1},c_{2}\rangle |\langle e_{1},e_{2} \rangle) = \alpha(c_1,c_2) \ti
 \end{equation}
 
 
-One simple simple estimation of $\alpha(c_1,c_2)$ is using the prior probability of $\langle c_1, c_2\rangle$, i.e., $P(\langle c_1,c_2\rangle)$. This is reasonable since the true concept pair for an entity pair in general has a larger probability than 
-a false concept pair. 
+One simple simple estimation of $\alpha(c_1,c_2)$ is using the prior probability of $\langle c_1, c_2\rangle$, i.e., $P(\langle c_1,c_2\rangle)$. This is reasonable since the true concept pair for an entity pair in general has a larger probability than
+a false concept pair.
 Thus the objective function is reduced to Eq.~\ref{eq:simple_obj} when Eq.~\ref{eq:rel_jdp} holds
 
 
@@ -133,7 +133,7 @@ ERF takes an entity pair as input and find its most plausible relation as the re
 As a preprocessing step, we first directly lookup the attribute for the query entity pair from DBpedia.
 If DBpedia has SPO triples connecting the entity pair, we direct return the predicate as the answer.
 Otherwise, the procedure goes into the online computation component.
-The online component calculates $ P(a|  \langle e_1,e_2 \rangle  )$ for each candidate attribute in $A$ by Eq.~\ref{eq:simple_obj} and return the maximal one as the answer attribute. To compute Eq.~\ref{eq:simple_obj}, we need to compute $P(c_1,c_2|a)$, $P(a)$, $P(c_1|e_1)$ and $P(c_2|e_2)$. We compute $P(c_1|e_1)$ and $P(c_2|e_2)$ on demand, that is, in the online component. We will explain it later in Section~\ref{sec:conceptualization}.. 
+The online component calculates $ P(a|  \langle e_1,e_2 \rangle  )$ for each candidate attribute in $A$ by Eq.~\ref{eq:simple_obj} and return the maximal one as the answer attribute. To compute Eq.~\ref{eq:simple_obj}, we need to compute $P(c_1,c_2|a)$, $P(a)$, $P(c_1|e_1)$ and $P(c_2|e_2)$. We compute $P(c_1|e_1)$ and $P(c_2|e_2)$ on demand, that is, in the online component. We will explain it later in Section~\ref{sec:conceptualization}..
 In the offline part, we compute $P(c_1,c_2|a)$ and $P(a)$ by leverage the SPO triples in DBpedia and isA relationships in Probase.
 We elaborate their computation detail in Section ..
 
@@ -189,7 +189,9 @@ When no direct edges are found, we use the shortest path on the concept attribut
     $\langle e_1,e_2 \rangle$ & entity pair\\
     $\langle c_1,c_2 \rangle$ & concept pair\\
     $\alpha(\cdot,\cdot)$ & joint factor\\
-    $T_k$ & E$A$E tuple with $a_k$ as $A$\\
+    \multirow{2}[0]{*}{$T_k$} & set of $EAE$ tuples \\& with $a_k$ as $A$\\
+    \multirow{2}[0]{*}{$T_n$} & set of all\\& $EAE$ tuples\\
+
     \bottomrule
     \end{tabular}%
   \label{tab:notation}%
@@ -268,9 +270,9 @@ where $n(a)$ is the count of triples in $T$ with attribute $a$.
 
 Our basic idea is use collective inference to disambiguate concepts pairs.
 Next, we show how to learn $\alpha(c_1,c_2)$ from training data.
-The purpose of $\alpha$ is to prune false concept pairs. Hence, we need to 
-assign a value close to zero for these false concept pairs. 
-The baic principle is that 
+The purpose of $\alpha$ is to prune false concept pairs. Hence, we need to
+assign a value close to zero for these false concept pairs.
+The baic principle is that
 (1)A false concept pairs only exits for a small part of
 entity pairs that has the attribute.
 (2) A true concept pairs exits for most entity pairs of the attribute.
@@ -296,9 +298,9 @@ Given \term{company} and \term{entrepreneur}, we sum up all $P(c_1|e_1)\times P(
 
 
 \begin{figure}[!htb]
-\centering 
+\centering
 \epsfig{file=resources/ceaec.eps,width=\columnwidth}
-\caption{Calculating $P(  \langle {c}_{1},{c}_{2} \rangle  | \term{FoundedBy} )$ } 
+\caption{\small Calculating $P(  \langle {c}_{1},{c}_{2} \rangle  | \term{FoundedBy} )$. Red edges tend to have high probability after collective disambiguation, while purple edges have less entity to support and will have low probabilities. }
 \label{fig:bipartite}
 \end{figure}
 
@@ -322,7 +324,7 @@ We first analysis the complexity of calculating $P(\langle c_i, c_j \rangle|a_k)
 \end{table}%
 
 
-%%% Local Variables: 
+%%% Local Variables:
 %%% mode: latex
 %%% TeX-master: "main.tex"
-%%% End: 
+%%% End:
