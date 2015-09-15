@@ -12,8 +12,7 @@ However, expanation of such relationship is a non-trivial problem.
 We thus study this problem of
 {\it semantifying the hyperlinks in Wikipedia}, of 
 explaining the relationship between an entity pair whose corresponding Wikipedia articles are hyperlinked with each other.
-For example,
- Wikipedia page of \at{Leonardo Da Vinci}, has a hyperlink to \at{Mona Lisa} the sentence \at{... 
+For example, Wikipedia page of \at{Leonardo Da Vinci}, has a hyperlink to \at{Mona Lisa} the sentence \at{... 
 Among his works, the \underline{Mona Lisa} is the most famous and most parodied portrait}.
 Our goal is, for each Wikipedia page, representing an entity or a concept,
 we find an \emph{attribute}, such as \emph{ArtistOf}, which best explains their relationship.
@@ -22,8 +21,7 @@ we find an \emph{attribute}, such as \emph{ArtistOf}, which best explains their 
 \subsection{Our Core Idea}
 
 This problem is trivial, if DBpedia contains 
-SPO (subject-predicate-object) triples \at{<Leonardo Da Vinci, ArtistOf, Mona Lisa>} which indicates the predicate \at{ArtistOf} (which is an attribute of \at{Leonardo Da Vinci}) can explain the relation between \at{Leonardo Da Vinci} and \at{Mona Lisa}.
-However, this case is extremely rare:
+SPO (subject-predicate-object) triples \at{<Leonardo Da Vinci, ArtistOf, Mona Lisa>} which indicates the predicate \at{ArtistOf} (which is an attribute of \at{Leonardo Da Vinci}) can explain the relation between \at{Leonardo Da Vinci} and \at{Mona Lisa}. However, this case is extremely rare:
 Our statistics show that there are \emph{968 millions} of unique links between Wikipedia entities, only \emph{15 millions} (1.5\%) of which can find semantic explanation from DBpedia.
 
 Thus, {\it how to improve the recall when the relationship facts are not covered by the knowledge base?}
@@ -56,10 +54,12 @@ has been actively studied
 $e_1$ and $e_2$ are not independent, and thus requires joint optimization, 
 as we illustrate in Example~\ref{exa:jc}.
 \item Second, {\it collective conceptualization.} 
-Conceptualization of a single entity pair is more ambiguous than that of many pairs, for which we \emph{collective} conceptualize for a set of pairs observed from SPO triples.
+Conceptualization of a single entity pair is more ambiguous than that of many pairs, for which we \emph{collectively} conceptualize for a set of pairs observed from SPO triples.
 We illustrate this in Example~\ref{exa:sd}.
-\item Third, {\it head-aware conceptualization}. As illustrated in Example~\ref{exa:hc}, in our problem setting, it is the head concept determines the relationship between an entity pairs. Hence, we need to conceptualize entity into its head concepts instead of some other modified concepts. 
+\item Third, {\it head-aware conceptualization}. As illustrated in Example~\ref{exa:hc}, in our problem setting, it is the head concept determines the relationship between an entity pair. Hence, we need to conceptualize entity into its head concepts instead of some other modified concepts. 
 \end{itemize}
+
+{\footnotesize
 
 \begin{example}[Joint conceptualization]
 Given an entity pair \at{<apple, steve jobs>}. The candidate concepts for \at{apple} are \at{\{fruit,company,...\}} and the candidate concepts for \at{steve jobs} are \at{\{entrepreneur, pc developer,...\}}. Obviously, the concept pair \at{<fruit, entrepreneur>} is meaningless in this case.
@@ -79,6 +79,7 @@ The \at{FoundedBy} relationship between \at{Apple Inc.} and \at{Steve Jobs} is d
 \label{exa:hc}
 \end{example}
 
+}
 
 %Challenges are as follows:
 %\begin{description}

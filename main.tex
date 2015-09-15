@@ -44,10 +44,10 @@
 \newcommand{\isa}[0]{$ \stackrel{  isA  }{\longrightarrow} $ }
 \newcommand{\noisa}[0]{$ \stackrel{ Head }{\dashrightarrow} $ }
 
-\newcommand{\at}[1]{{\small\tt #1}}
+\newcommand{\at}[1]{{\scriptsize\tt #1}}
 \newcommand{\ac}[1]{\emph{#1}}
 
-
+\renewcommand{\baselinestretch}{0.8} 
 
 
 \begin{document}
@@ -71,7 +71,7 @@
 \maketitle
 \begin{abstract}
 
-In this paper, we present Entity Relation Finder(ERF): a framework of semantifying 
+In this paper, we present Entity Relation Finder($ERF$): a framework of semantifying 
 the relationship between a Wikipedia page and another page hyperlinked from the page.
 This is an easy task if there already exists a triple in the knowledge base explaining the relationship
 between the given entity pair.
@@ -92,6 +92,7 @@ We validate our proposed framework using real-life Wikipedia corpus and Probase 
 %\input{find_alias}
 \input{experiment}
 \input{conclusion}
+\newpage	
 
 \bibliographystyle{aaai}
 %\bibliographystyle{abbrv}

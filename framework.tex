@@ -13,7 +13,9 @@ More formally, given an entity pair $ \langle e_1, e_2 \rangle $, we want to fin
 \end{equation}
 where $P(a| \langle e_1, e_2 \rangle )$ is the probability that $a$ is an attribute between two entities.
 For example, for entity pair \at{<Bill Gates, Microsoft>}, \at{FounderOf, BoardOf} are among the most probable relations.
-However relation like \at{KeyPeopleOf} is not that typical. We give notations used in this paper in Table~\ref{tab:notation}.
+However relation like \at{KeyPeopleOf} is not that typical. 
+
+%We give notations used in this paper in Table~\ref{tab:notation}.
 
 \subsection{Concept-based Inference}
 Thus our problem is reduced to the estimation of $P(a| \langle e_1, e_2 \rangle )$.
@@ -123,9 +125,10 @@ In the offline part, we compute $P(c_1,c_2|a)$ and $P(a)$ by leveraging the SPO 
 
 \begin{figure}[!ht]
 \centering
-\epsfig{file=resources/framework.eps,width=\columnwidth}
+\epsfig{file=resources/framework.eps,width=0.5\columnwidth,height=0.25\columnwidth}
 \caption{System Framework of ERF}
 \label{fig:framework}
+\vspace{-6mm}
 \end{figure}
 
 
@@ -155,32 +158,33 @@ When no direct edges are found, we use the shortest path on the concept attribut
 %The rest of the paper is organized as follows, Section~\ref{sec:conceptualization} describe how to derive $P(c|e)$ leveraging the \xch{basicness} of concept, Section~\ref{sec:fafa} is devoted to the offline calculation of $JD(c_1,c_2)$ and $P((c_{1},c_{2})|a)$.
 %\renewcommand\baselinestretch{-6}\selectfont
 \renewcommand{\arraystretch}{-2}
-
-\begin{table}[htbp]
-  \centering
-     \small
-  \caption{Notation Table}
-    \footnotesize
-
-    \begin{tabular}{|ll|ll|}
-    \hline
-    notation                            &  meaning                            & notation                            &  meaning  \\
-    \hline
-    $n(\cdot)$                          &  count of                            & $e_i$                               &  entity  \\
-    $h(\cdot)$                          &  head of                             & $c_i$                               &  concept  \\
-    $a$                                 &  attribute                          & $c_l$                               &  long concept  \\
-    $\bar{C}$                           &  head concept set                  & $c_h$                               &  head concept  \\
-    $\langle e_1,e_2\rangle$            &  entity pair                        & $\langle c_1,c_2\rangle$            &  concept pair \\
-    $\alpha(\cdot,\cdot)$               &  joint factor                       & $T_k$                               & \parbox{0.26\columnwidth}{ set of E$A$E tuple with $a_k$ as $A$} \\
-    \parbox{0.15\columnwidth}{\scriptsize $P(a|\langle c_{1},c_{2}\rangle)$ }  &  \parbox{0.24\columnwidth}{ the typicality of an attribute for a concept pair. }& \parbox{0.23\columnwidth}{\scriptsize $P(\langle  c_{i},c_{j}\rangle|\langle e_{1},e_{2}\rangle)$} & \parbox{0.26\columnwidth}{ the typicality of the concept pair for an entity pair} \\
-    \hline
-
-    \end{tabular}%
-
-  \label{tab:notation}%
-\end{table}%
-
-\renewcommand{\arraystretch}{1}
+%
+%\begin{table}[htbp]
+%  \centering
+%     \small
+%  \caption{Notation Table}
+%    \footnotesize
+%
+%    \begin{tabular}{|ll|ll|}
+%    \hline
+%    notation                            &  meaning                            & notation                            &  meaning  \\
+%    \hline
+%    $n(\cdot)$                          &  count of                            & $e_i$                               &  entity  \\
+%    $h(\cdot)$                          &  head of                             & $c_i$                               &  concept  \\
+%    $a$                                 &  attribute                          & $c_l$                               &  long concept  \\
+%    $\bar{C}$                           &  head concept set                  & $c_h$                               &  head concept  \\
+%    $\langle e_1,e_2\rangle$            &  entity pair                        & $\langle c_1,c_2\rangle$            &  concept pair \\
+%    $\alpha(\cdot,\cdot)$               &  joint factor                       & $T_k$                               & \parbox{0.26\columnwidth}{ set of E$A$E tuple with $a_k$ as $A$} \\
+%    \parbox{0.15\columnwidth}{\scriptsize $P(a|\langle c_{1},c_{2}\rangle)$ }  &  \parbox{0.24\columnwidth}{ the typicality of an attribute for a concept pair. }& \parbox{0.23\columnwidth}{\scriptsize $P(\langle  c_{i},c_{j}\rangle|\langle e_{1},e_{2}\rangle)$} & \parbox{0.26\columnwidth}{ the typicality of the concept pair for an entity pair} \\
+%    \hline
+%
+%    \end{tabular}%
+%
+%  \label{tab:notation}%
+%  \vspace{-6mm}
+%\end{table}%
+%
+%\renewcommand{\arraystretch}{1}
 
 %First,we do conceptualization.
 %
@@ -265,17 +269,20 @@ Hence $P( \langle c_1, c_2 \rangle |a_k)$ is a probability estimation.
 
 \begin{example}[Calculating $P( \langle {c_h}_{1},{c_h}_{2} \rangle  |a)$]
 \label{exa:pggga}
-Figure~\ref{fig:bipartite} shows many entity pairs of attribute \at{FoundedBy}. We can see that
-the false concept such as .... supported by only ... However, the true concept pair \ac{<company, entrepreneur>}
-are supported by all the three concept pairs. By summing up all $P(c_1|e_1)P(c_2|e_2) $ over all entity pairs, the true concept pair \ac{<company, entrepreneur>} has the largest sore.... Instead, the false one has...
+Figure~\ref{fig:bipartite} shows many entity pairs of attribute \at{FoundedBy}. 
+We can see that the false concept such as \at{fruit} supported by only \at{Steve Jobs}.
+However, the true concept pair \at{<company, entrepreneur>} are supported by all the three concept pairs. 
+By summing up all $P(c_1|e_1)P(c_2|e_2) $ over all entity pairs, the true concept pair \at{<company, entrepreneur>} has the largest score $\mathbf{4.7\times10^{-7}}$ 
+Instead, the false one \at{<fruit, entrepreneur>} has $\mathbf{2.4\times10^{-9}}$
 \end{example}
 
 
 \begin{figure}[!htb]
 \centering
-\epsfig{file=resources/ceaec.eps,width=\columnwidth}
+\epsfig{file=resources/ceaec.eps,width=\columnwidth, height=0.4\columnwidth}
 \caption{Calculating $P(  \langle {c}_{1},{c}_{2} \rangle  | \term{FoundedBy} )$ }
 \label{fig:bipartite}
+\vspace{-6mm}
 \end{figure}
 
 \nop{
