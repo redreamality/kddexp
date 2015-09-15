@@ -4,25 +4,26 @@
 %perform NER~\cite in the document to link the entities.
 %\subsection{Relation Explanation}
 
-Our work is closely related to 2 type of works: relation explanation and relation extraction.
+Our work is closely related to the following two lines of existing efforts: relation explanation and relation extraction.
 
-Various of efforts are devoted to relation explanation.
+
+In \emph{relation explanation}, given the SPO triple of entity pairs and relationship in the knowledge graph, the goal is to retrieve text describing such relationship .
 Blanco et al.~\cite{blanco2010finding} study the problem of finding support sentences to explain the relationship between a named entity and an ad-hoc query.
 Fang et al.~\cite{fang2011rex} explain the relation ship between 2 entities by answering a subgraph from the knowledge base.
 Voskarides et al.~\cite{voskarideslearning} models the problem of explaining relationship between entities into sentences retrieval problem, ranking the explanation sentence from Wikipedia by how well it describe the relationship.
-All these tasks takes the relation between entities as given input from knowledge graph, in this paper, we retrieve the most probable relation for a given entity pair.
+In contrast, we focus on entity pairs without supporting SPO triples.
+ 
 
-Relation extraction is a well-studied task.
-Many efforts are devoted to extracting relations from sentence.
-Early work~\cite{hearst1992automatic,brin1999extracting,agichtein2000snowball} and some wiki-based~\cite{ponzetto2008wikitaxonomy} approaches applies hand-crafted patterns.
+In \emph{relation extraction}, the goal is extracting SPO triples from text.
+Early work~\cite{hearst1992automatic,brin1999extracting,agichtein2000snowball} and some wiki-based~\cite{ponzetto2008wikitaxonomy} approaches apply hand-crafted patterns.
 Supervised classification~\cite{doddington2004automatic,guodong2005exploring} and distant learning~\cite{craven1999constructing,wu2007autonomously,bunescu2007learning,mintz2009distant}.
 Recent effort~\cite{angeli2014combining} applied active learning and combines distant and partial supervision.
-These efforts, including NELL are based on  fixed set of prespecified relations.
+These efforts, including NELL, are based on  fixed set of prespecified relations.
 Another type of relation extraction is open relation extraction~\cite{banko2007open}, such as Reverb~\cite{fader2011identifying}, OLLIE~\cite{schmitz2012open} are unsupervised approaches extracting relations from plain text.
 PATTY~\cite{nakashole2012patty} also extract open relational patterns from wikipedia and organize them into a taxonomy.
-Our main difference from all of the approaches is that, our input is entity pair instead of sentences.
-Our relation set is also fixed, specifically the ones in DBpedia~\cite{auer2007dbpedia}.
-Our work is closely related to generative models, instead of the latent variables used in type-LDA model~\cite{yao2011structured}, we use rich concepts to represent entities, though our tasks are different.
+In contrast to having a sentence as an input, we are given an entity pair as an input, which is more challenging.
+Our approach is closely related to generative models of using rich concepts~\cite{yao2011structured}, instead of the latent variables used in type-LDA model,
+though research question is different.
 
 
 
