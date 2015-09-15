@@ -13,36 +13,13 @@ All the programs implemented in Python 2.7.
 Given two entities, our system produce the most plausible top-K attributes between the 2 entities.
 We want to evaluate how accurate the result is. Hence we use $nDCG@K$ and $Precision@K$ as our evaluation metric.
 We report the $MAP@K$ (Mean Average Precision at K) as well.
-{\bf  In the case of finding plausible concept pairs for a given attribute, we further use $ ERR@10$~\cite{chapelle2009expected} to evaluate the expected reciprocal rank analogizing the process of limiting $C-C$ space to $topK^2$ to the act of a user stopping his search at the K-th concept.
+{\bf  In the case of finding plausible concept pairs for a given attribute, we further use $ ERR@K$~\cite{chapelle2009expected} to evaluate the Expected Reciprocal Rank analogizing the process of limiting $C-C$ space to $topK^2$ to the act of a user stopping his search at the K-th concept.
 }
 
 
 \subsection{Exp1: Effectiveness of ERF}
 In this subsection, we evaluate the effectiveness of our ERF system.
-For comparison, we use the ...as baseline.....
-We report all the precision metrics in Table~\ref{tab:ndcg}.
-
-\begin{table}[htbp]
-  \centering
-  \caption{Evaluation Result}
-    \begin{tabular}{rr}
-    \toprule
-    mesure & value \\
-    \midrule
-    nDCG@3 & 0.945 \\
-    nDCG@5 & 0.941 \\
-    precision@3 & 0.88 \\
-    precision@5 & 0.76 \\
-    MAP@3 & 0.902 \\
-    MAP@5 & 0.907 \\
-
-    \bottomrule
-    \end{tabular}%
-  \label{tab:ndcg}%
-\end{table}%
-
-
-We use the direct retrieval as a baseline.
+For comparison, we use the direct retrieval as a baseline.
 We randomly select 50 Wikipedia article, and take only the hyper-linked entities abstract part as evaluation.
 We consider the linked entities as the $e_2$ of the relation explanation input and source entity as $e_1$.
 Compared with baseline, i.e. DBpedia original.
@@ -66,12 +43,36 @@ The result is reported in Table~\ref{tab:precision_compare}
 \end{table}%
 
 
+To further justify the effectiveness of $ERF$, we compare the overall results against baseline(no head ....).
+  We report all the precision metrics in Table~\ref{tab:ndcg}.
+
+\begin{table}[htbp]
+  \centering
+  \caption{Evaluation Result}
+    \begin{tabular}{rr}
+    \toprule
+    mesure & value \\
+    \midrule
+    nDCG@3 & 0.945 \\
+    nDCG@5 & 0.941 \\
+    precision@3 & 0.88 \\
+    precision@5 & 0.76 \\
+    MAP@3 & 0.902 \\
+    MAP@5 & 0.907 \\
+
+    \bottomrule
+    \end{tabular}%
+  \label{tab:ndcg}%
+\end{table}%
+
+
+
 
 
 
 
 \subsection{Exp 2: Head-aware Conceptulization}
-We show that head-aware conceptualization first significantly reduce the computation cost. 
+In this experiment, we show that head-aware conceptualization significantly reduce the computation cost without sacrificing precision. 
 In Table~\ref{tab:nhc}, we report the changes of the $Probase$ concept space when applied our conceptualize method, where we have 33197 head concepts after doing the head modifier detection, while 2 million concepts before.
 
 The increase of the average occurrence indicates the confidence of the $e$\isa$c$ pair is increased.
@@ -94,7 +95,19 @@ The increase of the average children per concept makes entities less unique, whi
 \end{table}%
 
 
-... We give the distribution of head give an entity... We report the Pearson correlation between....
+We give the distribution comparison of head aggregation and original Probase.
+Figure~\ref{fig:hac} illustrate the distribution, from which we can observe that head-aware conceptualization aggregate the piecemeal long concepts to provide an estimation in a smaller concept space without losing the accuracy.
+
+
+\begin{figure}[!htb]
+\centering
+\epsfig{file=resources/df_hac_50_bill_gates.eps,width=\columnwidth}
+\caption{Comparison between distribution of head aggregation and original Probase for \at{Bill Gates} }
+\label{fig:hac}
+\end{figure}
+
+
+\xch{not really need}. We report the Pearson correlation between....
 
 We further give case studies in Table.~\ref{tab:rerank} with the comparison to the direct estimation of $P(c|e)$ using Probase. We can see that
 %
