@@ -4,28 +4,28 @@
 In this section, we give our solution to compute $P(c|e_i)$, the probability that $c$ is a concept of entity $e_i$ by using \ac{Probase}, a web-scale taxonomy.
 As we have claimed, head-aware conceptualization is a distinguished feature of our problem.
 We first motivate this problem. Then give our solution.
-\nop{
-We first briefly introduce Probase and give a direct solution.
-However, the direct conceptualization solution ignores the unique setting of relationship explanation.
-We will analyze the problems caused by our problem setting then give an improved version.
-}
+%\nop{
+%We first briefly introduce Probase and give a direct solution.
+%However, the direct conceptualization solution ignores the unique setting of relationship explanation.
+%We will analyze the problems caused by our problem setting then give an improved version.
+%}
 
-\nop{
-\subsection{Problem Statement}
-
-Given an entity, our target in this section is to find its rich probabilistic representation by concepts.
-The \term{type} information from knowledge database such as Yago, DBpedia can be utilized to represent concepts as an option.
-Nevertheless, we envision that applying probabilistic representation such as using concepts in \ac{Probase} will fit our problem better.
-
-Probase exploit Hearst patterns to extract isA relations from 1.68 billion web pages .
-For example, it extracts evidence for the claim \at{IBM \isa company, Nokia \isa company} from sentence \at{...\ac{companies} such as \ac{IBM, Nokia}...}
-The core version of Probase contains 3,024,814 unique concepts, 6,768,623 unique instances, and 29,625,920 isA relations.
-
-Given an entity $e$, from Probase, we can acquire its concepts' set $C(e)$.
-For each $c_i \in C$, the frequency $n(c_i,e)$ can be accordingly derived, which means how many times the $e$ isA $c$ can be observed from the corpus.
-The frequency information allows us to estimate  $P(c|e)$ by
-$$P(c|e)=\frac{n(c,e)}{\sum_{c_i\in C(e)}n(c_i, e)}$$
-}
+%\nop{
+%\subsection{Problem Statement}
+%
+%Given an entity, our target in this section is to find its rich probabilistic representation by concepts.
+%The \term{type} information from knowledge database such as Yago, DBpedia can be utilized to represent concepts as an option.
+%Nevertheless, we envision that applying probabilistic representation such as using concepts in \ac{Probase} will fit our problem better.
+%
+%Probase exploit Hearst patterns to extract isA relations from 1.68 billion web pages .
+%For example, it extracts evidence for the claim \at{IBM \isa company, Nokia \isa company} from sentence \at{...\ac{companies} such as \ac{IBM, Nokia}...}
+%The core version of Probase contains 3,024,814 unique concepts, 6,768,623 unique instances, and 29,625,920 isA relations.
+%
+%Given an entity $e$, from Probase, we can acquire its concepts' set $C(e)$.
+%For each $c_i \in C$, the frequency $n(c_i,e)$ can be accordingly derived, which means how many times the $e$ isA $c$ can be observed from the corpus.
+%The frequency information allows us to estimate  $P(c|e)$ by
+%$$P(c|e)=\frac{n(c,e)}{\sum_{c_i\in C(e)}n(c_i, e)}$$
+%}
 
 
 \subsection{Head-aware Conceptulization}

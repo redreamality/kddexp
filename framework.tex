@@ -58,7 +58,7 @@ A straightforward estimation of $P( \langle c_{1},c_{2} \rangle | \langle e_{1},
 P(\langle c_{1},c_{2}\rangle |\langle e_{1},e_{2} \rangle) = P(c_1|e_1) P(c_2|e_2)
 \end{split}
 \end{equation} The rationality is that the typicality of a concept pair can be quantified as the product of their respective typicality of each concept given its corresponding entity.
-However, the assumption does not always hold as shown in Example ??. Hence, we need to introduce a factor $\alpha(c_1,c_2)$ into Eq.~\ref{eq:target_expand2_jr} to quantify {\it how likely that the two concepts are the appropriate concepts of the attribute}. Thus, we have the following improved estimation:
+However, the assumption does not always hold as shown in Example~\ref{exa:jc}. Hence, we need to introduce a factor $\alpha(c_1,c_2)$ into Eq.~\ref{eq:target_expand2_jr} to quantify {\it how likely that the two concepts are the appropriate concepts of the attribute}. Thus, we have the following improved estimation:
 \begin{equation}
 \label{eq:target_expand2_jr}
 \begin{split}
@@ -89,24 +89,24 @@ Thus the objective function is reduced to Eq.~\ref{eq:simple_obj} when Eq.~\ref{
 
 
 
-\nop{
-\subsection{Target Expand}
-Given, Eq~\ref{eq:target}, the estimation of $P(a| \langle e_1,e_2 \rangle )$ boils down to 2 parts:
-\begin{enumerate}
-\item $P(a| \langle c_{1},c_{2} \rangle )$:  the typicality of an attribute for a concept pair.
-\item $P( \langle c_{i},c_{j} \rangle | \langle e_{1},e_{2} \rangle )$:  the typicality of the concept pair for an entity pair.
-\end{enumerate}
-
-Using Bayesian rules, $P(a| \langle c_{1},c_{2} \rangle )$ can be restated in Eq.\ref{eq:target_expand1}:
-\begin{equation}
-\label{eq:target_expand1}
-\begin{split}
-P(a|\langle c_{1},c_{2} \rangle) &= \frac{ P(\langle c_{1},c_{2}\rangle|a)\times P(a) }{ P(\langle c_{1},c_{2}\rangle) }
-%&=\frac{ p((c_{1},c_{2})|a)\times P(a) }{ \sum{P( (c_{1},c_{2})|a^* )\times P(a^*)   } },
-\end{split}
-\end{equation},
-where $P(a)$ is probability to observe an entity pair with attribute $a$.
-}
+%\nop{
+%\subsection{Target Expand}
+%Given, Eq~\ref{eq:target}, the estimation of $P(a| \langle e_1,e_2 \rangle )$ boils down to 2 parts:
+%\begin{enumerate}
+%\item $P(a| \langle c_{1},c_{2} \rangle )$:  the typicality of an attribute for a concept pair.
+%\item $P( \langle c_{i},c_{j} \rangle | \langle e_{1},e_{2} \rangle )$:  the typicality of the concept pair for an entity pair.
+%\end{enumerate}
+%
+%Using Bayesian rules, $P(a| \langle c_{1},c_{2} \rangle )$ can be restated in Eq.\ref{eq:target_expand1}:
+%\begin{equation}
+%\label{eq:target_expand1}
+%\begin{split}
+%P(a|\langle c_{1},c_{2} \rangle) &= \frac{ P(\langle c_{1},c_{2}\rangle|a)\times P(a) }{ P(\langle c_{1},c_{2}\rangle) }
+%%&=\frac{ p((c_{1},c_{2})|a)\times P(a) }{ \sum{P( (c_{1},c_{2})|a^* )\times P(a^*)   } },
+%\end{split}
+%\end{equation},
+%where $P(a)$ is probability to observe an entity pair with attribute $a$.
+%}
 
 \subsection{Solution Framework}
 The main framework is illustrated in Figure~\ref{fig:framework}, which consists of two major components: the {\it online computation} and {\it offline training}. We refer to our system as \ac{Entity Relation Finder(ERF)}.
@@ -130,26 +130,26 @@ The materialization suffers from quadratic complexity. Overall, we need to preco
 \end{figure}
 
 
-\nop{
-In the online part, we first directly lookup the attribute for the query entity pair from DBpedia.
-If DBpedia has no the exact the SPO triples connecting the entity pair, we In $step 2$, the concepts of the entities in knowledge bases are calculated(i.e. $P(c_i|e_i)$ in Eq.~\ref{eq:target_expand2_jr}).
-The detailed process in in
-$Step 3$ is the training process, $P( \langle c1,c2 \rangle ,a)$ is calculated for every attribute $a$ in Eq.~\ref{eq:pccga}.
-The result is then stored in Concept Relation DB in $step 4$.
-
-In  $step 1$, when a query entity pair comes, knowledge bases such as DBpedia are looked up and the exact relationship, if exists, is answered in the first place.
-If nothing is found in $step 1$, the process will go into the ERF solution.
-
-We first conceptualize the 2 entities in $step 2$.
-The concept similarity score in Eq.~\ref{eq:target_expand2_jr}) is retrieved from the Concept Relation DB in $4$.
-%\ref{eq:pcca}
-So far we get everything for calculating Eq.~\ref{eq:target_expand2_jr}).
-Then in $step 7$ we query the concept relation database and get the relation between concept pairs, specifically, $P(a| \langle c_1,c_2 \rangle )$ in Eq.~\ref{eq:target_expand1}.
-Finally, we achieve the final object by combining all these together to infer $\argmax P(a| \langle e_1,e_2 \rangle )$ from Eq.~\ref{eq:target_expand_all}.
-We return the the attribute owning the maximal score as the explanation for the relationship between the entity pair.
-
-When no direct edges are found, we use the shortest path on the concept attribute graph to find the middle concepts, then the problem automatically reduced to relation explanation of several pairs of entities, discussing which is beyond the coverage of this paper.
-}
+%\nop{
+%In the online part, we first directly lookup the attribute for the query entity pair from DBpedia.
+%If DBpedia has no the exact the SPO triples connecting the entity pair, we In $step 2$, the concepts of the entities in knowledge bases are calculated(i.e. $P(c_i|e_i)$ in Eq.~\ref{eq:target_expand2_jr}).
+%The detailed process in in
+%$Step 3$ is the training process, $P( \langle c1,c2 \rangle ,a)$ is calculated for every attribute $a$ in Eq.~\ref{eq:pccga}.
+%The result is then stored in Concept Relation DB in $step 4$.
+%
+%In  $step 1$, when a query entity pair comes, knowledge bases such as DBpedia are looked up and the exact relationship, if exists, is answered in the first place.
+%If nothing is found in $step 1$, the process will go into the ERF solution.
+%
+%We first conceptualize the 2 entities in $step 2$.
+%The concept similarity score in Eq.~\ref{eq:target_expand2_jr}) is retrieved from the Concept Relation DB in $4$.
+%%\ref{eq:pcca}
+%So far we get everything for calculating Eq.~\ref{eq:target_expand2_jr}).
+%Then in $step 7$ we query the concept relation database and get the relation between concept pairs, specifically, $P(a| \langle c_1,c_2 \rangle )$ in Eq.~\ref{eq:target_expand1}.
+%Finally, we achieve the final object by combining all these together to infer $\argmax P(a| \langle e_1,e_2 \rangle )$ from Eq.~\ref{eq:target_expand_all}.
+%We return the the attribute owning the maximal score as the explanation for the relationship between the entity pair.
+%
+%When no direct edges are found, we use the shortest path on the concept attribute graph to find the middle concepts, then the problem automatically reduced to relation explanation of several pairs of entities, discussing which is beyond the coverage of this paper.
+%}
 
 
 %\paragraph{Paper Orgnization}
@@ -281,26 +281,26 @@ are supported by all the three concept pairs. By summing up all $P(c_1|e_1)P(c_2
 \label{fig:bipartite}
 \end{figure}
 
-\nop{
-\paragraph{Complexity analysis}
-
-We first analysis the complexity of calculating $P(\langle c_i, c_j \rangle|a_k)$, manifest in Table.~\ref{tab:complexity}. The original one need to calculate $P(\langle c_i, c_j \rangle|a_k)$ for all $c \in C_1,C_2 $,while most of the concepts are, according to the power law, close to zero, which indicates the rationality of pruning.
-
-
-\begin{table}[htbp]
-  \centering
-  \caption{Complexity Analysis}
-    \begin{tabular}{rr}
-    \toprule
-    method & complexity \\
-    \midrule
-    original &  $O(|T_n||C_1||C_2|)$ \\
-    topKpruned & $O(|T_n|K^2)$ \\
-    \bottomrule
-    \end{tabular}%
-  \label{tab:complexity}%
-\end{table}%
-}
+%\nop{
+%\paragraph{Complexity analysis}
+%
+%We first analysis the complexity of calculating $P(\langle c_i, c_j \rangle|a_k)$, manifest in Table.~\ref{tab:complexity}. The original one need to calculate $P(\langle c_i, c_j \rangle|a_k)$ for all $c \in C_1,C_2 $,while most of the concepts are, according to the power law, close to zero, which indicates the rationality of pruning.
+%
+%
+%\begin{table}[htbp]
+%  \centering
+%  \caption{Complexity Analysis}
+%    \begin{tabular}{rr}
+%    \toprule
+%    method & complexity \\
+%    \midrule
+%    original &  $O(|T_n||C_1||C_2|)$ \\
+%    topKpruned & $O(|T_n|K^2)$ \\
+%    \bottomrule
+%    \end{tabular}%
+%  \label{tab:complexity}%
+%\end{table}%
+%}
 
 \subsection{Computation of $P(a)$}
 
