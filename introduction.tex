@@ -10,36 +10,41 @@ But unfortunately why the two articles are hyperlinked remains unknown.
 \subsection{Problem Statement}
 In this paper, we dedicated our effort to {\it semantifying the hyperlinks in Wikipedia}.
 That is explicitly explaining the relationship between an entity pair whose corresponding Wikipedia articles are hyperlinked with each other.
-For example in the Wikipedia page of \at{Adolf Hitler}, \at{World War II} hyperlinked as an entity in the sentence \at{... \underline{Hitler} was at the centre of \underline{World War II} in Europe ...} in the first paragraph.
+
+For example in the Wikipedia page of \at{Adolf Hitler}, \at{World War II} is hyperlinked in the sentence \at{... \underline{Hitler} was at the centre of \underline{World War II} in Europe ...} .
 %There are many other linked entities, most of which are hyperlinked however don't exist relation in knowledge bases such as DBpedia.
 Since in Wikipedia, an article describes either an entity or a concept, we also use entities or concepts alternatively to refer to the articles in Wikipedia.
 
 The semantified links is obviously helpful for the readership.
-It is easier to understand the surrounding sentences given the explicit explanation of the relationship between an entity and its hyperlinked entity.
+It is easier to understand the surrounding sentences given the explicit explanation of the relationship between an entity and its hyperlinked entity. 
+
 Various text processing tasks can also benefit from semantified hyperlinks.
+
 %For machines, having the initial guess of the semantic relations can be potentially helpful.
 The establishment of the semantic relationship between two entities can be regarded as an effort to build knowledge graphs.
 The entities as well as their semantic relationships can be utilized as part of the answering graph in graph-based relation explanation tasks~\cite{fang2011rex}.
 They also can be used as the input of explanation tasks~\cite{voskarideslearning} that returns natural language sentence as explanation.
-In question answering systems~\cite{yang2014slq}, the semantified links will largely reduce the search space of the answers.
-Say our query is \at{Who wrote \underline{Mocking Bird}?}, recognizing \at{Mocking Bird} is actually a song will prevent searches into non-related concept pairs such as \at{<film, director>} shared by the attribute, and lead to the correct entity \at{Eminem\_(artist)} faster.
-This save search space dramatically when queries are complicated with multiple entities and relations.
-Other NLP tasks such as semantic role labeling~\cite{palmer2010semantic}, selectional preference~\cite{pantel2007isp} and textual entailment~\cite{androutsopoulos2010survey} tasks under knowledge intensive circumstances~\cite{yao2012unsupervised,exner2011using}, knowing the semantic relationship between entities will make a difference in sense disambiguation.
 
-\begin{figure}[!htb]
-\centering
-\epsfig{file=resources/df_for_plot_writer.eps,width=\columnwidth,height=0.618\columnwidth }
-\caption{\scriptsize Concept pairs \at{\scriptsize <song,artist>}, \at{\scriptsize <film,director>} sharing the same attribute \at{ \scriptsize writer}.}
-\label{fig:writer}
-\end{figure}
 
+%\nop{In question answering systems~\cite{yang2014slq}, the semantified links will largely reduce the search space of the answers.
+%Say our query is \at{Who wrote \underline{Mocking Bird}?}, recognizing \at{Mocking Bird} is actually a song will prevent searches into non-related concept pairs such as \at{<film, director>} shared by the attribute, and lead to the correct entity \at{Eminem\_(artist)} faster.
+%This save search space dramatically when queries are complicated with multiple entities and relations.
+%Other NLP tasks such as semantic role labeling~\cite{palmer2010semantic}, selectional preference~\cite{pantel2007isp} and textual entailment~\cite{androutsopoulos2010survey} tasks under knowledge intensive circumstances~\cite{yao2012unsupervised,exner2011using}, knowing the semantic relationship between entities will make a difference in sense disambiguation.
+%
+%\begin{figure}[!htb]
+%\centering
+%\epsfig{file=resources/df_for_plot_writer.eps,width=\columnwidth,height=0.618\columnwidth }
+%\caption{\scriptsize Concept pairs \at{\scriptsize <song,artist>}, \at{\scriptsize <film,director>} sharing the same attribute \at{ \scriptsize writer}.}
+%\label{fig:writer}
+%\end{figure}
+%}
 
 \subsection{Our Core Idea}
 A direct solution is using the attributes to explain the entity pairs.
 Note that DBpedia contains many structured facts of entities or concepts.
-For example, it has the SPO (subject-predicate-objec) triples \at{<Leonardo Da Vinci, ArtistOf, Mona Lisa>} which indicates the predicate \at{ArtistOf} (which is an attribute of \at{Leonardo Da Vinci}) can explain the relation between \at{Leonardo Da Vinci} and \at{Mona Lisa}.
+For example, it has the SPO (subject-predicate-object) triples \at{<Leonardo Da Vinci, ArtistOf, Mona Lisa>} which indicates the predicate \at{ArtistOf} (which is an attribute of \at{Leonardo Da Vinci}) can explain the relation between \at{Leonardo Da Vinci} and \at{Mona Lisa}.
 However, using attribute as the explanation does not always work due to the sparsity of structured facts.
-Our statistics reveal that there are \emph{968 millions} of unique links between Wikipedia entities, only \emph{15 millions} (1.5\%) of which can find semantic explanation from DBpedia.
+Our statistics show that there are \emph{968 millions} of unique links between Wikipedia entities, only \emph{15 millions} (1.5\%) of which can find semantic explanation from DBpedia.
 %The types of hyperlink are article to article, article to knowledge base(or encyclopedia-like databases). Each link has two ends the original one(the web page/ entity page contains it) and the oriented one(the web page/ entity page it points to), and each end has 2 possible types, an anchor url or an anchor entity. Hence, in all there are 4 possible combinations, which consists the 4 type of links.
 %An anchor entity can be named entities such as movies, products, people names, locations etc. In this case we explain the relation between the entity and the original article. As for an anchor url, an automatic target entity extraction process[2011] can be performed, and then it become another semantifying problem between entities.
 
@@ -51,8 +56,9 @@ For instance, from triples like \at{<Leonardo Da Vinci, ArtistOf, Mona Lisa>}, \
 
 There are two perquisites of the above inference based approaches.
 \begin{enumerate}
-\item First, {\it we must map instances or entities to their concepts accurately}. Fortunately, many taxonomies about the entity-concept relationships such \ac{Probase}~\cite{wu2012probase} and \ac{WikiTaxonomy})~\cite{ponzetto2007deriving} are available. These taxonomies allows us to conceptualize EAE instances into corresponding CAC patterns, as well as the deduction from the CAC to a specific EAE instance.
-\item Second, {\it an enough number of relationship instances should be available to learn a CAC pattern of high trustworthy}. Fortunately, knowledge bases such as \ac{DBpeda} contains many such EAE instances. DBpedia covers more than one thousand of important relationships, which ensures the explanation of a wide range of relationships.
+\item First, {\it we must map instances or entities to their concepts accurately}. 
+Fortunately, many taxonomies containing the entity-concept relationships such \ac{Probase}~\cite{ and \ac{WikiTaxonomy} are available. These taxonomies allows us to conceptualize EAE instances into corresponding CAC patterns, as well as the deduction from the CAC pattern to a specific EAE instance.
+\item Second, {\it an enough number of relationship instances should be available to learn a CAC pattern of high trustworthy}. Fortunately, knowledge bases such as \ac{DBpedia} contains many such EAE instances. DBpedia covers more than one thousand of important relationships, which ensures the explanation of a wide range of relationships.
 \end{enumerate}
 
 
@@ -68,13 +74,16 @@ There are two perquisites of the above inference based approaches.
 
 In general, we need a learning framework to learn the CAC patterns form EAR instances.
 This procedure can be regarded as a conceptualization procedure.
-Two features distinguishing our learning procedure from previous conceptualization work of such learning are {\it collective conceptualization}, {\it joint conceptualization} and {\it head-aware conceptualization}.
-Different from the previously conceptualization works, which in general use knowledge base to conceptualize a single world or phrase~\cite{song2011short,kim2013context}.
-In our settings, we need to conceptualize the a set of EAE instances. It is rarely studied for collective conceptualization by knowledge base.
-Second, an EAE instance like $<e_1, a, e_2>$, joint conceptualization of $e_1$ and $e_2$ are not independent, actually they are influential on each other. For example,,,.,\xch{what is needed here?}
+Different from the previously conceptualization works, which in general use knowledge base to conceptualize a single world or phrase~\cite{song2011short,kim2013context}, conceptualization in our problem setting has the following unique characteristics:
+\begin{itemize}
+\item First,  {\it joint conceptualization.} Given an EAE instance like $<e_1, a, e_2>$, we need to find concepts for $e_1$ and $e_2$ simultaneously. Clearly, the conceptualization of $e_1$ and $e_2$ are not independent, and actually they are influential on each other. We illustrate this in Example~\ref{exa:jc}.
+\item Second, {\it collective conceptualization.} 
+In our settings, we need to conceptualize the a set of EAE instances instead of a single instance. It is rarely studied for collective conceptualization by knowledge base. We illustrate this in Example~\ref{exa:sd}.
+\item Third, {\it head-aware conceptualization}. As illustrated in Example~\ref{exa:hc}, in our problem setting, it is the head concept determines the relationship between an entity pairs. Hence, we need to conceptualize entity into its head concepts instead of some other modified concepts. 
+\end{itemize}
 
 \begin{example}[Joint conceptualization]
-For example, given an entity pair \at{<apple, steve jobs>}. The candidate concepts for \at{apple} are \at{\{fruit,company,...\}} and the candidate concepts for \at{steve jobs} are \at{\{entrepreneur, pc developer,...\}}. Obviously, the concept pair \at{<fruit, entrepreneur>} is meaningless in this case.
+Given an entity pair \at{<apple, steve jobs>}. The candidate concepts for \at{apple} are \at{\{fruit,company,...\}} and the candidate concepts for \at{steve jobs} are \at{\{entrepreneur, pc developer,...\}}. Obviously, the concept pair \at{<fruit, entrepreneur>} is meaningless in this case.
 \label{exa:jc}
 \end{example}
 
@@ -85,7 +94,7 @@ Continue the previous example, when we are further given \at{<microsoft, bill ga
 \end{example}
 
 \begin{example}[Head-aware conceptualization]
-For example, the \at{FoundedBy} relationship between \at{Apple Inc.} and \at{Steve Jobs} are determined by the head concepts they possessed (e.g.\ \term{company} and \term{entrepreneur}, regardless of the modifiers such as \term{technology} in the concept \term{technology company}.)
+The \at{FoundedBy} relationship between \at{Apple Inc.} and \at{Steve Jobs} are determined by the head concepts they possessed (e.g.\ \term{company} and \term{entrepreneur}, regardless of the modifiers such as \term{technology} in the concept \term{technology company}.)
 \label{exa:hc}
 \end{example}
 
@@ -109,21 +118,14 @@ For example, the \at{FoundedBy} relationship between \at{Apple Inc.} and \at{Ste
 
 %On the other hand, we consider the co-occurrence of the 2 entities, based on the assumption of important relationship will be observed in various of documents[]
 
-For these reasons, we purpose a relation explanation method leveraging the concept and co-occurrence of and entity, to explain the relation between the target entity and the related entity, thus semantifying the hyperlink.
-%To summarize, our paper has following contributions:
-%\begin{itemize}
-%  \item
-%  \item 
-%\end{itemize}
+To solve the above problems, we propose a series of probability metrics.
+These metrics are integrated into a probabilistic based optimization framework.
+We also present a systematic evaluation over our solutions and metrics. The results show that we can successfully semantify most hyperlinks in Wikipedia.
 
-The rest of the paper is organized as follows.
-\yh{FINAL WORK}
-%Section~\ref{sec:rel}
-%Section~\ref{sec:framework}
-%Section~\ref{sec:conceptualization}
-%Section~\ref{sec:fafa}
+Next, we first first survey the related works. Then, we formalize our problem model.
+In Section 4, we present our solution to joint conceptualization as well as the refined problem model.
+In Section 5, we elaborate how to do collective conceptualization. Section 6 introduces the detail of head-aware conceptualization, followed by experimental study in Section 7. Finally, we close the work with a brief conclusion.
 
-%We first survey the related works,
 %
 %then we present a detailed problem statement our framework for entity relation finding.
 % describes how we do conceptualization to map entities into a concept-concept space.
