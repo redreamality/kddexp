@@ -41,7 +41,7 @@ Our problem is refined as Eq.~\ref{eq:target_head}:
 \end{equation}
 
 By restricting the concept to the head concept, we can further reduce the computation cost.
-The number of head concept pairs is obviously significantly smaller than that of the concept pair and that of entity pairs. 
+The number of head concept pairs is obviously significantly smaller than that of the concept pair and that of entity pairs.
 Because most concepts are tail concepts with long modifiers.
 Our statistics show that there are only 33197 head concepts, which is significantly less that 2 million original concepts.
 By focusing on head concept, we effectively-yet-efficiently find the relationships without handling the huge number of long-tailed concepts and their entities.
@@ -63,32 +63,12 @@ We denote each head concept as $c_h$ and the concept with modifiers as $c_{l}$.
 We use $\bar{C}(e)$ to denote the set of head concepts of $e$.
 Our problem is reduced to the recalculation of the probability $P({c_h}|e)$.
 
-\nop{
-We report the changes of the $Probase$ concept space when applied our conceptualize method in Table~\ref{tab:nhc}.
-We have 33197 head concepts after doing the head modifier detection, while 2 million concepts before, which reduce the search space of concept.
-The increase of the average occurrence indicates the confidence of the $e$\isa$c$ pair is increased.
-The increase of the average children per concept makes entities less unique, which will help avoid entity with same head concept share no long concept.
 
-\begin{table}[htbp]
-  \centering
-  \caption{Necessity of Head Conceptualization}
-    \begin{tabular}{rrrr}
-    \toprule
-          & Before & After & Changed\% \\
-    \midrule
-    concept number & 2127953 & 33197 & -98.44 \\
-    average occurrence & 1.75  & 2.71  & 54.85714 \\
-    children per concept & 7.53  & 184.3 & 2347.543 \\
-    parents per entity & 2.33  & 1.55  & -33.4764 \\
-    \bottomrule
-    \end{tabular}%
-  \label{tab:nhc}%
-\end{table}%
-}
+
 
 \subsection{Conceptualization into Head Concepts}
 One problem in the estimation of $p(c_h|e)$ is that we are likely to underestimate $p(c_h|e)$ because in general there is no sufficient direct isA relationships from entity $e$ to the head concept $c_h$.
-We illustrate this in Example~\ref{exa:conc}. 
+We illustrate this in Example~\ref{exa:conc}.
 
 
 %For our task, we only need relatively general concepts(a.k.a. head concepts).
@@ -124,7 +104,7 @@ Finally, we provide a method to take the original isA relation from Probase into
 
 \subsection{Baseline}
 The underestimation is caused by the ignorance of mentions of a entity as an instance of modified concepts. As shown in Example~\ref{exa:clc}, we should counts the number that $e$ isA $c_{l}$ when we count the $e$ isA $c_{h}$ for any $c_l$ that is a modified concept of $c_h$.
-Hence, the most straight forward approach is rectifying the $n(e, c_h)$ by the additionally counting 
+Hence, the most straight forward approach is rectifying the $n(e, c_h)$ by the additionally counting
 all $n(e, c_l)$ such that $h(c_l)=c_h$, where $h()$ is a function that generate the head concept of a long concept. The rectification is shown in Eq~\ref{eq:rec}. According to the rectified count, we have a rectified estimation on $P(c_h|e)$, as shown in Eq~\ref{eq:recp}.
 \begin{equation}
 \hat{n}(c_h, e)={n}(c_h, e)+\sum_{ h(c_l)=c_h} n(c_l,e)
@@ -169,7 +149,7 @@ For example in Figure~\ref{fig:pgge}, \at{Bill Gates} has isA links to \at{succe
 %}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 Now we elaborate how to take into account the subconcepts with different heads. We first argue that we can not directly count its number of isA mentions like Eq~\ref{eq:rec}. Because its mentions should be contributed to its own head. For example, for \at{successful entrepreneur}, the number of \at{Bill Gates} isA \at{successful entrepreneur} should be attributed to \at{entrepreneur} instead of \at{Leader}.
-Hence, we need a new framework. 
+Hence, we need a new framework.
 
 Instead of direct lying rectifying the isA count, we rectify the conditional probability in Eq.~\ref{eq:recp} by counting additional probability contributed by subconcepts with different heads. Given an entity $e$ and one of its head concept $h$, let $C_h$ be the set of all $h$'s modified concepts and $h$ itself. let $C^*_h$ be all concepts with different head but has a isA link to one concept in $C_h$. We can quantify how likely an entity $e$ reaches to any one concept in $C_h$ by a random walk process. In the random walk procedure, we use $P(c|e)=\frac{n(c,e)}{n(e)}$ as the random walk probability from $e$ to $c$. We can similarly define $P(c_1|c_2)$ when $c_2$ is a subconcept of $c_1$.  Thus, we need to aggregate all the random walk probability from $e$ to any concept in $C_h$.
 Hence, our improved estimation of $P({c_h}|e)$ is as follows:
@@ -181,7 +161,7 @@ Hence, our improved estimation of $P({c_h}|e)$ is as follows:
 where we use $\gamma$ to tune relative importance of two parts and $1-\gamma$ part is the contribution from the subconcept with different heads.
 
 
-Note that we only consider two-steps of random walk due to the following reasons. 
+Note that we only consider two-steps of random walk due to the following reasons.
 First, long-steps random walk tend to introduce two general or non-realted concepts such as \term{issue, factor, element}, which are concepts for almost everything.
 Second, long steps random walk in general is costly since most real graphs are small-world.
 %bill gates 的例子OK 么， 如果OK 我开始写example of calculation
