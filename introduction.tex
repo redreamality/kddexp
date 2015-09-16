@@ -6,22 +6,21 @@ Recent years have witnessed the booming of semi-structured documents, especially
 {\it Wikipedia.org} is consistently among the top 10 most visited websites according to Alexa Traffic Ranks~\footnote{\small\url{http://www.alexa.com/siteinfo/http://www.wikipedia.org}}.
 Wikipedia is flooded with hyperlinks, which interconnect the Wikipedia articles.
 In general, one article contains a hyperlink to another article because the entities corresponding to the articles has a certain semantic relationship.
-However, expanation of such relationship is a non-trivial problem.
+However, explanation of such relationship is a non-trivial problem.
 
 \subsection{Problem Statement}
-We thus study this problem of
-{\it semantifying the hyperlinks in Wikipedia}, of 
+We thus study this problem of{\it semantifying the hyperlinks in Wikipedia}, of 
 explaining the relationship between an entity pair whose corresponding Wikipedia articles are hyperlinked with each other.
 For example, Wikipedia page of \at{Leonardo Da Vinci}, has a hyperlink to \at{Mona Lisa} the sentence \at{... 
 Among his works, the \underline{Mona Lisa} is the most famous and most parodied portrait}.
 Our goal is, for each Wikipedia page, representing an entity or a concept,
-we find an \emph{attribute}, such as \emph{ArtistOf}, which best explains their relationship.
+we find an \emph{attribute}, such as \emph{ArtistOf}, which best explains its relationship with a hyperlinked entity.
 
 
 \subsection{Our Core Idea}
 
 This problem is trivial, if DBpedia contains 
-SPO (subject-predicate-object) triples \at{<Leonardo Da Vinci, ArtistOf, Mona Lisa>} which indicates the predicate \at{ArtistOf} (which is an attribute of \at{Leonardo Da Vinci}) can explain the relation between \at{Leonardo Da Vinci} and \at{Mona Lisa}. However, this case is extremely rare:
+SPO (subject-predicate-object) triples \at{<Leonardo Da Vinci, ArtistOf, Mona Lisa>} which indicate the predicate \at{ArtistOf} (which is an attribute of \at{Leonardo Da Vinci}) can explain the relation between \at{Leonardo Da Vinci} and \at{Mona Lisa}. However, this case is extremely rare:
 Our statistics show that there are \emph{968 millions} of unique links between Wikipedia entities, only \emph{15 millions} (1.5\%) of which can find semantic explanation from DBpedia.
 
 Thus, {\it how to improve the recall when the relationship facts are not covered by the knowledge base?}
@@ -29,29 +28,19 @@ A key observation is that the concept pairs
 that best explain the given entity pairs can be effective intermediate 
 variables. 
 For example, \at{<Leonardo Da Vinci, Mona Lisa>} can be best explained by \at{ArtistOf} attribute, 
-which typically holds between concept pair
-\at{<artist, painting>}. 
-Many SPO triples
-\at{<Leonardo Da Vinci, ArtistOf, Mona Lisa>}, \at{<Salvador Dali, ArtistOf, The Persistence of Memory>}
-enables to conclude \emph{ArtistOf} is typical attribute for
-\at{<artist, painting>} 
-concept pair.
+which typically holds between concept pair \at{<artist, painting>}. 
+Many SPO triples \at{<Leonardo Da Vinci, ArtistOf, Mona Lisa>}, \at{<Salvador Dali, ArtistOf, The Persistence of Memory>}
+enable the conclusion that \emph{ArtistOf} is a typical attribute for \at{<artist, painting>} concept pair.
 
-
-This enables the understanding of entity pairs unobserved in DBpedia triples,
-if they can be correctly conceptualized into
-\at{<artist, painting>},
-Though conceptualizing a word or phrase
-has been actively studied
-~\cite{song2011short,kim2013context}, conceptualization in our problem setting has the following unique characteristics:
-
+This enables the understanding of entity pairs unobserved in DBpedia triples, if they can be correctly conceptualized into \at{<artist, painting>}.
+Though conceptualizing a word or phrase has been actively studied~\cite{song2011short,kim2013context}, conceptualization in our problem setting has the following unique characteristics:
 
 
 \subsection{Challenges and Contributions}
 
 \begin{itemize}
 \item First,  {\it joint conceptualization.} Conceptualization of
-$e_1$ and $e_2$ are not independent, and thus requires joint optimization, 
+$e_1$ and $e_2$ is not independent, and thus requires joint optimization, 
 as we illustrate in Example~\ref{exa:jc}.
 \item Second, {\it collective conceptualization.} 
 Conceptualization of a single entity pair is more ambiguous than that of many pairs, for which we \emph{collectively} conceptualize for a set of pairs observed from SPO triples.
@@ -62,7 +51,9 @@ We illustrate this in Example~\ref{exa:sd}.
 {\footnotesize
 
 \begin{example}[Joint conceptualization]
-Given an entity pair \at{<apple, steve jobs>}. The candidate concepts for \at{apple} are \at{\{fruit,company,...\}} and the candidate concepts for \at{steve jobs} are \at{\{entrepreneur, pc developer,...\}}. Obviously, the concept pair \at{<fruit, entrepreneur>} is meaningless in this case.
+Given an entity pair \at{<apple, steve jobs>}. 
+The candidate concepts for \at{apple} are \at{\{fruit,company,...\}} and the candidate concepts for \at{steve jobs} are \at{\{entrepreneur, pc developer,...\}}. 
+Obviously, the concept pair \at{<fruit, entrepreneur>} is meaningless in this case if we consider the concept pair jointly.
 \label{exa:jc}
 \end{example}
 
@@ -102,5 +93,5 @@ The \at{FoundedBy} relationship between \at{Apple Inc.} and \at{Steve Jobs} is d
 
 We propose a probabilistic framework, integrating probabilities observed
 from Wikipedia and taxonomies.
-We validate our framework using real-life Wikipedia corpus and Probase taxonomy.
+We validate our framework using real-life Wikipedia entity pairs and Probase~\cite{wu2012probase} taxonomy.
 

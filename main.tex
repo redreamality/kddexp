@@ -41,19 +41,20 @@
 \newcommand{\xch}[1]{\Blue{#1}}
 \newcommand{\yh}[1]{\Red{#1}}
 \newcommand{\nop}[1]{}
-\newcommand{\isa}[0]{$ \stackrel{  isA  }{\longrightarrow} $ }
+%\newcommand{\isa}[0]{$ \stackrel{  isA  }{\longrightarrow} $ }
+\newcommand{\isa}{ isA }
 \newcommand{\noisa}[0]{$ \stackrel{ Head }{\dashrightarrow} $ }
 
 \newcommand{\at}[1]{{\small\tt #1}}
 \newcommand{\ac}[1]{\emph{#1}}
 
-%\renewcommand{\baselinestretch}{0.8} 
+\renewcommand{\baselinestretch}{0.98} 
 
 
 \begin{document}
 
 %\title{Implicit Relation Inferring Using Knowledge Graph}
-\title{From hyperlinks to semantic links: A Probabilistic Approach to Explain Hyperlinks in Wikipedia}
+\title{From Hyperlinks to Semantic Links: A Probabilistic Approach to Explain Hyperlinks in Wikipedia}
 %\subtitle{A Probabilistic Approach to Explain Hyperlinks in Wikipedia}
 
 %\numberofauthors{8}
@@ -71,7 +72,7 @@
 \maketitle
 \begin{abstract}
 
-In this paper, we present Entity Relation Finder($ERF$): a framework of semantifying 
+In this paper, we present Entity Relation Finder ($ERF$): a framework of semantifying 
 the relationship between a Wikipedia page and another page hyperlinked from the page.
 This is an easy task if there already exists a triple in the knowledge base explaining the relationship
 between the given entity pair.
@@ -79,7 +80,7 @@ However, this is only the 1.5\% of the cases, and for the rest, we need to infer
 We propose to conceptualize entity pair into proper concept pairs, as intermediate random variables.
 Though entity conceptualization has been studied, this has new challenges of jointly optimizing for both entities and aggregating diluted observations into the head concepts defining the relationship.
 Meanwhile, there is an opportunity of leveraging existing triples and concept probabilities of web-scale taxonomy, for such probabilistic reasoning.
-We validate our proposed framework using real-life Wikipedia corpus and Probase taxonomy.
+We validate our proposed framework using real-life entity pairs and Probase taxonomy.
 
 \end{abstract}
 
@@ -88,6 +89,8 @@ We validate our proposed framework using real-life Wikipedia corpus and Probase 
 \input{introduction}
 \input{related_works}
 \input{framework}
+\input{joint_conceptualization}
+\input{collective_conceptualization}
 \input{conceptualization}
 %\input{find_alias}
 \input{experiment}
