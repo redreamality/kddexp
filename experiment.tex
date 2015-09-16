@@ -15,12 +15,12 @@ We use Probase for conceptualization. We carry out all the experiments on a PC w
 We need to evaluate how accurate the result is. 
 Hence, we use $nDCG@K$ and $MAP@K$ as our evaluation metric.
 We further use $ ERR@K$ ( {\it Expected Reciprocal Rank})~\cite{chapelle2009expected} to evaluate the our collective conceptulization procedure.
-Among all the metrics above, the results are better with larger values.
+For all the metrics, a larger values always imply a better result. We ask volunteers to label the goodness of all results.
 %, evaluating the correctness of first $K$ concept pairs is similar to user browsing case. In our case, a user may stop looking at more concepts if top-$K$ concepts already provide sufficient conceptual information for the entity pair.
 % 我突然想到了我这里做过个优化, 每次算concept pairs 的时候按照P(C|E)排个序，如果排在后面的c，乘上最大的P（<c1,c2>|a）P（a）也不能超过前面的，就停止搜索了。2015年9月15日19:23:27
 
-
-\subsection{Exp 1: Effectiveness of $ERF$}
+\vspace{-4mm}
+\paragraph*{Exp 1: Effectiveness of $ERF$}
 In this experiment, we evaluate the effectiveness of our $ERF$ system.
 We first show that $ERF$ systems can explain relationship for most entity pairs.
 We compare to a baseline that directly retrieves the attribute from DBpedia for the entity pair.
@@ -53,8 +53,13 @@ Our system explains 15.77\% more entity pairs than the baseline (64\%).
 %}
 
 
-To further justify the effectiveness of $ERF$, we compare the overall results against the baseline where apply original $Probase$ to do the conceptualization.
+To further justify the effectiveness of $ERF$, we compare two versions of our solution, one with head-aware conceptualization ($ERF-H$)
+and one with direct conceptualization ($ERF-D$).
 We report all the precision metrics in Table~\ref{tab:ndcg}. 
+The results show that both of two versions of $ERF$ can consistently achieve accuracy above 0.87 on different metrics.
+$ERF-H$ performs best. In most metrics, it has an accuracy larger than 0.9. In the next experiments, without extra statement, we
+always report the result of $ERF-H$.
+
 
 \begin{table}[!htbp]
 \vspace{-4mm}
@@ -67,8 +72,8 @@ We report all the precision metrics in Table~\ref{tab:ndcg}.
 	\toprule
 	     & nDCG@3 & nDCG@5 & MAP@3 & MAP@5 \\
 	\midrule
-	$ERR$(Org.) & 0.925 & 0.887 & 0.916 & 0.87 \\
-	$ERF$(Head-aware) & 0.928 & 0.933 & 0.902 & 0.907 \\
+	$ERF-D$ & 0.925 & 0.887 & 0.916 & 0.87 \\
+	$ERF-H$ & 0.928 & 0.933 & 0.902 & 0.907 \\
 	\bottomrule
 	\end{tabular}%
 
@@ -78,9 +83,8 @@ We report all the precision metrics in Table~\ref{tab:ndcg}.
 
 
 
-
-
-\subsection{Exp 2: Head-aware Conceptualization}
+\vspace{-4mm}
+\paragraph*{Exp 2: Head-aware Conceptualization}
 In this experiment, we show that head-aware conceptualization significantly reduce the computational cost without sacrificing precision. 
 In Table~\ref{tab:nhc}, we report the statistics of Probase concept space and head concepts with isA concurrence number rectified by its long concepts. 
 We can see that the number of head concepts is only 1.5\% of Probase concept number. This brings a significant reduction in computation. 
@@ -107,7 +111,7 @@ The increase of \emph{average \#occurrence} indicates the confidence of the $e$ 
 \end{table}%
 
 
-We give the distribution of head concepts with ($P(h|e)$)and without rectification ($\hat{P}(h|e)$).  Figure~\ref{fig:hac} illustrate the distribution, from which we can observe that (1) $P(h|e)$ and $\hat{P}(h|e)$ in general is positively correlated to each other with Person correlation coefficient as {\bf 0.89} (2) for important heads (with large $P(h|e)$) their conditional probability is amplified. These results suggest that we derived an estimation in a smaller concept space without losing the accuracy.
+We give the distribution of head concepts without ($P(h|e)$) and with rectification ($\hat{P^*}(h|e)$).  Figure~\ref{fig:hac} illustrate the distribution, from which we can observe that (1) $P(h|e)$ and $\hat{P^*}(h|e)$ in general is positively correlated to each other with a Pearson correlation coefficient as {\bf 0.89} (2) for important heads (with large $P(h|e)$) their conditional probability is amplified. These results suggest that we derived an estimation in a smaller concept space without losing the accuracy.
 
 
 \begin{figure}[!tb]
@@ -116,18 +120,14 @@ We give the distribution of head concepts with ($P(h|e)$)and without rectificati
 \small
 \epsfig{file=resources/df_hac_50_bill_gates.eps,width=\columnwidth, height=0.3\columnwidth}
 \vspace{-8mm}
-\caption{Comparison between $P(h|e)$) and $\hat{P}(h|e)$ for \at{Bill Gates}. \small The red bars means $P(c|e)$ and the blue ones represents $\hat{P}(h|e)$. Only top 50 concepts are shown due to space limit.  }
+\caption{Comparison between $P(h|e)$) and $\hat{P^*}(h|e)$ for \at{Bill Gates}. \small The red bars means $P(c|e)$ and the blue ones represents $\hat{P^*}(h|e)$. Only top 50 concepts are shown due to space limit.  }
 \label{fig:hac}
 \vspace{-6mm}
-%\vspace{-8mm}
+%
 \vspace{-6mm}
 \end{figure}
 
-\nop{
-\xch{not really need to be similar with the original, but I will do it}. We report the Pearson correlation between....
 
-We further give case studies in Table.~\ref{tab:rerank} with the comparison to the direct estimation of $P(c|e)$ using Probase. 
-}
 %
 %\begin{table*}[htbp!]
 %  \centering
@@ -205,8 +205,8 @@ We further give case studies in Table.~\ref{tab:rerank} with the comparison to t
 \vspace{-10mm}
 \end{figure*}
 
-
-\subsection{Exp 3: Joint Conceptualization}
+\vspace{-4mm}
+\paragraph*{Exp 3: Joint Conceptualization}
 Now, we evaluate the effectiveness of joint conceptualization, which is implemented by the introduction of $\alpha(c_1,c_2)$ in Eq.~\ref{eq:target_expand2_jr}. 
 We compare to the baseline method in Eq~\ref{eq:naive}.
 We present Table~\ref{tab:expjc} to show many cases where $\alpha$ help identify the true concept pair (ranked as the first).
@@ -256,7 +256,7 @@ From the results, we can see that (1) the result with $\alpha$ is significantly 
 %We present the visualization of the distribution of $P(\langle c_1,c_2 \rangle|\langle e_1,e_2 \rangle )$ for Eq.~\ref{eq:naive} in Figure~\ref{fig:c1c2} and for Eq.~\ref{eq:target_expand2_jr} in Figure~\ref{fig:c1c2_alpha}.
 %The floats inside each box represents $P(\langle c_1,c_2 \rangle|\langle e_1,e_2 \rangle )$, when the pair $\langle c_1,c_2 \rangle$ does not exist, we add a small value to $\alpha$ and then do normalization for smoothing purpose.
 \begin{figure}[!b]
-\vspace{-2mm}
+%\vspace{-2mm}
 \centering
 \footnotesize
 \epsfig{file=resources/violin_eval.eps,width=1.1\columnwidth}
@@ -277,14 +277,15 @@ From the results, we can see that (1) the result with $\alpha$ is significantly 
 %\end{figure*}
 %
 
-\subsection{Exp 4: Collective Conceptualization}
+\vspace{-4mm}
+\paragraph*{Exp 4: Collective Conceptualization}
 We compare our approach with an $MDL$ based collective conceptualization solution~\cite{sunconceptual}, which aims at generating a minimum set of conceptual labels that best summarize a bag of words.
 In our case, the bag of words are replaced by a set of entities.
 $MDL$ uses $\alpha$ to tune the balance between \ac{Minimality} and \ac{Coverage}. 
 Bigger $\alpha$ lead to better coverage as well as general concepts.
 We set the parameter $\alpha$ in $MDL$ to 0.5 for normal comparison and 0.1 for gaining more concept pairs.
 
-In the experiment, we select 50 attributes from different relation groups (such as \ac{PERSON-ORGNIZATION, PERSON-AFFLIATION, OBJECT-LOCATION} etc.\ ) and manually evaluate the top 20 concept pairs for each attribute.
+In the experiment, we select 50 attributes from different relation groups (such as \at{PERSON-ORGNIZATION, PERSON-AFFLIATION,} etc.\ ) and manually evaluate the top 20 concept pairs for each attribute.
 Volunteers give a score \textbf{2} for excellent concept pairs (e.g. \at{<company, entrepreneur>} for \at{FoundedBy}), \textbf{1} for correct while not appropriate ones (e.g. \at{<song, celebrity>} for \at{writer} ), and \textbf{0} for wrong concept pairs (e.g. \at{<topic, Country>} for \at{SpokenIn}).
 We present the human evaluated score in Figure~\ref{fig:eva_violin_pc1c2ga}.
 We also show the evaluation results on each relation relation group produced by $ERF$ in Figure~\ref{fig:eva_violin_group}.
@@ -312,20 +313,15 @@ We also show the evaluation results on each relation relation group produced by 
 From the results we can see that $ERF$ always produces the best result in terms of $nDCG@1$ and $nDCG@10$.
 We can observe a significant increase in the $nDCG@10$ score for $ERF$ while not much increase in $MDL$-based approach. Because $MDL$ tends to give as few concepts as possible and sacrifices the coverage when $\alpha$ is small. The $nDCG@1$ score is reasonably low since usually there are more than one pair of correct concepts.
 
-%All these results can be consistently observed across different relationships as seen in Figure~\ref{fig:eva_violin_group}.
-
-
-
-The $ERR@1$ and $ERR@10$ measure vary not that much due to its user-behavioral instinct. In general, a real user pays less attention to the lower-ranked pairs after he/she find the correct concept pair.
+$ERR@1$ and $ERR@10$ measure vary not that much due to its user-behavioral instinct. In general, a real user pays less attention to the lower-ranked pairs after he/she find the correct concept pair.
 The results show that 
  $ERF$ always performs best and gains an slight increase in $ERR@10$ compared to $ERR@1$.
  The results are consistent across different groups of relationships.
 
 
 
-
-\subsection{Case Study}
-
+\vspace{-4mm}
+\paragraph*{Case Study}
 We show some of the relations that has been retrieved by our method in Table~\ref{tab:results}.
 \nop{The first 2 columns show the query entity pair.
 The 3rd column is the relation retrieved by $ERF$ with a confidence score in the 4th column.

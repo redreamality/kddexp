@@ -4,7 +4,7 @@ In this section, we present our solution to estimate $ P(\langle c_1,c_2 \rangle
 Our basic idea is considering the conceptualization of $e_1$ and $e_2$ jointly instead of independently.
 By joint conceptualization, we derive a new optimization objective function.
 
-
+\vspace{-2mm}
 \paragraph{Estimation of $P(\langle c_1,c_2\rangle | \langle e_1,e_2\rangle)$ }
 A straightforward estimation of $P( \langle c_{1},c_{2} \rangle | \langle e_{1},e_{2} \rangle )$ is as Eq.~\ref{eq:naive} when we assume that the choice of concept for $e_1$ is independent of that for $e_2$.
 \begin{equation}
@@ -68,6 +68,7 @@ Thus the objective function is reduced to Eq.~\ref{eq:simple_obj} when Eq.~\ref{
 %where $P(a)$ is probability to observe an entity pair with attribute $a$.
 %}
 
+\vspace{-2mm}
 \paragraph{Solution Framework}
 Now we are ready to present our framework. The main framework is illustrated in Figure~\ref{fig:framework}, which consists of two major components: {\it online computation} and {\it offline training}. 
 We refer to our system as \ac{Entity Relation Finder ($ERF$)}.

@@ -27,7 +27,7 @@ We first motivate this problem. Then give our solution.
 %$$P(c|e)=\frac{n(c,e)}{\sum_{c_i\in C(e)}n(c_i, e)}$$
 %}
 
-
+\vspace{-2mm}
 \subsection{Head-aware Conceptualization}
 We further emphasize that the relationship between entities are determined by the head concepts, as illustrated in Example~\ref{exa:hc}.
 %For example, the \at{FoundedBy} relationship between \at{Apple Inc.} and \at{Steve Jobs} are determined by the head concepts they possessed (e.g.\ \term{company} and \term{entrepreneur}, regardless of the modifiers such as \term{technology} in the concept \term{technology company}.)
@@ -49,6 +49,7 @@ Because most concepts are tail concepts with long modifiers.
 %By focusing on head concept, we can effectively find the relationships without handling the huge number of long-tailed concepts and their entities.
 %}
 
+\vspace{-4mm}
 \paragraph*{Probase}
 We use Probase to do conceptualization of entities. 
 %Probase exploit Hearst patterns to extract isA relations from 1.68 billion web pages. For example, it extracts \at{IBM} isA \at{company}, \at{Nokia} isA \at{company} relationships from sentence \at{...\ac{companies} such as \ac{IBM, Nokia}...}
@@ -58,6 +59,7 @@ Each $e$ isA $c$ relations is associated with a frequency, denoted by $n(e, c)$.
 Thus we can estimate  $P(c|e)$ by
 $P(c|e)=\frac{n(c,e)}{\sum_{c_i\in C(e)}n(e, c_i)}$.
 
+\vspace{-4mm}
 \paragraph*{Finding Head Concepts}
 We use the following procedure to derive head concept for an entity $e$.
 We first retrieve all concepts of $e$ in Probase $C(e)$.
@@ -66,7 +68,7 @@ We identify the head concept by syntax-based patterns~\cite{ponzetto2007deriving
 We denote each head concept as $h$ and a concept with modifiers as ${l}$.
 Our problem is reduced to the recalculation of the probability $P({h}|e)$.
 
-
+\vspace{-4mm}
 \subsection{Conceptualization into Head Concepts}
 One problem in the estimation of $P(h|e)$ is that we are likely to underestimate $P(h|e)$ because in general there is no sufficiently direct isA relationships from entity $e$ to the head concept $h$.
 We illustrate this in Example~\ref{exa:conc}.
@@ -150,7 +152,7 @@ Although these two concepts are not the modified concepts of \at{Leader}, their 
 
 %\vspace{-1mm}
 \begin{figure}[!tb]
-\vspace{-8mm}
+\vspace{-2mm}
 \label{fig:bill}
 \centering
 \epsfig{file=resources/bill_gates_isa.eps,width=\columnwidth, height=0.4\columnwidth}%5.5in
