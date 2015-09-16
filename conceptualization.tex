@@ -37,23 +37,24 @@ Let $\bar{C}_1$ and $\bar{C}_2$ be the head concepts in  $C_1$ and $C_2$, respec
 Our problem is refined as to be:
 \begin{equation}
 \label{eq:target_head}
-\scriptstyle
+\small
 \argmax_a \sum_{c_i\in \bar{C}_1 , c_j \in \bar{C}_2 } P(a|\langle c_{i},c_{j} \rangle \times P(\langle c_{i},c_{j}\rangle|\langle e_{1},e_{2}\rangle)
 \end{equation}
 
 By restricting the concept to the head concept, we can further reduce the computation cost.
 The number of head concept pairs is obviously significantly smaller than that of the concept pair and that of entity pairs.
 Because most concepts are tail concepts with long modifiers.
-Our statistics show that there are only 33197 head concepts, which is significantly less that 2 million original concepts in Probase.
+\nop{Our statistics show that there are only 33197 head concepts, which is significantly less that 2 million original concepts in Probase.
 By focusing on head concept, we can effectively find the relationships without handling the huge number of long-tailed concepts and their entities.
-
+}
 \paragraph*{Probase}
-We use Probase to do conceptualization of entities. Probase exploit Hearst patterns to extract isA relations from 1.68 billion web pages. For example, it extracts \at{IBM} isA \at{company}, \at{Nokia} isA \at{company} relationships from sentence \at{...\ac{companies} such as \ac{IBM, Nokia}...}
-The core version of Probase contains 3 millions of concepts, 6 millions of unique instances, and almost 30 millions of isA relations.
-Given an entity $e$, from Probase, we can acquire its concepts' set $C(e)$.
-For each $c_i \in C$, the frequency $n(c_i,e)$ can be accordingly derived, which means how many times the $e$ isA $c$ can be observed from the corpus.
-The frequency information allows us to estimate  $P(c|e)$ by
-$$P(c|e)=\frac{n(c,e)}{\sum_{c_i\in C(e)}n(c_i, e)}$$
+We use Probase to do conceptualization of entities. 
+%Probase exploit Hearst patterns to extract isA relations from 1.68 billion web pages. For example, it extracts \at{IBM} isA \at{company}, \at{Nokia} isA \at{company} relationships from sentence \at{...\ac{companies} such as \ac{IBM, Nokia}...}
+Probase contains isA relations between entities and concepts. It contains 3 millions of concepts, 6 millions of instances, and almost 30 millions of isA relations.
+Given an entity $e$, let its concept set in Probase be $C(e)$.
+Each $e$ isA $c$ relations is associated with a frequency, denoted by $n(e, c)$.
+Thus we can estimate  $P(c|e)$ by
+$P(c|e)=\frac{n(c,e)}{\sum_{c_i\in C(e)}n(e, c_i)}$.
 
 \paragraph*{Finding Head Concepts}
 We use the following procedure to get head concept for an entity $e$.
@@ -101,19 +102,18 @@ Consider the entity \ac{Thomas Watson}, by whom \ac{IBM} was founded. Its concep
 %\end{example}
 %}
 
-\subsection{Baseline}
+\subsubsection{Baseline}
 The underestimation is caused by the ignorance of mentions of a entity as an instance of modified concepts. As shown in Example~\ref{exa:clc}, we should count the number that $e$ isA ${l}$ when we count the $e$ isA ${h}$ for any $l$ that is a modified concept of $h$.
 Hence, the most straight forward approach is rectifying the $n(e, h)$ by the additional count
-of all $n(e, l)$ such that $h(l)=h$, where $h()$ is a function that generate the head concept of a long concept. The rectification is shown in Eq~\ref{eq:rec}. According to the rectified count, we have a rectified estimation on $P(h|e)$, as shown in Eq~\ref{eq:recp}.
+of all $n(e, l)$ such that $h(l)=h$, where $h()$ is a function that generate the head concept of a long concept. The rectification of count and corresponding rectified estimation are shown in Eq~\ref{eq:rec}. 
+%According to the rectified count, we have a rectified estimation on $P(h|e)$, as shown in Eq~\ref{eq:recp}.
 \begin{equation}
-\hat{n}(h, e)={n}(h, e)+\sum_{ h(l)=h} n(l,e)
+\small
+\hat{n}(h, e)={n}(h, e)+\sum_{ h(l)=h} n(l,e), \hat{P}(h|e)=\frac{\hat{n}(h, e)}{\sum_{{h'}}{\hat{n}({h'}}, e)}
 \label{eq:rec}
 \end{equation}
 
-\begin{equation}
-\hat{P}(h|e)=\frac{\hat{n}(h, e)}{\sum_{{h'}}{\hat{n}({h'}}, e)}
-\label{eq:recp}
-\end{equation}
+
 
 {\footnotesize
 \begin{example}[Rectification by Modified Concepts]
@@ -122,7 +122,7 @@ As illustrated in Figure~\ref{fig:pgge}, in Probase, \at{Bill Gates} isA  \at{Le
 \end{example}
 }
 
-\subsection{Improvement by Concepts with Different Heads}
+\subsubsection{Improvement by Concepts with Different Heads}
 Except the modified concepts of a head, there are some other concepts that has different heads but  are semantically subclasses of the head concept. These subconcepts should be taken into account to estimate the ${P}(h|e)$.  We illustrate the rationality in Example~\ref{exa:isagood}.
 
 {\footnotesize
@@ -132,11 +132,14 @@ For example in Figure~\ref{fig:pgge}, \at{Bill Gates} has isA links to \at{succe
 \end{example}
 }
 
-\begin{figure}[!hptb]
+%\vspace{-1mm}
+\begin{figure}[!tb]
+\vspace{-8mm}
 \label{fig:pgge}
 \centering
-\epsfig{file=resources/bill_gates_isa.eps,width=\columnwidth, height=0.5\columnwidth}%5.5in
+\epsfig{file=resources/bill_gates_isa.eps,width=\columnwidth, height=0.4\columnwidth}%5.5in
 %考虑 transitivity： e \isa $c_l$ \isa $c_h$,  e \isa $c_l$* transitivity_coeff(cl->ch) = e \isa ch
+\vspace{-4mm}
 \caption{Calculation of $P({c}|\term{Bill Gates})$ }
 \vspace{-3mm}
 \end{figure}
@@ -156,8 +159,8 @@ Hence, we need a new framework.
 
 Instead of direct lying rectifying the isA count, we rectify the conditional probability in Eq.~\ref{eq:recp} by counting additional probability contributed by subconcepts with different heads. Given an entity $e$ and one of its head concept $h$, let $C_h$ be the set of all $h$'s modified concepts and $h$ itself. Let $C^*_h$ be all concepts with different heads but having a isA link to one concept in $C_h$. We quantify how likely an entity $e$ reaches to any one concept in $C_h$ by a random walk procedure. In the random walk procedure, we use $P(c|e)=\frac{n(c,e)}{n(e)}$ as the random walk probability from $e$ to $c$. We can similarly define $P(c_1|c_2)$ when $c_2$ is a subconcept of $c_1$.  Thus, we need to aggregate all the random walk probability from $e$ to any concept in $C_h$.
 Hence, our improved estimation of $P({c_h}|e)$ is as follows:
-
 \begin{equation}
+\small
 \hat{P}({h}|e) = \gamma \hat{P}({h}|e)+ (1-\gamma) \sum_{c_i\in C^*_h}\sum_{ c_j\in C_h} P(c_j|c_i) P(c_i|e)
 \label{eq:pgge}
 \end{equation}
