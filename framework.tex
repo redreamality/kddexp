@@ -2,7 +2,7 @@
 % !TEX root = main.tex
 \section{Problem Model}
 \label{sec:framework}
-In this section, we formalize our problem, followed by a restatement based on concept based inference.
+In this section, we formalize our problem, followed by a restatement based on concept-based inference.
 \vspace{-2mm}
 \paragraph{Problem Formalization}
 For a given pair of entity, we formalize the problem of explaining the relationship between them as finding the attribute with a probability ranking.
@@ -13,12 +13,12 @@ More formally, given an entity pair $ \langle e_1, e_2 \rangle $, we want to fin
 where $P(a| \langle e_1, e_2 \rangle )$ is the probability that $a$ is an attribute between two entities. Similarly, we later use $P(a| \langle c_{1},c_{2} \rangle )$ to denote the {\it typicality} of attribute $a$ given the concept pair.
 
 For example, for entity pair \at{<Bill Gates, Microsoft>}, \at{FounderOf, BoardOf} are among the most probable relations.
-However relation like \at{KeyPeopleOf} is not that typical. 
+However, relation like \at{KeyPeopleOf} is not that typical. 
 
 %We give notations used in this paper in Table~\ref{tab:notation}.
 \vspace{-2mm}
 \paragraph{Concept-based Inference}
-Thus our problem is reduced to the estimation of $P(a| \langle e_1, e_2 \rangle )$.
+Thus, our problem is reduced to the estimation of $P(a| \langle e_1, e_2 \rangle )$.
 The direct estimation is difficult since no such samples are available.
 We resort to the concepts of entities to bridge the inference from entity pair to their attribute.
 The rationality comes from the observation that {\it it is the concept determines the relationship between entities}. For example, \at{<Washington, USA>} can be best explained by \at{CapitalOf} attribute, which essentially is determined by the concept pair \at{<Capital City, Country>}.

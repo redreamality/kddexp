@@ -42,8 +42,7 @@ Our problem is refined as to be:
 \end{equation}
 
 By restricting the concept to the head concept, we can further reduce the computational cost.
-Apparently, the number of head concept pairs is significantly smaller than that of the concept pair and that of entity pairs.
-Because most concepts are tail concepts with long modifiers.
+Apparently, the number of head concept pairs is significantly smaller than that of the concept pair and that of entity pairs, since most concepts are tail concepts with long modifiers.
 
 %\nop{Our statistics show that there are only 33197 head concepts, which is significantly less that 2 million original concepts in Probase.
 %By focusing on head concept, we can effectively find the relationships without handling the huge number of long-tailed concepts and their entities.
@@ -70,7 +69,7 @@ Our problem is reduced to the recalculation of the probability $P({h}|e)$.
 
 \vspace{-4mm}
 \subsection{Conceptualization into Head Concepts}
-One problem in the estimation of $P(h|e)$ is that we are likely to underestimate $P(h|e)$ because in general there is no sufficiently direct isA relationships from entity $e$ to the head concept $h$.
+One problem in the estimation of $P(h|e)$ is that we are likely to underestimate $P(h|e)$ because in general, there are no sufficiently direct isA relationships from entity $e$ to the head concept $h$.
 We illustrate this in Example~\ref{exa:conc}.
 
 
@@ -115,7 +114,7 @@ The direct computation yields $P(\ac{entrepreneur}|\at{\text{Thomas Watson}})=0$
 
 \subsubsection{Baseline}
 The underestimation is caused by the ignorance of mentions of a entity as an instance of modified concepts. As shown in Example~\ref{exa:clc}, we should count the number that $e$ isA ${l}$ when we count the $e$ isA ${h}$ for any $l$ that is a modified concept of $h$.
-Hence, the most straight forward approach is rectifying the $n(e, h)$ by the additional count
+Hence, the most straightforward approach is rectifying the $n(e, h)$ by the additional count
 of all $n(e, l)$ such that $h(l)=h$, where $h()$ is a function that generate the head concept of a long concept. The rectification of count and corresponding rectified estimation are shown in Eq~\ref{eq:rec}. 
 %According to the rectified count, we have a rectified estimation on $P(h|e)$, as shown in Eq~\ref{eq:recp}.
 \begin{equation}

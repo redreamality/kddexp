@@ -14,7 +14,7 @@ We use Probase for conceptualization. We carry out all the experiments on a PC w
 %Given a pair of entities, our system produces the most plausible top-K attributes between them.
 We need to evaluate how accurate the result is. 
 Hence, we use $nDCG@K$ and $MAP@K$ as our evaluation metric.
-We further use $ ERR@K$ ( {\it Expected Reciprocal Rank})~\cite{chapelle2009expected} to evaluate the our collective conceptulization procedure.
+We further use $ ERR@K$ ( {\it Expected Reciprocal Rank})~\cite{chapelle2009expected} to evaluate the our collective conceptualization procedure.
 For all the metrics, a larger values always imply a better result. We ask volunteers to label the goodness of all results.
 %, evaluating the correctness of first $K$ concept pairs is similar to user browsing case. In our case, a user may stop looking at more concepts if top-$K$ concepts already provide sufficient conceptual information for the entity pair.
 % 我突然想到了我这里做过个优化, 每次算concept pairs 的时候按照P(C|E)排个序，如果排在后面的c，乘上最大的P（<c1,c2>|a）P（a）也不能超过前面的，就停止搜索了。2015年9月15日19:23:27
@@ -85,7 +85,7 @@ always report the result of $ERF-H$.
 
 \vspace{-4mm}
 \paragraph*{Exp 2: Head-aware Conceptualization}
-In this experiment, we show that head-aware conceptualization significantly reduce the computational cost without sacrificing precision. 
+In this experiment, we show that head-aware conceptualization significantly reduces the computational cost without sacrificing precision. 
 In Table~\ref{tab:nhc}, we report the statistics of Probase concept space and head concepts with isA concurrence number rectified by its long concepts. 
 We can see that the number of head concepts is only 1.5\% of Probase concept number. This brings a significant reduction in computation. 
 The increase of \emph{average \#occurrence} indicates the confidence of the $e$ \isa $c$ pair is increased.
@@ -120,7 +120,7 @@ We give the distribution of head concepts without ($P(h|e)$) and with rectificat
 \small
 \epsfig{file=resources/df_hac_50_bill_gates.eps,width=\columnwidth, height=0.3\columnwidth}
 \vspace{-8mm}
-\caption{Comparison between $P(h|e)$) and $\hat{P^*}(h|e)$ for \at{Bill Gates}. \small The red bars means $P(c|e)$ and the blue ones represents $\hat{P^*}(h|e)$. Only top 50 concepts are shown due to space limit.  }
+\caption{Comparison between $P(h|e)$ and $\hat{P^*}(h|e)$ for \at{Bill Gates}. \small The red bars means $P(h|e)$ and the blue ones represents $\hat{P^*}(h|e)$. }
 \label{fig:hac}
 \vspace{-6mm}
 %
@@ -280,7 +280,7 @@ From the results, we can see that (1) the result with $\alpha$ is significantly 
 \vspace{-4mm}
 \paragraph*{Exp 4: Collective Conceptualization}
 We compare our approach with an $MDL$ based collective conceptualization solution~\cite{sunconceptual}, which aims at generating a minimum set of conceptual labels that best summarize a bag of words.
-In our case, the bag of words are replaced by a set of entities.
+In our case, the bag of words is replaced by a set of entities.
 $MDL$ uses $\alpha$ to tune the balance between \ac{Minimality} and \ac{Coverage}. 
 Bigger $\alpha$ lead to better coverage as well as general concepts.
 We set the parameter $\alpha$ in $MDL$ to 0.5 for normal comparison and 0.1 for gaining more concept pairs.
